@@ -15,8 +15,10 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id()->startingValue(1000);
-            $table->string('report_title');
+            $table->string('report_type');
+            $table->string('report_number');
             $table->string('report_value');
+            $table->string('report_detail');
             $table->string('report_status');
             $table->timestamps();
         });
