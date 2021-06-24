@@ -12,11 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
+    <link rel="shortcut icon" href="{{ url('images/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url('images/favicon.png') }}">
     <style>
         body {
             font-family: 'Nunito', sans-serif;
             background-image: linear-gradient(180deg, rgba(237, 237, 237, 1), rgba(231, 45, 35, 1));
             background-repeat: no-repeat;
+            background-size: cover;
         }
 
         div.card {

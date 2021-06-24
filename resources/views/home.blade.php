@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
     <h2 class=" text-center">SIParma Dashboard</h2>
-
     <br>
-    <div class="row">
-
+    <div class="row" style=" heights: 1080px ">
         <div class="col bg-warning rounded shadow">
             <div class="container">
                 <br>
@@ -19,11 +16,12 @@
                                 <p> <b>ID Moban : {{ $rp->id }}</b> </p>
                             </div>
                             <button class="btn btn-light" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                data-bs-target="#collapse{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
                                 Detail
                             </button>
                             </p>
-                            <div class="collapse" id="collapseExample">
+                            <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
                                     <p>Jenis Order : {{ $rp->report_type }}</p>
                                     <p>No SC : {{ $rp->report_number }}</p>
@@ -57,9 +55,9 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     @endif
                 @endforeach
-                <br>
                 <br>
             </div>
         </div>
@@ -74,19 +72,28 @@
                             <div class="card-header text-center">
                                 <p> <b>ID Moban : {{ $rp->id }}</b> </p>
                             </div>
+                            <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
+                                Detail
+                            </button>
+                            </p>
+                            <div class="collapse" id="collapse{{ $rp->id }}">
+                                <div class="card-body">
+                                    <p>Jenis Order : {{ $rp->report_type }}</p>
+                                    <p>No SC : {{ $rp->report_number }}</p>
+                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
+                                    <p>Pelapor :
+                                        <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
+                                            rel="noopener noreferrer">{{ $rp->report_sender }} </a>
+                                    </p>
+                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
+                                    <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <p>Jenis Order : {{ $rp->report_type }}</p>
-                                <p>No SC : {{ $rp->report_number }}</p>
-                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
-                                <p>Pelapor :
-                                    <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
-                                        rel="noopener noreferrer">{{ $rp->report_sender }} </a>
-                                </p>
                                 <p>Status : {{ $rp->report_status }}</p>
-                                <p>Update by : {{ $rp->report_updateby }}</p>
-                                <hr>
-                                <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
-                                <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
@@ -105,9 +112,9 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     @endif
                 @endforeach
-                <br>
                 <br>
             </div>
         </div>
@@ -122,19 +129,28 @@
                             <div class="card-header text-center">
                                 <p> <b>ID Moban : {{ $rp->id }}</b> </p>
                             </div>
+                            <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
+                                Detail
+                            </button>
+                            </p>
+                            <div class="collapse" id="collapse{{ $rp->id }}">
+                                <div class="card-body">
+                                    <p>Jenis Order : {{ $rp->report_type }}</p>
+                                    <p>No SC : {{ $rp->report_number }}</p>
+                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
+                                    <p>Pelapor :
+                                        <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
+                                            rel="noopener noreferrer">{{ $rp->report_sender }} </a>
+                                    </p>
+                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
+                                    <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <p>Jenis Order : {{ $rp->report_type }}</p>
-                                <p>No SC : {{ $rp->report_number }}</p>
-                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
-                                <p>Pelapor :
-                                    <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
-                                        rel="noopener noreferrer">{{ $rp->report_sender }} </a>
-                                </p>
                                 <p>Status : {{ $rp->report_status }}</p>
-                                <p>Update by : {{ $rp->report_updateby }}</p>
-                                <hr>
-                                <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
-                                <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
@@ -153,9 +169,9 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     @endif
                 @endforeach
-                <br>
                 <br>
             </div>
         </div>
@@ -170,19 +186,28 @@
                             <div class="card-header text-center">
                                 <p> <b>ID Moban : {{ $rp->id }}</b> </p>
                             </div>
+                            <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
+                                Detail
+                            </button>
+                            </p>
+                            <div class="collapse" id="collapse{{ $rp->id }}">
+                                <div class="card-body">
+                                    <p>Jenis Order : {{ $rp->report_type }}</p>
+                                    <p>No SC : {{ $rp->report_number }}</p>
+                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
+                                    <p>Pelapor :
+                                        <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
+                                            rel="noopener noreferrer">{{ $rp->report_sender }} </a>
+                                    </p>
+                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
+                                    <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
+                                </div>
+                            </div>
                             <div class="card-body">
-                                <p>Jenis Order : {{ $rp->report_type }}</p>
-                                <p>No SC : {{ $rp->report_number }}</p>
-                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
-                                <p>Pelapor :
-                                    <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
-                                        rel="noopener noreferrer">{{ $rp->report_sender }} </a>
-                                </p>
                                 <p>Status : {{ $rp->report_status }}</p>
-                                <p>Update by : {{ $rp->report_updateby }}</p>
-                                <hr>
-                                <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
-                                <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
@@ -201,9 +226,9 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     @endif
                 @endforeach
-                <br>
                 <br>
             </div>
         </div>
