@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta http-equiv="refresh" content="30">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -80,7 +80,7 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                        document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -105,6 +105,12 @@
             <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
         </div>
     </div>
+
+    <script>
+        window.setTimeout(function() {
+            window.location.reload();
+        }, 30000);
+    </script>
 </body>
 
 </html>
