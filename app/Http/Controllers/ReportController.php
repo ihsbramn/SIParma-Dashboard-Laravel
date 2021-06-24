@@ -57,7 +57,7 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+        return view('report.edit', compact('report'));
     }
 
     /**
@@ -69,7 +69,8 @@ class ReportController extends Controller
      */
     public function update(Request $request, Report $report)
     {
-        //
+        $report->update($request->all());
+        return redirect()->route('home')->with('success','Update Successfull');
     }
 
     /**
@@ -80,6 +81,8 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        $report->delete();
+        return redirect()->route('home')
+                        ->with('success','Deleted successfully');
     }
 }

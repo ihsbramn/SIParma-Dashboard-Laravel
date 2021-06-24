@@ -19,7 +19,10 @@ class CreateReportsTable extends Migration
             $table->string('report_number');
             $table->string('report_value');
             $table->string('report_detail');
+            $table->string('report_idsender');
+            $table->string('report_sender');
             $table->string('report_status');
+            $table->string('report_updateby');
             $table->timestamps();
         });
     }
