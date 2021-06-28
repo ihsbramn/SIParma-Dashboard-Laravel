@@ -46,16 +46,18 @@
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary btn-block "
-                                            href="{{ url('report/openogp/' . $rp->id) }}">Update !</a>
+                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
                                     </div>
-                                    <div class="col">
-                                        <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-block"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
-                                        </form>
-                                    </div>
+                                    @if (Auth::user()->admin == 1)
+                                        <div class="col">
+                                            <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-block"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -88,7 +90,7 @@
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
-                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Update by <br> OPEN to OGP : {{ $rp->open_ogp }}</p>
                                     <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
@@ -102,17 +104,19 @@
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
-                                        {{-- <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a> --}}
+                                        <a class="btn btn-primary btn-block "
+                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
                                     </div>
-                                    <div class="col">
-                                        <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-block"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
-                                        </form>
-                                    </div>
+                                    @if (Auth::user()->admin == 1)
+                                        <div class="col">
+                                            <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-block"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -145,7 +149,7 @@
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
-                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Update by <br> OGP to ESKALASI : {{ $rp->ogp_eskalasi }}</p>
                                     <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
@@ -159,17 +163,19 @@
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
-                                        {{-- <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a> --}}
+                                        <a class="btn btn-primary btn-block "
+                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
                                     </div>
-                                    <div class="col">
-                                        <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-block"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
-                                        </form>
-                                    </div>
+                                    @if (Auth::user()->admin == 1)
+                                        <div class="col">
+                                            <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-block"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -202,7 +208,8 @@
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
-                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Update by <br> ESKALASI to CLOSED : {{ $rp->eskalasi_closed }}</p>
+                                    <p>OGP to CLOSED : {{ $rp->ogp_closed }}</p>
                                     <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
@@ -220,14 +227,16 @@
                                             href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20"
                                             target="_blank">Notif !</a>
                                     </div>
-                                    <div class="col">
-                                        <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-block"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
-                                        </form>
-                                    </div>
+                                    @if (Auth::user()->admin == 1)
+                                        <div class="col">
+                                            <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-block"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
