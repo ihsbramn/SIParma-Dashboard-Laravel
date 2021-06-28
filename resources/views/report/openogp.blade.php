@@ -19,7 +19,7 @@
         <br>
 
         <div class="card">
-            <form action="{{ route('report.update', $report->id) }}" method="POST">
+            <form action="{{ url('report.openogp', $report->id) }}" method="POST">
                 <div class="card-header">
 
                     @csrf

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta http-equiv="refresh" content="20">
+@endsection
+
 @section('content')
     <h2 class=" text-center">SIParma Dashboard</h2>
     <br>
@@ -23,26 +27,26 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Jenis Order : {{ $rp->report_type }}</p>
-                                    <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                                     <p>Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
                                     <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>Status : {{ $rp->report_status }}</p>
+                                <p>Jenis Order : {{ $rp->report_type }}</p>
+                                <p>No SC : {{ $rp->report_number }}</p>
+                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                            href="{{ url('report/openogp/' . $rp->id) }}">Update !</a>
                                     </div>
                                     <div class="col">
                                         <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
@@ -80,26 +84,26 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Jenis Order : {{ $rp->report_type }}</p>
-                                    <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                                     <p>Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
                                     <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>Status : {{ $rp->report_status }}</p>
+                                <p>Jenis Order : {{ $rp->report_type }}</p>
+                                <p>No SC : {{ $rp->report_number }}</p>
+                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                        {{-- <a class="btn btn-primary btn-block "
+                                            href="{{ route('report.edit', $rp->id) }}">Update !</a> --}}
                                     </div>
                                     <div class="col">
                                         <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
@@ -137,26 +141,26 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Jenis Order : {{ $rp->report_type }}</p>
-                                    <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                                     <p>Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
                                     <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>Status : {{ $rp->report_status }}</p>
+                                <p>Jenis Order : {{ $rp->report_type }}</p>
+                                <p>No SC : {{ $rp->report_number }}</p>
+                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                        {{-- <a class="btn btn-primary btn-block "
+                                            href="{{ route('report.edit', $rp->id) }}">Update !</a> --}}
                                     </div>
                                     <div class="col">
                                         <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
@@ -194,26 +198,27 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Jenis Order : {{ $rp->report_type }}</p>
-                                    <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                                     <p>Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
                                     <p>Update by : {{ $rp->report_updateby }}</p>
+                                    <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>Status : {{ $rp->report_status }}</p>
+                                <p>Jenis Order : {{ $rp->report_type }}</p>
+                                <p>No SC : {{ $rp->report_number }}</p>
+                                <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                        <a id="msg" class="btn btn-dark shadow text-white text-center"
+                                            href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20"
+                                            target="_blank">Notif !</a>
                                     </div>
                                     <div class="col">
                                         <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
@@ -234,4 +239,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        window.setTimeout(function() {
+            window.location.reload();
+        }, 20000);
+    </script>
 @endsection
