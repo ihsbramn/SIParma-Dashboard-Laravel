@@ -19,7 +19,7 @@
         <br>
 
         <div class="card">
-            <form action="{{ url('report.openogp', $report->id) }}" method="POST">
+            <form action="{{ route('report.update', $report->id) }}" method="POST">
                 <div class="card-header">
 
                     @csrf
@@ -44,7 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="label">Deskripsi : <b>{{ $report->report_value }} ,
+                            <div class="label">Deskripsi : <b>{{ $report->report_value }}
                                     {{ $report->report_detail }}</b>
                             </div>
                         </div>
@@ -75,7 +75,8 @@
                             <div class="lable">Status : </div>
                         </div>
                         <div class="col">
-                            <select class="form-select" name="report_status" aria-label="Default select example">
+                            <select class="form-select" id="status" name="report_status"
+                                aria-label="Default select example">
                                 <option selected>{{ $report->report_status }}</option>
                                 <option value="open">open</option>
                                 <option value="ogp">ogp</option>
@@ -86,13 +87,48 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col">
-                            <div class="label">Updated by : </div>
-                        </div>
-                        <div class="col">
-                            <input type="text" name="report_updateby" class="form-control"
-                                value="{{ Auth::user()->name }}" readonly>
-                        </div>
+                        @if ($report->report_status == 'open')
+                            <div class="col">
+                                <div class="label">Updated by (Open to Ogp) : </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="open_ogp" class="form-control" value="{{ Auth::user()->name }}"
+                                    readonly>
+                            </div>
+                        @endif
+                        <?php $oes = 'ogp_eskalasi'; ?>
+                        @if ($report->report_status == 'ogp')
+                            <div class="col">
+                                <div class="label">Updated by (Ogp to Eskalasi) : </div>
+                            </div>
+                            <div class="col">
+                                <select class="form-select" name="ogp_eskalasi" aria-label="Default select example">
+                                    <option value=" "> </option>
+                                    <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                </select>
+                            </div>
+                        @endif
+                        @if ($report->report_status == 'ogp')
+                            <div class="col">
+                                <div class="label">Updated by (Ogp to Closed) : </div>
+                            </div>
+                            <div class="col">
+                                <select class="form-select" name="ogp_closed" aria-label="Default select example">
+                                    <option value=" "> </option>
+                                    <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                </select>
+                            </div>
+                        @endif
+                        @if ($report->report_status == 'eskalasi')
+                            <div class="col">
+                                <div class="label">Updated by (Eskalasi to closed) : </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="eskalasi_closed" class="form-control"
+                                    value="{{ Auth::user()->name }}" readonly>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
                 <div class="card-footer">

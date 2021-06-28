@@ -56,22 +56,7 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function open_ogp(Report $report)
-    {
-        return view('report.openogp', compact('report'));
-    }
-
-    public function ogp_eskalasi(Report $report)
-    {
-        return view('report.edit', compact('report'));
-    }
-
-    public function ogp_closed(Report $report)
-    {
-        return view('report.edit', compact('report'));
-    }
-
-    public function eskalasi_closed(Report $report)
+    public function edit(Report $report)
     {
         return view('report.edit', compact('report'));
     }
