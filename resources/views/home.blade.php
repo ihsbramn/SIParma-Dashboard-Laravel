@@ -223,9 +223,16 @@
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
+                                        {{-- <button class="btn btn-dark shadow text-white text-center"
+                                            onclick="sendnotif()">Notif !</button> --}}
                                         <a id="msg" class="btn btn-dark shadow text-white text-center"
                                             href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20"
                                             target="_blank">Notif !</a>
+                                        {{-- <script>
+                                            function se() {
+                                                document.getElementById("demo").innerHTML = "Hello World";
+                                            }
+                                        </script> --}}
                                     </div>
                                     @if (Auth::user()->admin == 1)
                                         <div class="col">
