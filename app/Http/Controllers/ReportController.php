@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Report;
+use App\Report;
+ 
+use App\Exports\ReportExport;
+use Maatwebsite\Excel\Facades\Excel;
+// use App\Models\Report;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -17,6 +21,11 @@ class ReportController extends Controller
         $report = \App\Models\Report::all();
         return view('report.index', compact ('report'));
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new ReportExport, 'Report.xlsx');
+	}
 
     /**
      * Show the form for creating a new resource.
