@@ -253,23 +253,24 @@
                                         <div class="col">
                                             {{-- href --}}
                                             {{-- https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20 --}}
-                                            <a class="btn btn-success" href="javascript:AlertIt();">Notif
+                                            <a class="btn btn-success" target="_blank"
+                                                href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif
                                                 !</a>
                                         </div>
                                         <script type="text/javascript">
-                                            function AlertIt() {
-                                                var http = new XMLHttpRequest();
-                                                var url =
-                                                    "https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20";
-                                                var params = 'orem=ipsum&name=binny';
-                                                http.open('POST', url, true);
-                                                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                                                http.onreadystatechange = function() { //Call a function when the state changes.
-                                                    if (http.readyState == 4 && http.status == 200) {
-                                                        alert('Message Send!');
-                                                    }
-                                                }
-                                                http.send(params);
+                                            // function AlertIt({{ $rp->id }}) {
+                                            //     var http = new XMLHttpRequest();
+                                            //     var url =
+                                            //         "https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20";
+                                            //     var params = 'orem=ipsum&name=binny';
+                                            //     http.open('POST', url, true);
+                                            //     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                            //     http.onreadystatechange = function() { //Call a function when the state changes.
+                                            //         if (http.readyState == 4 && http.status == 200) {
+                                            //             alert('Message Send!');
+                                            //         }
+                                            //     }
+                                            //     http.send(params);
                                             }
                                         </script>
                                         @if (Auth::user()->admin == 1)
