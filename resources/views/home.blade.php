@@ -5,7 +5,34 @@
 @endsection
 
 @section('content')
+    <br>
     <h2 class=" text-center">SIParma Dashboard</h2>
+    <br>
+    <script type="text/javascript">
+        function display_c() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var x = new Date()
+            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+        }
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <p class="text-center alert alert-info shadow" id='ct'></p>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
     <br>
     <div class="row" style=" heights: 1080px ">
         <div class="col bg-warning rounded shadow">
@@ -192,7 +219,7 @@
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'closed')
-                        @if (Carbon\Carbon::parse($rp->updated_at)->format('Y-m-d') == Carbon\Carbon::now()->format('Y-m-d') )
+                        @if (Carbon\Carbon::parse($rp->updated_at)->format('Y-m-d') == Carbon\Carbon::now()->format('Y-m-d'))
                             <div class="card rounded shadow">
                                 <div class="card-header text-center">
                                     <p> <b>ID Moban : {{ $rp->id }}</b> </p>
@@ -224,17 +251,27 @@
                                 <div class="card-footer text-center">
                                     <div class="row">
                                         <div class="col">
-                                            {{-- <button class="btn btn-dark shadow text-white text-center"
-                                                onclick="sendnotif()">Notif !</button> --}}
-                                            <a id="msg" class="btn btn-dark shadow text-white text-center"
-                                                href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20"
-                                                target="_blank">Notif !</a>
-                                            {{-- <script>
-                                                function se() {
-                                                    document.getElementById("demo").innerHTML = "Hello World";
-                                                }
-                                            </script> --}}
+                                            {{-- href --}}
+                                            {{-- https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20 --}}
+                                            <a class="btn btn-success" href="javascript:AlertIt();">Notif
+                                                !</a>
                                         </div>
+                                        <script type="text/javascript">
+                                            function AlertIt() {
+                                                var http = new XMLHttpRequest();
+                                                var url =
+                                                    "https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20";
+                                                var params = 'orem=ipsum&name=binny';
+                                                http.open('POST', url, true);
+                                                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                                http.onreadystatechange = function() { //Call a function when the state changes.
+                                                    if (http.readyState == 4 && http.status == 200) {
+                                                        alert('Message Send!');
+                                                    }
+                                                }
+                                                http.send(params);
+                                            }
+                                        </script>
                                         @if (Auth::user()->admin == 1)
                                             <div class="col">
                                                 <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
@@ -256,7 +293,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('script')

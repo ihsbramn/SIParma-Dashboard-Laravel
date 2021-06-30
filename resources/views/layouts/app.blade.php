@@ -40,9 +40,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body onload=display_ct();>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow ">
             <div class="container">
                 <div class="div-navbar-header ms-auto">
                     <a class="navbar-brand" href="{{ url('/home') }}">
@@ -54,8 +54,6 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
-
-
                 <div class="collapse navbar-collapse me-auto" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
@@ -83,7 +81,7 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('report.index') }}">
