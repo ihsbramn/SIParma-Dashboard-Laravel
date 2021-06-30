@@ -133,19 +133,19 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col">
-                                <ul style="list-style: none;display: inline;">
-                                    <li>Type : {{ $rp->report_type }}</li>
-                                    <li>Number : {{ $rp->report_number }}</li>
-                                    <li>Value : {{ $rp->report_value }}</li>
-                                    <li>Details : {{ $rp->report_detail }}</li>
+                                <ul style="list-style: none; margin-left:70px">
+                                    <li><pre>Type    : {{ $rp->report_type }}</pre></li>
+                                    <li><pre>Number  : {{ $rp->report_number }}</pre></li>
+                                    <li><pre>Value   : {{ $rp->report_value }}</pre></li>
+                                    <li><pre>Details : {{ $rp->report_detail }}</pre></li>
                                 </ul>
                             </div>
 
                             <div class="col">
-                                <ul style="list-style: none;display: inline;">
-                                    <li>ID Telegram Sender : {{ $rp->report_idsender }}</li>
-                                    <li>Sender Name : {{ $rp->report_sender }}</li>
-                                    <li>Status : {{ $rp->report_status }}</li>
+                                <ul style="list-style: none;">
+                                    <li><pre>ID Telegram Sender : {{ $rp->report_idsender }}</pre></li>
+                                    <li><pre>Sender Name        : {{ $rp->report_sender }}</pre></li>
+                                    <li><pre>Status             : {{ $rp->report_status }}</pre></li>
                                 </ul>
                             </div>
                         </div>
