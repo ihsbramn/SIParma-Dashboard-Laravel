@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Report;
+use App\Models\Report;
  
 use App\Exports\ReportExport;
 use Maatwebsite\Excel\Facades\Excel;

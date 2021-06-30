@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('meta')
-    <meta http-equiv="refresh" content="20">
+    <meta http-equiv="refresh" content="40">
 @endsection
 
 @section('content')
@@ -9,7 +9,6 @@
     <br>
 
     <!-- Search & Filter Bar -->
-    <div class="container">
         <div class="row">
             <div class="col" style="margin-top: 5px; text-align: right">
                 Search
@@ -33,10 +32,11 @@
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-primary">Filter</button>
+                    <button type="submit" class="btn btn-primary">Filter</button>
             </div>
+            <div class="col">
+                    <a href= {{'export_excel'}} class="btn btn-success">Download</a>
         </div>
-    </div>
     <br>
 
     <!-- Table Show -->
@@ -102,7 +102,7 @@
         </tbody>
     </table>
 
-    <a href="/report/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+    {{-- <a href= {{'export_excel'}} class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a> --}}
 
     <!-- Pagination -->
     <nav aria-label="Page navigation example">
@@ -189,6 +189,6 @@
     <script>
         window.setTimeout(function() {
             window.location.reload();
-        }, 20000);
+        }, 40000);
     </script>
 @endsection
