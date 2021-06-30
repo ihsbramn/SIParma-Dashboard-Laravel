@@ -30,4 +30,15 @@ class HomeController extends Controller
         $report = \App\Models\Report::all();
         return view('home',compact('report'));
     }
+
+    public function filter(Request $request)
+    {
+        $filter = $request->input('filterorder');
+
+        $report = Report::query()
+            ->where('report_type', 'LIKE', "%{$filter}%")
+            ->get();
+
+        return view('home', compact('report'));
+    }
 }

@@ -32,13 +32,41 @@
             <div class="col">
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <form class="form" method="get" action="{{ route('filter.home') }}">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <select class="form-control" name="filterorder" id="filter-order">
+                                    <option value="">Jenis Order</option>
+                                    <option value="#AO">#AO</option>
+                                    <option value="#GGN">#GGN</option>
+                                    <option value="#MO">#MO</option>
+                                    <option value="#PDA">#PDA</option>
+                                    <option value="#MIG">#MIG</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary ">Filter !</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+            </div>
+        </div>
     </div>
     <br>
-    <div class="row" style=" heights: 1080px ">
+    <div class="row bg-light" style=" heights: 1080px ">
         <div class="col bg-warning rounded shadow">
             <div class="container">
                 <br>
                 <h4 class="text-light text-center">OPEN</h4>
+
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'open')
