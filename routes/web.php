@@ -26,3 +26,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('report', ReportController::class);
+
+// Route::get('/report/export_excel', 'ReportController@export_excel');
+Route::get('export_excel', [App\Http\Controllers\ReportController::class, 'export_excel'])->name('report');
