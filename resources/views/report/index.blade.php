@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('meta')
-    <meta http-equiv="refresh" content="40">
-@endsection
-
 @section('content')
     <h1 class="text-center">Report</h1>
     <br>
@@ -184,11 +180,3 @@
 
 @endsection
 
-@section('script')
-    <!--Script Refresh Page-->
-    <script>
-        window.setTimeout(function() {
-            window.location.reload();
-        }, 40000);
-    </script>
-@endsection
