@@ -75,14 +75,28 @@
                             <div class="lable">Status : </div>
                         </div>
                         <div class="col">
-                            <select class="form-select" id="status" name="report_status"
-                                aria-label="Default select example">
-                                <option selected>{{ $report->report_status }}</option>
-                                <option value="open">open</option>
-                                <option value="ogp">ogp</option>
-                                <option value="eskalasi">eskalasi</option>
-                                <option value="closed">closed</option>
-                            </select>
+                            @if ($report->report_status == 'open')
+                                <select class="form-select" id="status" name="report_status"
+                                    aria-label="Default select example">
+                                    <option selected>{{ $report->report_status }}</option>
+                                    <option value="ogp">ogp</option>
+                                </select>
+                            @endif
+                            @if ($report->report_status == 'ogp')
+                                <select class="form-select" id="status" name="report_status"
+                                    aria-label="Default select example">
+                                    <option selected>{{ $report->report_status }}</option>
+                                    <option value="eskalasi">eskalasi</option>
+                                    <option value="closed">closed</option>
+                                </select>
+                            @endif
+                            @if ($report->report_status == 'eskalasi')
+                                <select class="form-select" id="status" name="report_status"
+                                    aria-label="Default select example">
+                                    <option selected>{{ $report->report_status }}</option>
+                                    <option value="closed">closed</option>
+                                </select>
+                            @endif
                         </div>
                     </div>
                     <br>

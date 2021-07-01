@@ -81,12 +81,14 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('report.index') }}">
-                                            Report
-                                        </a>
+                                        @if (Auth::user()->admin == 1)
+                                            <a class="dropdown-item" href="{{ route('report.index') }}">
+                                                Report
+                                            </a>
+                                        @endif
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>

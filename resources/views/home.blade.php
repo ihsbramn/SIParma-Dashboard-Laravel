@@ -86,7 +86,7 @@
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
-                                    <p>Update by : {{ $rp->report_updateby }}</p>
+                                    {{-- <p>Update by : {{ $rp->report_updateby }}</p> --}}
                                     <p>Status : {{ $rp->report_status }}</p>
                                     <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
                                     <p>Tanggal Waktu Update : {{ $rp->updated_at }}</p>
