@@ -9,22 +9,25 @@
         <div class="col" style="margin-top: 5px; text-align: right">
             Search
         </div>
-        <div class="col">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="INET">
+        <div class="col-2">
+            <div class="input-group mb-3">
+                <form action={{ 'search' }} method="GET" class="input-group mb-3">
+                    <input type="text" name="search" value="{{ old('search') }}" class="form-control"
+                        id="exampleFormControlInput1" placeholder="report number">
+                    <input type="submit" value="Search" class="btn btn-primary">
+                </form>
+            </div>
         </div>
-        <div class="col">
-            <button type="submit" class="btn btn-primary">Search</button>
+        <div class="col-1" style="margin-top: 5px; text-align: right">
+            Start date
         </div>
-        <div class="col" style="margin-top: 5px; text-align: right">
-            Tanggal
-        </div>
-        <div class="col">
+        <div class="col-2">
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
-        <div class="col" style="margin-top: 5px; text-align: center">
-            Sampai
+        <div class="col-1" style="margin-top: 5px; text-align: center">
+            until
         </div>
-        <div class="col">
+        <div class="col-2">
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
         <div class="col">
@@ -103,7 +106,15 @@
         </div>
 
         <!-- Pagination -->
-        <nav aria-label="Page navigation example">
+
+        Page : {{ $report->currentPage() }} <br />
+        Total Data : {{ $report->total() }} <br />
+        Data Per Halaman : {{ $report->perPage() }} <br />
+
+
+        {{ $report->links() }}
+
+        {{-- <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li style="margin-top: 7px; margin-right: 15px; color: rgb(1, 107, 182)">showing 1 - 10 from 1000 data</li>
                 <li class="page-item disabled">
@@ -116,7 +127,7 @@
                     <a class="page-link" href="#">Next</a>
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
 
         <!-- Modal Details -->
         @foreach ($report as $rp)
