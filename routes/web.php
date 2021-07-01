@@ -30,4 +30,5 @@ Route::resource('report', ReportController::class);
 Route::get('/filter/home', [HomeController::class, 'filter'])->name('filter.home');
 Route::get('export_excel', [App\Http\Controllers\ReportController::class, 'export_excel'])->name('report');
 Route::get('search', [App\Http\Controllers\ReportController::class, 'search'])->name('search');
-// Route::get('/pegawai/cari','ReportController@search');
+Route::post('datefilter', [App\Http\Controllers\ReportController::class, 'datefilter'])->name('datefilter');
+

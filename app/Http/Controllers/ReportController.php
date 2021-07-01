@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
- 
+
 use App\Exports\ReportExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
@@ -19,41 +19,53 @@ class ReportController extends Controller
     public function index()
     {
         // mengambil data dari table report
-        $report = \App\Models\Report::paginate(10);
+        $report = \App\Models\Report::get();
 
-         // mengirim data report ke view index
-        return view('report.index', compact ('report'));
+        // mengirim data report ke view index
+        return view('report.index', compact('report'));
     }
 
 
     // public function index()
-	// {
+    // {
     // 	        // mengambil data dari table pegawai
-	// 	$pegawai = DB::table('pegawai')->paginate(10);
- 
+    // 	$pegawai = DB::table('pegawai')->paginate(10);
+
     // 	        // mengirim data pegawai ke view index
-	// 	return view('index',['pegawai' => $pegawai]);
- 
-	// }
+    // 	return view('index',['pegawai' => $pegawai]);
+
+    // }
 
     public function export_excel()
-	{
-		return Excel::download(new ReportExport, 'Report.xlsx');
-	}
-    
+    {
+        return Excel::download(new ReportExport, 'Report.xlsx');
+    }
+
     public function search(Request $request)
-	{
-		// menangkap data pencarian
+    {
+        // menangkap data pencarian
         $search = $request->search;
 
         // mengambil data dari table report sesuai pencarian data
         $report = DB::table('reports')
-		->where('report_number','like',"%".$search."%")
-		->paginate();
+            ->where('report_number', 'like', "%" . $search . "%")
+            ->paginate();
 
         // mengirim data report ke view index
-		return view('report.index',['report' => $report]);
-	}
+        return view('report.index', ['report' => $report]);
+    }
+
+    public function datefilter(Request $request)
+    {       
+        // mengambil data dari table report sesuai pencarian data
+        $report = DB::table('reports')
+            ->where('created_at', '>=', $request->from)
+            ->where('created_at', '<=', $request->to)
+            ->get();
+
+        // mengirim data report ke view index
+        return view('report.index', ['report' => $report]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -108,7 +120,7 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $report->update($request->all());
-        return redirect()->route('home')->with('success','Update Successfull');
+        return redirect()->route('home')->with('success', 'Update Successfull');
     }
 
     /**
@@ -120,7 +132,6 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->delete();
-        return redirect()->route('home')
-                        ->with('success','Deleted successfully');
+        return redirect()->back()->with('success', 'Deleted successfully');
     }
 }
