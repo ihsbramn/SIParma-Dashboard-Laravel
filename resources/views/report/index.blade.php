@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <!--Judul Page-->
     <h1 class="text-center">Report</h1>
     <br>
 
