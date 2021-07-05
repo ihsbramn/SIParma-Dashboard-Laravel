@@ -35,8 +35,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
-        <!-- Styles -->
+
+    <!-- Styles -->
     <link rel="shortcut icon" href="{{ url('images/favicon.png') }}">
     <link rel="icon" type="image/png" href="{{ url('images/favicon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -44,7 +44,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body onload=display_ct(); style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden; font-family: 'Poppins', sans-serif;">
+<body onload=display_ct();
+    style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden; font-family: 'Poppins', sans-serif;">
     <div id="app">
         <!--nav-->
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow">
@@ -73,7 +74,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav nav-left">
                             <li class="nav-item {{ Route::currentRouteNamed('home') ? 'active' : '' }}">
-                                <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Dashboard</a>
+                                <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}"
+                                    aria-current="page" href="{{ route('home') }}">Dashboard</a>
                             </li>
                             @auth
                                 @if (Auth::user()->admin == 1)
@@ -81,7 +83,8 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }}" href="{{ route('report.index') }}">Report Closed</a>
+                                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }}"
+                                            href="{{ route('report.index') }}">Report Closed</a>
                                     </li>
                                 @endif
                             @endauth
@@ -109,19 +112,19 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Hi, {{ Auth::user()->name }}</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 @auth
-                                <a class="btn btn-outline-light" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                                                                                                                                    document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                    <a class="btn btn-outline-light" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 @endauth
                             </li>
-                               
+
                             {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -133,19 +136,14 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-<<<<<<< HEAD
-                                                                                                                                        document.getElementById('logout-form').submit();">
-=======
-                                                                                                                                                                                document.getElementById('logout-form').submit();">
->>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                                             {{ __('Logout') }}
                                         </a> --}}
-                                        {{-- @if (Auth::user()->admin == 1)
+                            {{-- @if (Auth::user()->admin == 1)
                                             <a class="dropdown-item" href="{{ route('report.index') }}">
                                                 Report
                                             </a>
                                         @endif --}}
-                                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     @endauth

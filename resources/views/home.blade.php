@@ -61,15 +61,9 @@
         </div>
     </div>
     <br>
-<<<<<<< HEAD
-    <div class="row bg-light" style=" heights: 1080px ">
-        <div class="col bg-warning ">
-            <div class="container">
-=======
     <div class="row bg-transparent" style=" heights: 1080px; padding:20px; padding-top: 0px ">
         <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
             <div class="container" style="padding: 0px">
->>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
                 <h4 class="text-danger text-center">OPEN</h4>
 
@@ -128,13 +122,8 @@
                 <br>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col bg-info ">
-            <div class="container">
-=======
         <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
             <div class="container" style="padding: 0px">
->>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
                 <h4 class="text-danger text-center">OGP</h4>
                 <br>
@@ -192,13 +181,8 @@
                 <br>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col bg-primary ">
-            <div class="container">
-=======
         <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
             <div class="container" style="padding: 0px">
->>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
                 <h4 class="text-danger text-center">ESKALASI</h4>
                 <br>
@@ -256,13 +240,8 @@
                 <br>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col bg-success ">
-            <div class="container">
-=======
         <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
             <div class="container" style="padding: 0px">
->>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
                 <h4 class="text-danger text-center">CLOSED</h4>
                 <br>
@@ -285,7 +264,8 @@
                                             <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                                 rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                         </p>
-                                        <p>Update by <br> ESKALASI to CLOSED : {{ $rp->eskalasi_closed }}</p>
+                                        <p>Update by <br> ESKALASI to CLOSED : {{ $rp->eskalasi_closed }}
+                                        </p>
                                         <p>OGP to CLOSED : {{ $rp->ogp_closed }}</p>
                                         <p>Status : {{ $rp->report_status }}</p>
                                         <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
@@ -295,7 +275,8 @@
                                 <div class="card-body">
                                     <p>Jenis Order : {{ $rp->report_type }}</p>
                                     <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
+                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}
+                                    </p>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
