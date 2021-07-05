@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--Judul Page-->
-    {{-- <h1 class="text-center">Report</h1> --}}
-
     <!-- Search, Date Filter, and Download as excel Bar -->
     <div class="row">
         <div class="col" style="margin-top: 5px; text-align: right">

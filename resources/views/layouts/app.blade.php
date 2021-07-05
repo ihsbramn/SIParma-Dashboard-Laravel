@@ -72,8 +72,8 @@
                 @else
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav nav-left">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="{{ route('home') }}">Dashboard</a>
+                            <li class="nav-item {{ Route::currentRouteNamed('home') ? 'active' : '' }}">
+                                <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Dashboard</a>
                             </li>
                             @auth
                                 @if (Auth::user()->admin == 1)
@@ -81,7 +81,7 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('report.index') }}">Report Closed</a>
+                                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }}" href="{{ route('report.index') }}">Report Closed</a>
                                     </li>
                                 @endif
                             @endauth
