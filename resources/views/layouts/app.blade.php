@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="margin: 0px; padding: 0px; overflow-x:hidden">
 
 <head>
     <meta charset="utf-8">
@@ -40,10 +40,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body onload=display_ct(); style="background-color: rgb(235, 235, 235)">
+<body onload=display_ct(); style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden"">
     <div id="app">
         <!--nav-->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow ">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow">
             <div class="container">
                 <div class="div-navbar-header md-auto">
                     <a class="navbar-brand" href="{{ url('/home') }}">
@@ -153,7 +153,13 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <div class="text-center p-3">
+        <div style="position: absolute; 
+        bottom: 10px; 
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;">
             © 2021 Copyright
             <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
         </div>
