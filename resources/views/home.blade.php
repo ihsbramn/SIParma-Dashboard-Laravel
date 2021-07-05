@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <br>
-    <h2 class=" text-center">SIParma Dashboard</h2>
-    <br>
+    {{-- <br>
+    <h2 class=" text-center">SIParma Dashboard</h2> --}}
+    {{-- <br> --}}
     <script type="text/javascript">
         function display_c() {
             var refresh = 1000; // Refresh rate in milli seconds
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary ">Filter !</button>
+                            <button type="submit" class="btn btn-danger ">Filter !</button>
                         </div>
                     </div>
                 </form>
@@ -61,11 +61,17 @@
         </div>
     </div>
     <br>
+<<<<<<< HEAD
     <div class="row bg-light" style=" heights: 1080px ">
         <div class="col bg-warning ">
             <div class="container">
+=======
+    <div class="row bg-transparent" style=" heights: 1080px; padding:20px; padding-top: 0px ">
+        <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
+            <div class="container" style="padding: 0px">
+>>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
-                <h4 class="text-light text-center">OPEN</h4>
+                <h4 class="text-danger text-center">OPEN</h4>
 
                 <br>
                 @foreach ($report as $rp)
@@ -122,10 +128,15 @@
                 <br>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="col bg-info ">
             <div class="container">
+=======
+        <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
+            <div class="container" style="padding: 0px">
+>>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
-                <h4 class="text-light text-center">OGP</h4>
+                <h4 class="text-danger text-center">OGP</h4>
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'ogp')
@@ -181,10 +192,15 @@
                 <br>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="col bg-primary ">
             <div class="container">
+=======
+        <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
+            <div class="container" style="padding: 0px">
+>>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
-                <h4 class="text-light text-center">ESKALASI</h4>
+                <h4 class="text-danger text-center">ESKALASI</h4>
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'eskalasi')
@@ -240,10 +256,15 @@
                 <br>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="col bg-success ">
             <div class="container">
+=======
+        <div class="col card border-danger bg-transparent rounded shadow" style="margin: 10px">
+            <div class="container" style="padding: 0px">
+>>>>>>> 2972ceb895748191448195aec4f90b5f1324d795
                 <br>
-                <h4 class="text-light text-center">CLOSED</h4>
+                <h4 class="text-danger text-center">CLOSED</h4>
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'closed')

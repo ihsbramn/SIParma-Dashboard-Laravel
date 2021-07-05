@@ -6,8 +6,10 @@ use App\Models\Report;
 
 use App\Exports\ReportExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Excel as ExcelExcel;
 
 class ReportController extends Controller
 {
@@ -25,16 +27,6 @@ class ReportController extends Controller
         return view('report.index', compact('report'));
     }
 
-
-    // public function index()
-    // {
-    // 	        // mengambil data dari table pegawai
-    // 	$pegawai = DB::table('pegawai')->paginate(10);
-
-    // 	        // mengirim data pegawai ke view index
-    // 	return view('index',['pegawai' => $pegawai]);
-
-    // }
 
     public function export_excel()
     {
