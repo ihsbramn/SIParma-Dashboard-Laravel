@@ -21,7 +21,7 @@ class ReportController extends Controller
     public function index()
     {
         // mengambil data dari table report
-        $report = \App\Models\Report::get();
+        $report = Report::where('report_status','=','closed')->simplePaginate(10);
 
         // mengirim data report ke view index
         return view('report.index', compact('report'));

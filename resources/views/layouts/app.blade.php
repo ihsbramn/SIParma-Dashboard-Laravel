@@ -119,13 +119,15 @@
 
                             <li class="nav-item">
                                 @auth
-                                    <a class="btn btn-outline-light" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                                                                                                                                            document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+
+                                <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
                                 @endauth
                             </li>
 
