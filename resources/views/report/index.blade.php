@@ -131,7 +131,7 @@
             @foreach ($report as $rp)
                 <div class="modal fade" id="exampleModal{{ $rp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl modal-center">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">ID : {{ $rp->id }}</h5>
@@ -140,7 +140,7 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col">
-                                        <ul style="list-style: none; margin-left:70px">
+                                        <ul style="list-style: none; margin-left:200px">
                                             <li>
                                                 <pre>Type    : {{ $rp->report_type }}</pre>
                                             </li>

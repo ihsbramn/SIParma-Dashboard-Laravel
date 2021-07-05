@@ -161,8 +161,8 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <div style="position: absolute; 
-        bottom: 10px; 
+        <div style="position: bottom; 
+        margin-bottom: 30px; 
         margin-left: auto;
         margin-right: auto;
         left: 0;
