@@ -81,7 +81,7 @@
                                     @auth
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                        document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
                                         @if (Auth::user()->admin == 1)
@@ -102,7 +102,6 @@
             </div>
 
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

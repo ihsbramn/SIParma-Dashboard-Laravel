@@ -62,7 +62,7 @@
     </div>
     <br>
     <div class="row bg-light" style=" heights: 1080px ">
-        <div class="col bg-warning rounded shadow">
+        <div class="col bg-warning ">
             <div class="container">
                 <br>
                 <h4 class="text-light text-center">OPEN</h4>
@@ -122,7 +122,7 @@
                 <br>
             </div>
         </div>
-        <div class="col bg-info rounded shadow">
+        <div class="col bg-info ">
             <div class="container">
                 <br>
                 <h4 class="text-light text-center">OGP</h4>
@@ -181,7 +181,7 @@
                 <br>
             </div>
         </div>
-        <div class="col bg-primary rounded shadow">
+        <div class="col bg-primary ">
             <div class="container">
                 <br>
                 <h4 class="text-light text-center">ESKALASI</h4>
@@ -240,7 +240,7 @@
                 <br>
             </div>
         </div>
-        <div class="col bg-success rounded shadow">
+        <div class="col bg-success ">
             <div class="container">
                 <br>
                 <h4 class="text-light text-center">CLOSED</h4>

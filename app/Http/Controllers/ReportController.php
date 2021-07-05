@@ -59,8 +59,8 @@ class ReportController extends Controller
     {       
         // mengambil data dari table report sesuai pencarian data
         $report = DB::table('reports')
-            ->where('created_at', '>=', $request->from)
-            ->where('created_at', '<=', $request->to)
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
             ->get();
 
         // mengirim data report ke view index
