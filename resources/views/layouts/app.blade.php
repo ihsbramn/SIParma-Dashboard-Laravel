@@ -29,10 +29,14 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- Styles -->
+    
+        <!-- Styles -->
     <link rel="shortcut icon" href="{{ url('images/favicon.png') }}">
     <link rel="icon" type="image/png" href="{{ url('images/favicon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,7 +44,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body onload=display_ct(); style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden"">
+<body onload=display_ct(); style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden; font-family: 'Poppins', sans-serif;">
     <div id="app">
         <!--nav-->
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow">
