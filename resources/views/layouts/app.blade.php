@@ -116,7 +116,7 @@
                             
                             <li class="nav-item">
                                 @auth
-                                <a class="btn btn-outline-light" href="{{ route('logout') }}"
+                                <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}</a>
