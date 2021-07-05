@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="height: 100%">
 
 <head>
     <!-- Required meta tags -->
@@ -18,6 +18,7 @@
         body {
             font-family: 'Nunito', sans-serif;
             background-image: linear-gradient(180deg, rgba(237, 237, 237, 1), rgba(231, 45, 35, 1));
+            background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -36,7 +37,7 @@
     <title>SIParma Dashboard</title>
 </head>
 
-<body style="height:1080px">
+<body style="height: 100%">
     <div class="card shadow mx-auto" style="width: 18rem;">
         <div class="container">
             <br>
@@ -67,8 +68,13 @@
             <br>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div class="text-center p-3">
+    <div style="position: absolute; 
+    bottom: 10px; 
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;">
         © 2021 Copyright
         <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
     </div>
