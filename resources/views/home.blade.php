@@ -264,7 +264,8 @@
                                             <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                                 rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                         </p>
-                                        <p>Update by <br> ESKALASI to CLOSED : {{ $rp->eskalasi_closed }}</p>
+                                        <p>Update by <br> ESKALASI to CLOSED : {{ $rp->eskalasi_closed }}
+                                        </p>
                                         <p>OGP to CLOSED : {{ $rp->ogp_closed }}</p>
                                         <p>Status : {{ $rp->report_status }}</p>
                                         <p>Tanggal Waktu Buat : {{ $rp->created_at }}</p>
@@ -274,7 +275,8 @@
                                 <div class="card-body">
                                     <p>Jenis Order : {{ $rp->report_type }}</p>
                                     <p>No SC : {{ $rp->report_number }}</p>
-                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
+                                    <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}
+                                    </p>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
