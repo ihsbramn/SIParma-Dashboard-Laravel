@@ -32,3 +32,7 @@ Route::get('export_excel', [App\Http\Controllers\ReportController::class, 'expor
 Route::get('search', [App\Http\Controllers\ReportController::class, 'search'])->name('search');
 Route::post('datefilter', [App\Http\Controllers\ReportController::class, 'datefilter'])->name('datefilter');
 
+Route::get('report.open', [App\Http\Controllers\ReportController::class, 'open'])->name('report.open');
+Route::get('report.ogp', [App\Http\Controllers\ReportController::class, 'ogp'])->name('report.ogp');
+Route::get('report.eskalasi', [App\Http\Controllers\ReportController::class, 'eskalasi'])->name('report.eskalasi');
+Route::get('report.closed', [App\Http\Controllers\ReportController::class, 'closed'])->name('report.closed');

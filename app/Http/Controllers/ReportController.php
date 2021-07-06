@@ -21,18 +21,59 @@ class ReportController extends Controller
     public function index()
     {
         // mengambil data dari table report
-        $report = Report::where('report_status','=','closed')->simplePaginate(10);
+        $report = DB::table('reports')->simplePaginate(10);
 
         // mengirim data report ke view index
         return view('report.index', compact('report'));
     }
+    
+    //menampilkan report status open saja
+    public function open()
+    {
+        // mengambil data dari table report
+        $report = Report::where('report_status','=','open')->simplePaginate(10);
 
+        // mengirim data report ke view index
+        return view('report.open', compact('report'));
+    }
+    
+    //menampilkan report status ogp saja
+    public function ogp()
+    {
+        // mengambil data dari table report
+        $report = Report::where('report_status','=','ogp')->simplePaginate(10);
 
+        // mengirim data report ke view index
+        return view('report.ogp', compact('report'));
+    }
+    
+    //menampilkan report status eskalasi saja
+    public function eskalasi()
+    {
+        // mengambil data dari table report
+        $report = Report::where('report_status','=','eskalasi')->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.eskalasi', compact('report'));
+    }
+
+    //menampilkan report status closed saja
+    public function closed()
+    {
+        // mengambil data dari table report
+        $report = Report::where('report_status','=','closed')->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.closed', compact('report'));
+    }
+
+    // export all data in excel
     public function export_excel()
     {
         return Excel::download(new ReportExport, 'Report.xlsx');
     }
 
+    //search berdasarkan nomor moban
     public function search(Request $request)
     {
         // menangkap data pencarian
@@ -41,19 +82,20 @@ class ReportController extends Controller
         // mengambil data dari table report sesuai pencarian data
         $report = DB::table('reports')
             ->where('report_number', 'like', "%" . $search . "%")
-            ->paginate();
+            ->simplePaginate(10);
 
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
     }
 
+    //filter berdasarkan date range
     public function datefilter(Request $request)
     {       
         // mengambil data dari table report sesuai pencarian data
         $report = DB::table('reports')
-            ->where('created_at', '>=', $request->from)
-            ->where('created_at', '<=', $request->to)
-            ->get();
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
+            ->simplePaginate(10);
 
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
@@ -121,6 +163,8 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
+
+    //delete method
     public function destroy(Report $report)
     {
         $report->delete();

@@ -85,7 +85,7 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }}" href="{{ route('report.index') }}">Report Closed</a>
+                                        <a class="nav-link {{ Route::currentRouteNamed('report.*') ? 'active' : '' }}" href="{{ route('report.index') }}">Report Data</a>
                                     </li>
                                 @endif
                             @endauth
@@ -158,7 +158,133 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        @if (Route::currentRouteNamed('report.index'))
+        <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+        @if (Route::currentRouteNamed('report.open'))
+        <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+        @if (Route::currentRouteNamed('report.ogp'))
+        <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+        @if (Route::currentRouteNamed('report.eskalasi'))
+        <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+        @if (Route::currentRouteNamed('report.closed'))
+        <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+
+        <main >
             @yield('content')
         </main>
         <div style="position: bottom; 

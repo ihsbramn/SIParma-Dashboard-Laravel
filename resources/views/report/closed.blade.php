@@ -1,31 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--nav untuk report status page-->
-    {{-- <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="#">all</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">open</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">ogp</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">eskalasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">closed</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
-
     <!--Search, Date Filter, and Download as excel Bar -->
     <div class="row" style="margin-top: 30px; padding-left: 20px; padding-right: 20px">
         <div class="col" style="margin-top: 5px; text-align: right">
@@ -96,6 +71,7 @@
                 </thead>
                 <tbody>
                     @foreach ($report as $rp)
+                        @if ($rp->report_status == 'closed')
                             <tr>
                                 <th style="padding-top:15px">{{ $rp->id }}</th>
                                 <td style="padding-top:15px">{{ $rp->report_type }}</td>
@@ -140,6 +116,7 @@
                                     </div>
                                 </td>
                             </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
