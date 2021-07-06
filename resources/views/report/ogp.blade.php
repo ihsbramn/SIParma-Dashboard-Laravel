@@ -96,6 +96,7 @@
                 </thead>
                 <tbody>
                     @foreach ($report as $rp)
+                        @if ($rp->report_status == 'ogp')
                             <tr>
                                 <th style="padding-top:15px">{{ $rp->id }}</th>
                                 <td style="padding-top:15px">{{ $rp->report_type }}</td>
@@ -140,6 +141,7 @@
                                     </div>
                                 </td>
                             </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
