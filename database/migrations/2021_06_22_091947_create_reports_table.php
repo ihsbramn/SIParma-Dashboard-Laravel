@@ -23,9 +23,13 @@ class CreateReportsTable extends Migration
             $table->string('report_sender');
             $table->string('report_status');
             $table->string('open_ogp')->nullable();
-            $table->string('ogp_eskalasi')->nullable();;
-            $table->string('ogp_closed')->nullable();;
-            $table->string('eskalasi_closed')->nullable();;
+            $table->string('ogp_eskalasi')->nullable();
+            $table->string('ogp_closed')->nullable();
+            $table->string('eskalasi_closed')->nullable();
+            $table->string('open_ogp_time')->nullable();
+            $table->string('ogp_eskalasi_time')->nullable();
+            $table->string('ogp_closed_time')->nullable();
+            $table->string('eskalasi_closed_time')->nullable();
             $table->timestamps();
         });
     }
