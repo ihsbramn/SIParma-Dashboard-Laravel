@@ -83,7 +83,7 @@
                                 </select>
                             @endif
                             @if ($report->report_status == 'ogp')
-                                <select class="form-select" id="status" name="report_status"
+                                <select class="form-select" id="statusogp" name="report_status"
                                     aria-label="Default select example">
                                     <option selected>{{ $report->report_status }}</option>
                                     <option value="eskalasi">eskalasi</option>
@@ -108,29 +108,66 @@
                             <div class="col">
                                 <input type="text" name="open_ogp" class="form-control" value="{{ Auth::user()->name }}"
                                     readonly>
+                                <input type="text" name="open_ogp_time" class="form-control"
+                                    value="{{ Carbon\Carbon::now()->format('H-i-s') }}" hidden>
                             </div>
                         @endif
-                        <?php $oes = 'ogp_eskalasi'; ?>
+                        <script>
+                            $(function() {
+                                $('#statusogp').change(function() {
+                                    $('.ogpupdate').hide();
+                                    $('#' + $(this).val()).show();
+                                });
+                            });
+                        </script>
                         @if ($report->report_status == 'ogp')
-                            <div class="col">
-                                <div class="label">Updated by (Ogp to Eskalasi) : </div>
-                            </div>
-                            <div class="col">
-                                <select class="form-select" name="ogp_eskalasi" aria-label="Default select example">
-                                    <option value=" "> </option>
-                                    <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
-                                </select>
+                            <div class="ogpupdate" id="eskalasi" style="display:none">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <div class="label">Updated by (Ogp to Eskalasi) : </div>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" name="ogp_eskalasi" aria-label="Default select example">
+                                            <option value=" "> </option>
+                                            <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <div class="label" for="timestamp">Timestamp </div>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" name="ogp_eskalasi_time" type="checkbox"
+                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp">
+                                    </div>
+                                </div>
                             </div>
                         @endif
                         @if ($report->report_status == 'ogp')
-                            <div class="col">
-                                <div class="label">Updated by (Ogp to Closed) : </div>
-                            </div>
-                            <div class="col">
-                                <select class="form-select" name="ogp_closed" aria-label="Default select example">
-                                    <option value=" "> </option>
-                                    <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
-                                </select>
+                            <div class="ogpupdate" id="closed" style="display:none">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <div class="label">Updated by (Ogp to Closed) : </div>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" name="ogp_closed" aria-label="Default select example">
+                                            <option value=" "> </option>
+                                            <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <div class="label" for="timestamp">Timestamp </div>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" name="ogp_closed_time" type="checkbox"
+                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp">
+                                    </div>
+                                </div>
                             </div>
                         @endif
                         @if ($report->report_status == 'eskalasi')
@@ -140,6 +177,8 @@
                             <div class="col">
                                 <input type="text" name="eskalasi_closed" class="form-control"
                                     value="{{ Auth::user()->name }}" readonly>
+                                <input type="text" name="eskalasi_closed_time" class="form-control"
+                                    value="{{ Carbon\Carbon::now()->format('H-i-s') }}" hidden>
                             </div>
                         @endif
 
