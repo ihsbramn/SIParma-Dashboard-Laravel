@@ -21,6 +21,7 @@ class CreateReportsTable extends Migration
             $table->string('report_detail');
             $table->string('report_idsender');
             $table->string('report_sender');
+            $table->string('sender_name');
             $table->string('report_status');
             $table->string('open_ogp')->nullable();
             $table->string('ogp_eskalasi')->nullable();

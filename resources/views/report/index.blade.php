@@ -11,7 +11,6 @@
                 <?php $search = isset($_GET['search']) ? htmlentities($_GET['search']) : ''; ?>
                 <form action={{ 'search' }} method="GET" class="input-group mb-3">
                     <input type="text" name="search" value="<?= $search ?>"
-<<<<<<< HEAD
                             class="form-control" id="search" placeholder="report number">
                         <input type="submit" value="Search" class="btn btn-danger">
                     </form>
@@ -32,10 +31,6 @@
                             aria-describedby="button-addon2">
                         <button class="btn btn-danger" type="submit" id="button-addon2">Filter</button>
                     </div>
-=======
-                        class="form-control" id="search" placeholder="report number">
-                    <input type="submit" value="Search" class="btn btn-danger">
->>>>>>> e3cfead56fafe61563ac0c21772ff2dbb12cff61
                 </form>
             </div>
                                                 
@@ -231,7 +226,6 @@
                                     </div>
                                 </div>
                                 </div>
-<<<<<<< HEAD
                                 
                                 <!--Option 2 BY DATE-->
                                 <div class="accordion-item">
@@ -263,78 +257,6 @@
                                                         </div>
                                                     </form>
                                                 </div>
-=======
-                            </div>
-                            <table class="table" style="text-align: center">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">open-ogp</th>
-                                        <th scope="col">ogp-eskalasi</th>
-                                        <th scope="col">ogp-closed</th>
-                                        <th scope="col">eskalasi-closed</th>
-                                        <th scope="col">created at</th>
-                                        <th scope="col">updated at</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $rp->open_ogp }}</td>
-                                        <td>{{ $rp->ogp_eskalasi }}</td>
-                                        <td>{{ $rp->ogp_closed }}</td>
-                                        <td>{{ $rp->eskalasi_closed }}</td>
-                                        <td>{{ $rp->created_at }}</td>
-                                        <td>{{ $rp->updated_at }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-                    
-        <!-- Modal Excel Download -->
-        <div class="modal fade" id="ExcelModal" tabindex="-1" aria-labelledby="ExcelModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ExcelModalLabel">Excel Download </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <!--Download Option-->
-                        <div class="accordion" id="accordionExample">
-                            
-                            <!--Option 1 ALL DB-->    
-                            <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                everything in the database 
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Download all report data from database : <a href={{ 'export_excel' }} class="btn btn-success" style="margin-left: 10px">Download</a>
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <!--Option 2 BY DATE-->
-                            <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                specific date range
-                                </button>
-                            </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                Start date
->>>>>>> e3cfead56fafe61563ac0c21772ff2dbb12cff61
                                             </div>
 
                                         </div>
@@ -394,8 +316,4 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-        </div>
->>>>>>> e3cfead56fafe61563ac0c21772ff2dbb12cff61
 @endsection
