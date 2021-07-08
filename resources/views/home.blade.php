@@ -282,26 +282,18 @@
                                     <div class="row">
                                         <div class="col">
                                             {{-- href --}}
-                                            {{-- https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20 --}}
-                                            <a class="btn btn-success" target="_blank"
-                                                href="https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif
-                                                !</a>
+                                            {{-- 1786482522:AAES4KDR4jJiMue-Bu0x9iCqe9XF84C1y5c --}}
+                                            <button class="notif btn btn-success"
+                                                href="https://api.telegram.org/bot1786482522:AAES4KDR4jJiMue-Bu0x9iCqe9XF84C1y5c/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
                                         </div>
                                         <script type="text/javascript">
-                                            // function AlertIt({{ $rp->id }}) {
-                                            //     var http = new XMLHttpRequest();
-                                            //     var url =
-                                            //         "https://api.telegram.org/bot1786482522:AAEKQOpHgMgtWV_IVpGv9Ldz6c_j57Eal04/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20";
-                                            //     var params = 'orem=ipsum&name=binny';
-                                            //     http.open('POST', url, true);
-                                            //     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                                            //     http.onreadystatechange = function() { //Call a function when the state changes.
-                                            //         if (http.readyState == 4 && http.status == 200) {
-                                            //             alert('Message Send!');
-                                            //         }
-                                            //     }
-                                            //     http.send(params);
-                                            }
+                                            $(".notif").unbind().click(function() {
+                                                var url = $(this).attr("href");
+                                                console.log(url);
+                                                var exe = $.post(url, function() {
+                                                    alert("Notif Telah dikirim");
+                                                })
+                                            });
                                         </script>
                                         @if (Auth::user()->admin == 1)
                                             <div class="col">
