@@ -127,8 +127,7 @@
                                         <div class="label">Updated by (Ogp to Eskalasi) : </div>
                                     </div>
                                     <div class="col">
-                                        <select class="form-select" name="ogp_eskalasi" aria-label="Default select example"
-                                            required>
+                                        <select class="form-select" name="ogp_eskalasi" aria-label="Default select example">
                                             <option value=" "> </option>
                                             <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
                                         </select>
@@ -141,7 +140,7 @@
                                     </div>
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_eskalasi_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp" required>
+                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp">
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +152,7 @@
                                         <div class="label">Updated by (Ogp to Closed) : </div>
                                     </div>
                                     <div class="col">
-                                        <select class="form-select" name="ogp_closed" aria-label="Default select example"
-                                            required>
+                                        <select class="form-select" name="ogp_closed" aria-label="Default select example">
                                             <option value=" "> </option>
                                             <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
                                         </select>
@@ -167,7 +165,7 @@
                                     </div>
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_closed_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp" required>
+                                            value="{{ Carbon\Carbon::now()->format('H-i-s') }}" id="timestamp">
                                     </div>
                                 </div>
                             </div>
