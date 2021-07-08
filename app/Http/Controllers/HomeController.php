@@ -31,6 +31,7 @@ class HomeController extends Controller
         return view('home',compact('report'));
     }
 
+    //fitur filter jenis order
     public function filter(Request $request)
     {
         $filter = $request->input('filterorder');

@@ -1,35 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--nav untuk report status page-->
-    {{-- <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="#">all</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">open</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">ogp</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">eskalasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-0" href="#">closed</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
-
     <!--Search, Date Filter, and Download as excel Bar -->
     <div class="row" style="margin-top: 30px; padding-left: 20px; padding-right: 20px">
-        <div class="col" style="margin-top: 5px; text-align: right">
-            Choose
+        <div class="col" style="margin-top: 7px; text-align: right">
+            Search
         </div>
         <div class="col-2">
             <div class="input-group mb-3">
@@ -42,12 +17,12 @@
                 </div>
             </div>
             
-            <div class="col-1" style="margin-top: 5px; text-align: right">
+            <div class="col-1" style="margin-top: 7px; text-align: right">
                 Start date
             </div>
                             
             <div class="col-4">
-                <form action={{ 'datefilter' }} method="POST">
+                <form action={{ 'datefilter' }} method="GET">
                 {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <input type="date" class="form-control" name="from" value="{{ date('y-m-d') }}">
@@ -64,13 +39,13 @@
             </div>
             
             <div class="col">
-                <button href="#ExcelModal" type="button" data-bs-toggle="modal" data-bs-target="#ExcelModal"class="btn btn-success">
+                <a href={{ 'report.export' }} type="button" class="btn btn-success">
                     Download
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-excel" viewBox="0 0 16 16" style="margin-bottom: 3px">
                         <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
                         <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
                     </svg>
-                </button>
+                </a>
             </div>
                             
             <br>
@@ -79,7 +54,7 @@
         <!-- Table Show -->
         {{-- <h1 class="text-center">ALL REPORT</h1> --}}
         <div class="row" style="padding: 35px; padding-top: 0px; margin-top: 10px">
-            <table class="table bg-light" style="text-align: center">
+            <table class="table bg-light rounded" style="text-align: center">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -90,7 +65,7 @@
                         <th scope="col">Report ID Sender</th>
                         <th scope="col">Report Sender</th>
                         <th scope="col">Report Status</th>
-                        <th scope="col">last updated by</th>
+                        <th scope="col">Latest Updated at</th>
                         <th scope="col">Option</th>
                     </tr>
                 </thead>
@@ -101,11 +76,11 @@
                                 <td style="padding-top:15px">{{ $rp->report_type }}</td>
                                 <td style="padding-top:15px">{{ $rp->report_number }}</td>
                                 <td style="padding-top:15px">{{ $rp->report_value }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_detail }}</td>
+                                <td style="padding-top:15px; width: 350px">{{ $rp->report_detail }}</td>
                                 <td style="padding-top:15px">{{ $rp->report_idsender }}</td>
                                 <td style="padding-top:15px">{{ $rp->report_sender }}</td>
                                 <td style="padding-top:15px">{{ $rp->report_status }}</td>
-                                <td style="padding-top:15px">{{ $rp->open_ogp }}</td>
+                                <td style="padding-top:15px">{{ $rp->updated_at }}</td>
                                 <td>
                                     <div class="container-fluid" style="padding: 0px">
                                         <div class="row" style="padding: 0px">
@@ -165,23 +140,19 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col">
-                                        <ul style="list-style: none; margin-left:200px">
+                                        <ul style="list-style: none; margin-left:px">
                                             <li>
-                                                <pre>Type    : {{ $rp->report_type }}</pre>
+                                                <pre>Type               : {{ $rp->report_type }}</pre>
                                             </li>
                                             <li>
-                                                <pre>Number  : {{ $rp->report_number }}</pre>
+                                                <pre>Number             : {{ $rp->report_number }}</pre>
                                             </li>
                                             <li>
-                                                <pre>Value   : {{ $rp->report_value }}</pre>
+                                                <pre>Value              : {{ $rp->report_value }}</pre>
                                             </li>
                                             <li>
-                                                <pre>Details : {{ $rp->report_detail }}</pre>
+                                                <pre>Created            : {{ $rp->created_at }}</pre>
                                             </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul style="list-style: none;">
                                             <li>
                                                 <pre>ID Telegram Sender : {{ $rp->report_idsender }}</pre>
                                             </li>
@@ -191,28 +162,42 @@
                                             <li>
                                                 <pre>Status             : {{ $rp->report_status }}</pre>
                                             </li>
+                                            <li>
+                                                <pre>Details            : {{ $rp->report_detail }}</pre>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <table class="table" style="text-align: center">
+                                <table class="table table-bordered border-danger" style="text-align: center">
                                     <thead>
                                         <tr>
-                                            <th scope="col">open-ogp</th>
-                                            <th scope="col">ogp-eskalasi</th>
-                                            <th scope="col">ogp-closed</th>
-                                            <th scope="col">eskalasi-closed</th>
-                                            <th scope="col">created at</th>
-                                            <th scope="col">updated at</th>
-
+                                            <th scope="col" colspan="2">open-ogp</th>
+                                            <th scope="col" colspan="2">ogp-eskalasi</th>
+                                            <th scope="col" colspan="2">ogp-closed</th>
+                                            <th scope="col" colspan="2">eskalasi-closed</th>
+                                            <th scope="col" rowspan="2">last update at</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">by</th>
+                                            <th scope="col">at</th>
+                                            <th scope="col">by</th>
+                                            <th scope="col">at</th>
+                                            <th scope="col">by</th>
+                                            <th scope="col">at</th>
+                                            <th scope="col">by</th>
+                                            <th scope="col">at</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>{{ $rp->open_ogp }}</td>
+                                            <td>{{ $rp->open_ogp_time }}</td>
                                             <td>{{ $rp->ogp_eskalasi }}</td>
+                                            <td>{{ $rp->ogp_eskalasi_time }}</td>
                                             <td>{{ $rp->ogp_closed }}</td>
+                                            <td>{{ $rp->ogp_closed_time }}</td>
                                             <td>{{ $rp->eskalasi_closed }}</td>
-                                            <td>{{ $rp->created_at }}</td>
+                                            <td>{{ $rp->eskalasi_closed_time }}</td>
                                             <td>{{ $rp->updated_at }}</td>
                                         </tr>
                                     </tbody>
@@ -246,7 +231,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        Download all report data from database : <a href={{ 'export_excel' }} class="btn btn-success" style="margin-left: 10px">Download</a>
+                                        Download all report data from database : <a href={{ 'report.export' }} class="btn btn-success" style="margin-left: 10px">Download</a>
                                     </div>
                                 </div>
                                 </div>

@@ -1,0 +1,1416 @@
+<!doctype html>
+<html lang="en" style="margin: 0px; padding: 0px; overflow-x:hidden">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSRF Token -->
+    <meta name="csrf-token" content="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">
+
+    <title>SIParma</title>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1:8000/js/app.js" defer></script>
+    <script src="http://127.0.0.1:8000/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/images/favicon.png">
+    <link rel="icon" type="image/png" href="http://127.0.0.1:8000/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="http://127.0.0.1:8000/css/app.css" rel="stylesheet">
+</head>
+
+<body onload=display_ct();
+    style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden; font-family: 'Poppins', sans-serif;">
+    <div id="app">
+        <!--nav-->
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow">
+            <div class="container">
+                <div class="div-navbar-header md-auto">
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/home" style="font-weight: 600">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="margin-bottom: 5px">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        SIParma
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-left">
+                            <li class="nav-item ">
+                                <a class="nav-link "
+                                    aria-current="page" href="http://127.0.0.1:8000/home">Dashboard</a>
+                            </li>
+                                                                                                <li class="nav-item">
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="http://127.0.0.1:8000/report">Report Data</a>
+                                    </li>
+                                                                                    </ul>
+                    </div>
+
+                                <div class="collapse d-flex" id="navbarSupportedContent">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav">
+                        <!-- Authentication Links -->
+                                                    <li class="nav-item">
+                                <a class="nav-link active" href="#">Hi, rizky fadilah</a>
+                            </li>
+
+                            <li class="nav-item">
+                                
+                                <a style="margin-left: 15px" class="btn btn-outline-light" href="http://127.0.0.1:8000/logout"
+                                onclick="event.preventDefault();
+                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                Logout</a>
+                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                                    <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                </form>
+
+                                                            </li>
+
+                            
+                            
+                            
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+
+                <nav class="navbar navbar-expand-lg py-0 navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link  py-0" href="http://127.0.0.1:8000/report">all</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  py-0" href="http://127.0.0.1:8000/report.open">open</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  py-0" href="http://127.0.0.1:8000/report.ogp">ogp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  py-0" href="http://127.0.0.1:8000/report.eskalasi">eskalasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  py-0" href="http://127.0.0.1:8000/report.closed">closed</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <main >
+                <!--Search, Date Filter, and Download as excel Bar -->
+    <div class="row" style="margin-top: 30px; padding-left: 20px; padding-right: 20px">
+        <div class="col" style="margin-top: 7px; text-align: right">
+            Search
+        </div>
+        <div class="col-2">
+            <div class="input-group mb-3">
+                                <form action=search method="GET" class="input-group mb-3">
+                    <input type="text" name="search" value=""
+                            class="form-control" id="search" placeholder="report number">
+                        <input type="submit" value="Search" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-1" style="margin-top: 7px; text-align: right">
+                Start date
+            </div>
+                            
+            <div class="col-4">
+                <form action=datefilter method="GET">
+                <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" name="from" value="21-07-08">
+                        <span class="input-group-text">to</span>
+                        <input type="date" class="form-control" name="to" value="21-07-08"
+                            aria-describedby="button-addon2">
+                        <button class="btn btn-danger" type="submit" id="button-addon2">Filter</button>
+                    </div>
+                </form>
+            </div>
+                                                
+            <div class="col-1">
+                <a class="btn btn-outline-danger" type="button" href="http://127.0.0.1:8000/report" id="button-addon2">Clear</a>
+            </div>
+            
+            <div class="col">
+                <a href=report.export type="button" class="btn btn-success">
+                    Download
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-excel" viewBox="0 0 16 16" style="margin-bottom: 3px">
+                        <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
+                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                    </svg>
+                </a>
+            </div>
+                            
+            <br>
+        </div>
+                        
+        <!-- Table Show -->
+        
+        <div class="row" style="padding: 35px; padding-top: 0px; margin-top: 10px">
+            <table class="table bg-light rounded" style="text-align: center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Report Type</th>
+                        <th scope="col">Report Number</th>
+                        <th scope="col">Report Value</th>
+                        <th scope="col">Report Detail</th>
+                        <th scope="col">Report ID Sender</th>
+                        <th scope="col">Report Sender</th>
+                        <th scope="col">Report Status</th>
+                        <th scope="col">Latest Updated at</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                                <tr>
+                                <th style="padding-top:15px">1012</th>
+                                <td style="padding-top:15px">#MO</td>
+                                <td style="padding-top:15px">#S92192100</td>
+                                <td style="padding-top:15px">#ganti</td>
+                                <td style="padding-top:15px">router</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">closed</td>
+                                <td style="padding-top:15px">2021-07-07 20:19:15</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1012">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1012" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1014</th>
+                                <td style="padding-top:15px">#GGN</td>
+                                <td style="padding-top:15px">#SC554400</td>
+                                <td style="padding-top:15px">#teuing</td>
+                                <td style="padding-top:15px">naon</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">open</td>
+                                <td style="padding-top:15px">2021-07-06 20:43:40</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1014">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1014" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1015</th>
+                                <td style="padding-top:15px">#AO</td>
+                                <td style="padding-top:15px">#SC921552210</td>
+                                <td style="padding-top:15px">#aduh</td>
+                                <td style="padding-top:15px">bingung</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">closed</td>
+                                <td style="padding-top:15px">2021-07-07 20:06:20</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1015">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1015" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1016</th>
+                                <td style="padding-top:15px">#MIG</td>
+                                <td style="padding-top:15px">#SC93565365</td>
+                                <td style="padding-top:15px">#aduh</td>
+                                <td style="padding-top:15px">bingung</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">eskalasi</td>
+                                <td style="padding-top:15px">2021-07-07 20:04:34</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1016">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1016" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1017</th>
+                                <td style="padding-top:15px">#PDA</td>
+                                <td style="padding-top:15px">#SC92787878</td>
+                                <td style="padding-top:15px">#aduh</td>
+                                <td style="padding-top:15px">bingung</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">eskalasi</td>
+                                <td style="padding-top:15px">2021-07-07 20:01:41</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1017">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1017" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1018</th>
+                                <td style="padding-top:15px">#MIG</td>
+                                <td style="padding-top:15px">#SC667332</td>
+                                <td style="padding-top:15px">#aduh</td>
+                                <td style="padding-top:15px">bingung</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">ogp</td>
+                                <td style="padding-top:15px">2021-07-07 20:19:01</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1018">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1018" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1019</th>
+                                <td style="padding-top:15px">#MO</td>
+                                <td style="padding-top:15px">#S9212345</td>
+                                <td style="padding-top:15px">#ganti</td>
+                                <td style="padding-top:15px">kabel</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">closed</td>
+                                <td style="padding-top:15px">2021-07-06 11:07:14</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1019">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1019" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1020</th>
+                                <td style="padding-top:15px">#MO</td>
+                                <td style="padding-top:15px">#S92192112</td>
+                                <td style="padding-top:15px">#ganti</td>
+                                <td style="padding-top:15px">router</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">ogp</td>
+                                <td style="padding-top:15px">2021-07-07 19:58:47</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1020">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1020" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1021</th>
+                                <td style="padding-top:15px">#MO</td>
+                                <td style="padding-top:15px">#S9234433</td>
+                                <td style="padding-top:15px">#ganti</td>
+                                <td style="padding-top:15px">router</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">ogp</td>
+                                <td style="padding-top:15px">2021-07-07 20:19:07</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1021">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1021" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                                <tr>
+                                <th style="padding-top:15px">1022</th>
+                                <td style="padding-top:15px">#MIG</td>
+                                <td style="padding-top:15px">#SC935653887</td>
+                                <td style="padding-top:15px">#aduh</td>
+                                <td style="padding-top:15px">bingung</td>
+                                <td style="padding-top:15px">1818722720</td>
+                                <td style="padding-top:15px">ihsbramn</td>
+                                <td style="padding-top:15px">eskalasi</td>
+                                <td style="padding-top:15px">2021-07-07 20:04:34</td>
+                                <td>
+                                    <div class="container-fluid" style="padding: 0px">
+                                        <div class="row" style="padding: 0px">
+                                            <!--button details modal-->
+                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal1022">
+                                                    Details
+                                                </button>
+                                            </div>
+                                            <!--button delete-->
+                                                                                            <div class="col" style="padding: 0px; margin: 0px">
+                                                    <form action="http://127.0.0.1:8000/report/1022" method="POST">
+                                                        <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">                                                        <input type="hidden" name="_method" value="DELETE">                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                            </svg>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </td>
+                            </tr>
+                                    </tbody>
+            </table>
+        </div>
+
+            <!--pagination button-->
+            <div class="row" style="text-align: center; margin-top: 10px; margin-bottom: 60px">
+                <div class="col">
+                    
+                </div>
+            </div>
+
+            <!-- Modal Details -->
+                            <div class="modal fade" id="exampleModal1012" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1012</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MO</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #S92192100</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #ganti</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : router</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : closed</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td>2021-07-06 11:02:29</td>
+                                            <td>2021-07-07 20:19:15</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1014" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1014</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #GGN</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC554400</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #teuing</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : naon</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : open</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:43:40</td>
+                                            <td>2021-07-06 20:43:40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1015" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1015</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #AO</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC921552210</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #aduh</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : bingung</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : closed</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky user normal</td>
+                                            <td></td>
+                                            <td>rizky user normal</td>
+                                            <td></td>
+                                            <td>2021-07-06 20:44:15</td>
+                                            <td>2021-07-07 20:06:20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1016" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1016</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MIG</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC93565365</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #aduh</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : bingung</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : eskalasi</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td>rizky user normal</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:45:21</td>
+                                            <td>2021-07-07 20:04:34</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1017" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1017</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #PDA</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC92787878</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #aduh</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : bingung</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : eskalasi</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:45:31</td>
+                                            <td>2021-07-07 20:01:41</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1018" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1018</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MIG</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC667332</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #aduh</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : bingung</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : ogp</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:46:23</td>
+                                            <td>2021-07-07 20:19:01</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1019" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1019</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MO</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #S9212345</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #ganti</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : kabel</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : closed</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ikhsan Abdurachman</td>
+                                            <td>Stephanie Prior</td>
+                                            <td></td>
+                                            <td>Admin</td>
+                                            <td>2021-07-06 11:02:19</td>
+                                            <td>2021-07-06 11:07:14</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1020" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1020</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MO</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #S92192112</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #ganti</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : router</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : ogp</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 11:02:29</td>
+                                            <td>2021-07-07 19:58:47</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1021" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1021</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MO</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #S9234433</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #ganti</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : router</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : ogp</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:43:06</td>
+                                            <td>2021-07-07 20:19:07</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="modal fade" id="exampleModal1022" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ID : 1022</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style: none; margin-left:200px">
+                                            <li>
+                                                <pre>Type    : #MIG</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Number  : #SC935653887</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Value   : #aduh</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Details : bingung</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <pre>ID Telegram Sender : 1818722720</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Sender Name        : ihsbramn</pre>
+                                            </li>
+                                            <li>
+                                                <pre>Status             : eskalasi</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table class="table" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">open-ogp</th>
+                                            <th scope="col">ogp-eskalasi</th>
+                                            <th scope="col">ogp-closed</th>
+                                            <th scope="col">eskalasi-closed</th>
+                                            <th scope="col">created at</th>
+                                            <th scope="col">updated at</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>rizky fadilah</td>
+                                            <td>rizky user normal</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>2021-07-06 20:45:21</td>
+                                            <td>2021-07-07 20:04:34</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    
+            <!-- Modal Excel Download -->
+            <div class="modal fade" id="ExcelModal" tabindex="-1" aria-labelledby="ExcelModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-center">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ExcelModalLabel">Excel Download </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <!--Download Option-->
+                            <div class="accordion" id="accordionExample">
+                                
+                                <!--Option 1 ALL DB-->    
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    everything in the database 
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Download all report data from database : <a href=report.export class="btn btn-success" style="margin-left: 10px">Download</a>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                                <!--Option 2 BY DATE-->
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    specific date range
+                                    </button>
+                                </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    Start date
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col" style="text-align: left">
+                                                    <form action=datefilter method="POST">
+                                                    <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">
+                                                        <div class="input-group mb-3" style="margin-top: 10px">
+                                                            <input type="date" class="form-control" name="from" value="21-07-08">
+                                                            <span class="input-group-text">to</span>
+                                                            <input type="date" class="form-control" name="to" value="21-07-08"
+                                                                aria-describedby="button-addon2">
+                                                        </div>
+                                                        <div class="col-auto" style="margin-top: 10px">
+                                                            <button type="submit" class="btn btn-success mb-3">Download</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!--Option 3 BY REPORT TYPE-->
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    report type
+                                    </button>
+                                </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    Choose report type :
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col" style="text-align: left">
+                                                    <form action=datefilter method="POST">
+                                                    <input type="hidden" name="_token" value="m2qEkh3495J4NlweIP5k7J2bAfjWO1M2rC8J3Qwq">
+                                                        <div class="form-check form-check-inline" style="margin-top: 10px">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                            <label class="form-check-label" for="inlineCheckbox1">AO</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                            <label class="form-check-label" for="inlineCheckbox2">GGN</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                            <label class="form-check-label" for="inlineCheckbox2">MO</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                            <label class="form-check-label" for="inlineCheckbox2">PDA</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                            <label class="form-check-label" for="inlineCheckbox2">MIG</label>
+                                                        </div>
+                                                        <div class="col-auto" style="margin-top: 10px">
+                                                            <button type="submit" class="btn btn-success mb-3">Download</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div style="position: bottom; 
+        margin-bottom: 30px; 
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;">
+            © 2021 Copyright
+            <a class=" text-dark" href="http://127.0.0.1:8000">SIParma</a>
+        </div>
+    </div>
+    </body>
+
+</html>
