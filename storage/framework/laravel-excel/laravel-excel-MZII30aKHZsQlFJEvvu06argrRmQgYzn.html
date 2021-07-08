@@ -1,6 +1,116 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="en" style="margin: 0px; padding: 0px; overflow-x:hidden">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSRF Token -->
+    <meta name="csrf-token" content="loupl6WsRFoOfZMvxf6jeT9aD13WDhFXC8qLLxBE">
+
+    <title>SIParma</title>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1:8000/js/app.js" defer></script>
+    <script src="http://127.0.0.1:8000/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/images/favicon.png">
+    <link rel="icon" type="image/png" href="http://127.0.0.1:8000/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="http://127.0.0.1:8000/css/app.css" rel="stylesheet">
+</head>
+
+<body onload=display_ct();
+    style="background-color: rgb(235, 235, 235); margin: 0px; padding: 0px; overflow-x:hidden; font-family: 'Poppins', sans-serif;">
+    <div id="app">
+        <!--nav-->
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger shadow">
+            <div class="container">
+                <div class="div-navbar-header md-auto">
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/home" style="font-weight: 600">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="margin-bottom: 5px">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        SIParma
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-left">
+                            <li class="nav-item ">
+                                <a class="nav-link "
+                                    aria-current="page" href="http://127.0.0.1:8000/home">Dashboard</a>
+                            </li>
+                                                                                                <li class="nav-item">
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/report">Report Data</a>
+                                    </li>
+                                                                                    </ul>
+                    </div>
+
+                                <div class="collapse d-flex" id="navbarSupportedContent">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav">
+                        <!-- Authentication Links -->
+                                                    <li class="nav-item">
+                                <a class="nav-link active" href="#">Hi, rizky fadilah</a>
+                            </li>
+
+                            <li class="nav-item">
+                                
+                                <a style="margin-left: 15px" class="btn btn-outline-light" href="http://127.0.0.1:8000/logout"
+                                onclick="event.preventDefault();
+                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                Logout</a>
+                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                                    <input type="hidden" name="_token" value="loupl6WsRFoOfZMvxf6jeT9aD13WDhFXC8qLLxBE">                                </form>
+
+                                                            </li>
+
+                            
+                            
+                            
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+
+                                        
+        <main >
+                <!--nav untuk report status page-->
+    
+
     <!--Search, Date Filter, and Download as excel Bar -->
     <div class="row" style="margin-top: 30px; padding-left: 20px; padding-right: 20px">
         <div class="col" style="margin-top: 5px; text-align: right">
@@ -8,9 +118,8 @@
         </div>
         <div class="col-2">
             <div class="input-group mb-3">
-                <?php $search = isset($_GET['search']) ? htmlentities($_GET['search']) : ''; ?>
-                <form action={{ 'search' }} method="GET" class="input-group mb-3">
-                    <input type="text" name="search" value="<?= $search ?>"
+                                <form action=search method="GET" class="input-group mb-3">
+                    <input type="text" name="search" value=""
                             class="form-control" id="search" placeholder="report number">
                         <input type="submit" value="Search" class="btn btn-danger">
                     </form>
@@ -22,12 +131,12 @@
             </div>
                             
             <div class="col-4">
-                <form action={{ 'datefilter_closed' }} method="GET">
-                {{ csrf_field() }}
+                <form action=datefilter method="POST">
+                <input type="hidden" name="_token" value="loupl6WsRFoOfZMvxf6jeT9aD13WDhFXC8qLLxBE">
                     <div class="input-group mb-3">
-                        <input type="date" class="form-control" name="from" value="{{ date('y-m-d') }}">
+                        <input type="date" class="form-control" name="from" value="21-07-06">
                         <span class="input-group-text">to</span>
-                        <input type="date" class="form-control" name="to" value="{{ date('y-m-d') }}"
+                        <input type="date" class="form-control" name="to" value="21-07-06"
                             aria-describedby="button-addon2">
                         <button class="btn btn-danger" type="submit" id="button-addon2">Filter</button>
                     </div>
@@ -35,11 +144,11 @@
             </div>
                                                 
             <div class="col-1">
-                <a class="btn btn-outline-danger" type="button" href="{{ route('report.index') }}" id="button-addon2">Clear</a>
+                <a class="btn btn-outline-danger" type="button" href="http://127.0.0.1:8000/report" id="button-addon2">Clear</a>
             </div>
             
             <div class="col">
-                <button href={{ 'report.export' }} type="button" class="btn btn-success">
+                <button href="#ExcelModal" type="button" data-bs-toggle="modal" data-bs-target="#ExcelModal"class="btn btn-success">
                     Download
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-excel" viewBox="0 0 16 16" style="margin-bottom: 3px">
                         <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
@@ -52,7 +161,7 @@
         </div>
                         
         <!-- Table Show -->
-        {{-- <h1 class="text-center">ALL REPORT</h1> --}}
+        
         <div class="row" style="padding: 35px; padding-top: 0px; margin-top: 10px">
             <table class="table bg-light" style="text-align: center">
                 <thead>
@@ -65,151 +174,24 @@
                         <th scope="col">Report ID Sender</th>
                         <th scope="col">Report Sender</th>
                         <th scope="col">Report Status</th>
-                        <th scope="col">Latest Updated at</th>
+                        <th scope="col">last updated by</th>
                         <th scope="col">Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($report as $rp)
-                        @if ($rp->report_status == 'closed')
-                            <tr>
-                                <th style="padding-top:15px">{{ $rp->id }}</th>
-                                <td style="padding-top:15px">{{ $rp->report_type }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_number }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_value }}</td>
-                                <td style="padding-top:15px; width: 350px">{{ $rp->report_detail }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_idsender }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_sender }}</td>
-                                <td style="padding-top:15px">{{ $rp->report_status }}</td>
-                                <td style="padding-top:15px">{{ $rp->updated_at }}</td>
-                                <td>
-                                    <div class="container-fluid" style="padding: 0px">
-                                        <div class="row" style="padding: 0px">
-                                            <!--button details modal-->
-                                            <div class="col" style="padding: 0px; margin: 0px">
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal{{ $rp->id }}">
-                                                    Details
-                                                </button>
-                                            </div>
-                                            <!--button delete-->
-                                            @if (Auth::user()->admin == 1)
-                                                <div class="col" style="padding: 0px; margin: 0px">
-                                                    <form action="{{ route('report.destroy', $rp->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"><svg
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </tbody>
+                                    </tbody>
             </table>
         </div>
 
             <!--pagination button-->
             <div class="row" style="text-align: center; margin-top: 10px; margin-bottom: 60px">
                 <div class="col">
-                    {{ $report->links() }}
+                    
                 </div>
             </div>
 
             <!-- Modal Details -->
-            @foreach ($report as $rp)
-                <div class="modal fade" id="exampleModal{{ $rp->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-center">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">ID : {{ $rp->id }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul style="list-style: none">
-                                            <li>
-                                                <pre>Type               : {{ $rp->report_type }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Number             : {{ $rp->report_number }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Value              : {{ $rp->report_value }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Created            : {{ $rp->created_at }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>ID Telegram Sender : {{ $rp->report_idsender }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Sender Name        : {{ $rp->report_sender }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Status             : {{ $rp->report_status }}</pre>
-                                            </li>
-                                            <li>
-                                                <pre>Details            : {{ $rp->report_detail }}</pre>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <table class="table table-bordered border-danger" style="text-align: center">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" colspan="2">open-ogp</th>
-                                            <th scope="col" colspan="2">ogp-eskalasi</th>
-                                            <th scope="col" colspan="2">ogp-closed</th>
-                                            <th scope="col" colspan="2">eskalasi-closed</th>
-                                            <th scope="col" rowspan="2">last update at</th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">by</th>
-                                            <th scope="col">at</th>
-                                            <th scope="col">by</th>
-                                            <th scope="col">at</th>
-                                            <th scope="col">by</th>
-                                            <th scope="col">at</th>
-                                            <th scope="col">by</th>
-                                            <th scope="col">at</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{ $rp->open_ogp }}</td>
-                                            <td>{{ $rp->open_ogp_time }}</td>
-                                            <td>{{ $rp->ogp_eskalasi }}</td>
-                                            <td>{{ $rp->ogp_eskalasi_time }}</td>
-                                            <td>{{ $rp->ogp_closed }}</td>
-                                            <td>{{ $rp->ogp_closed_time }}</td>
-                                            <td>{{ $rp->eskalasi_closed }}</td>
-                                            <td>{{ $rp->eskalasi_closed_time }}</td>
-                                            <td>{{ $rp->updated_at }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-                        
+                                    
             <!-- Modal Excel Download -->
             <div class="modal fade" id="ExcelModal" tabindex="-1" aria-labelledby="ExcelModalLabel"
                 aria-hidden="true">
@@ -233,7 +215,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        Download all report data from database : <a href={{ 'export_excel' }} class="btn btn-success" style="margin-left: 10px">Download</a>
+                                        Download all report data from database : <a href=export_excel class="btn btn-success" style="margin-left: 10px">Download</a>
                                     </div>
                                 </div>
                                 </div>
@@ -255,12 +237,12 @@
 
                                             <div class="row">
                                                 <div class="col" style="text-align: left">
-                                                    <form action={{ 'datefilter' }} method="POST">
-                                                    {{ csrf_field() }}
+                                                    <form action=datefilter method="POST">
+                                                    <input type="hidden" name="_token" value="loupl6WsRFoOfZMvxf6jeT9aD13WDhFXC8qLLxBE">
                                                         <div class="input-group mb-3" style="margin-top: 10px">
-                                                            <input type="date" class="form-control" name="from" value="{{ date('y-m-d') }}">
+                                                            <input type="date" class="form-control" name="from" value="21-07-06">
                                                             <span class="input-group-text">to</span>
-                                                            <input type="date" class="form-control" name="to" value="{{ date('y-m-d') }}"
+                                                            <input type="date" class="form-control" name="to" value="21-07-06"
                                                                 aria-describedby="button-addon2">
                                                         </div>
                                                         <div class="col-auto" style="margin-top: 10px">
@@ -291,8 +273,8 @@
 
                                             <div class="row">
                                                 <div class="col" style="text-align: left">
-                                                    <form action={{ 'datefilter' }} method="POST">
-                                                    {{ csrf_field() }}
+                                                    <form action=datefilter method="POST">
+                                                    <input type="hidden" name="_token" value="loupl6WsRFoOfZMvxf6jeT9aD13WDhFXC8qLLxBE">
                                                         <div class="form-check form-check-inline" style="margin-top: 10px">
                                                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                                                             <label class="form-check-label" for="inlineCheckbox1">AO</label>
@@ -327,4 +309,18 @@
                     </div>
                 </div>
             </div>
-@endsection
+        </main>
+        <div style="position: bottom; 
+        margin-bottom: 30px; 
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;">
+            © 2021 Copyright
+            <a class=" text-dark" href="http://127.0.0.1:8000">SIParma</a>
+        </div>
+    </div>
+    </body>
+
+</html>

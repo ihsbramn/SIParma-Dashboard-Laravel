@@ -68,9 +68,10 @@ class ReportController extends Controller
     }
 
     // export all data in excel
-    public function export_excel()
+    public function export()
     {
-        return Excel::download(new ReportExport, 'Report.xlsx');
+        $filename = 'report_data_x'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new ReportExport, $filename);
     }
 
     //search berdasarkan nomor moban
@@ -88,7 +89,7 @@ class ReportController extends Controller
         return view('report.index', ['report' => $report]);
     }
 
-    //filter berdasarkan date range
+    //filter berdasarkan date range_all
     public function datefilter(Request $request)
     {       
         // mengambil data dari table report sesuai pencarian data
@@ -99,6 +100,58 @@ class ReportController extends Controller
 
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
+    }
+
+    public function datefilter_open(Request $request)
+    {       
+        // mengambil data dari table report sesuai pencarian data
+        $report = DB::table('reports')
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
+            ->where('report_status','=','open')
+            ->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.open', ['report' => $report]);
+    }
+
+    public function datefilter_ogp(Request $request)
+    {       
+        // mengambil data dari table report sesuai pencarian data
+        $report = DB::table('reports')
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
+            ->where('report_status','=','ogp')
+            ->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.ogp', ['report' => $report]);
+    }
+
+    public function datefilter_eskalasi(Request $request)
+    {       
+        // mengambil data dari table report sesuai pencarian data
+        $report = DB::table('reports')
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
+            ->where('report_status','=','eskalasi')
+            ->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.eskalasi', ['report' => $report]);
+    }
+
+    public function datefilter_closed(Request $request)
+    {       
+        // mengambil data dari table report sesuai pencarian data
+        $report = DB::table('reports')
+            ->where('updated_at', '>=', $request->from)
+            ->where('updated_at', '<=', $request->to)
+            ->where('report_status','=','closed')
+            ->simplePaginate(10);
+
+        // mengirim data report ke view index
+        return view('report.closed', ['report' => $report]);
     }
 
     /**
