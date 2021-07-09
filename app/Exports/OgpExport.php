@@ -2,26 +2,18 @@
 
 namespace App\Exports;
 
-use App\Models\report;
-use Facade\FlareClient\Report as FlareClientReport;
+use App\Models\Report;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\FromView;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\Exportable;
-use Illuminate\Support\Facades\DB;
 
-
-class ReportExport implements  FromCollection, WithHeadings{
+class OgpExport implements FromCollection
+{
     /**
     * @return \Illuminate\Support\Collection
     */
-    
-    // download db data in excel
     public function collection()
     {
-        return Report::all();
+        return Report::all()
+        ->where('report_status','==','ogp');
     }
 
     // auto headings for excel file
@@ -45,4 +37,3 @@ class ReportExport implements  FromCollection, WithHeadings{
         ];
     }
 }
-
