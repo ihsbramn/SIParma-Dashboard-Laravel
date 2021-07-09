@@ -13,18 +13,27 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Illuminate\Support\Facades\DB;
 
 
-class ReportExport implements  FromCollection, WithHeadings{
+class ReportExport implements  FromView, WithHeadings{
     /**
     * @return \Illuminate\Support\Collection
     */
     
     // download db data in excel
-    public function collection()
-    {
-        return Report::all()
-        ->where('report_status', '==', 'closed');
-    }
+    // public function collection()
+    // {
+    //     return Report::all()
+    //     ->where('report_status', '==', 'closed');
+    // }
     
+    // download db data in excel by view
+    public function view(): View
+    {
+        return view('report.index', [
+            'report' => Report::all()
+        ]);
+    }
+
+
     // auto headings for excel file
     public function headings(): array
     {

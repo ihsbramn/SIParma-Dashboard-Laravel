@@ -36,7 +36,7 @@
             <div class="col">
             </div>
             <div class="col">
-                <form class="form" method="get" action="{{ route('filter.home') }}">
+                <form class="form" method="get" action="{{ route('home.filter') }}">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
