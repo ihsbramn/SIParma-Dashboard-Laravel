@@ -191,7 +191,7 @@
             @yield('content')
         </main>
         <div style="position: bottom; 
-        margin-bottom: 30px; 
+        margin-bottom: 20px; 
         margin-left: auto;
         margin-right: auto;
         left: 0;
