@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 
 use App\Exports\ReportExport;
+use App\Exports\OpenExport;
+use App\Exports\OgpExport;
+use App\Exports\EskalasiExport;
+use App\Exports\ClosedExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Illuminate\Support\Facades\DB;
@@ -70,8 +74,36 @@ class ReportController extends Controller
     // export all data in excel
     public function export()
     {
-        $filename = 'report_data_x'.date('Y-m-d_H-i-s').'.xlsx';
+        $filename = 'report_data_'.date('Y-m-d_H:i:s').'.xlsx';
         return Excel::download(new ReportExport, $filename);
+    }
+    
+    // export open data in excel
+    public function exportopen()
+    {
+        $filename = 'report_data_open_'.date('Y-m-d_H:i:s').'.xlsx';
+        return Excel::download(new OpenExport, $filename);
+    }
+    
+    // export ogp data in excel
+    public function exportogp()
+    {
+        $filename = 'report_data_ogp_'.date('Y-m-d_H:i:s').'.xlsx';
+        return Excel::download(new OgpExport, $filename);
+    }
+    
+    // export eskalasi data in excel
+    public function exporteskalasi()
+    {
+        $filename = 'report_data_eskalasi_'.date('Y-m-d_H:i:s').'.xlsx';
+        return Excel::download(new EskalasiExport, $filename);
+    }
+    
+    // export closed data in excel
+    public function exportclosed()
+    {
+        $filename = 'report_data_closed_'.date('Y-m-d_H:i:s').'.xlsx';
+        return Excel::download(new ClosedExport, $filename);
     }
 
     //search berdasarkan nomor moban
