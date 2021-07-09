@@ -25,7 +25,7 @@ class ReportController extends Controller
     public function index()
     {
         // mengambil data dari table report
-        $report = DB::table('reports')->simplePaginate(10);
+        $report = DB::table('reports')->paginate(10);
 
         // mengirim data report ke view index
         return view('report.index', compact('report'));
@@ -35,7 +35,7 @@ class ReportController extends Controller
     public function open()
     {
         // mengambil data dari table report
-        $report = Report::where('report_status','=','open')->simplePaginate(10);
+        $report = Report::where('report_status','=','open')->paginate(10);
 
         // mengirim data report ke view index
         return view('report.open', compact('report'));
@@ -45,7 +45,7 @@ class ReportController extends Controller
     public function ogp()
     {
         // mengambil data dari table report
-        $report = Report::where('report_status','=','ogp')->simplePaginate(10);
+        $report = Report::where('report_status','=','ogp')->paginate(10);
 
         // mengirim data report ke view index
         return view('report.ogp', compact('report'));
@@ -55,7 +55,7 @@ class ReportController extends Controller
     public function eskalasi()
     {
         // mengambil data dari table report
-        $report = Report::where('report_status','=','eskalasi')->simplePaginate(10);
+        $report = Report::where('report_status','=','eskalasi')->paginate(10);
 
         // mengirim data report ke view index
         return view('report.eskalasi', compact('report'));
@@ -65,7 +65,7 @@ class ReportController extends Controller
     public function closed()
     {
         // mengambil data dari table report
-        $report = Report::where('report_status','=','closed')->simplePaginate(10);
+        $report = Report::where('report_status','=','closed')->paginate(10);
 
         // mengirim data report ke view index
         return view('report.closed', compact('report'));
@@ -115,7 +115,7 @@ class ReportController extends Controller
         // mengambil data dari table report sesuai pencarian data
         $report = DB::table('reports')
             ->where('report_number', 'like', "%" . $search . "%")
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
@@ -128,7 +128,7 @@ class ReportController extends Controller
         $report = DB::table('reports')
             ->where('updated_at', '>=', $request->from)
             ->where('updated_at', '<=', $request->to)
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
@@ -141,7 +141,7 @@ class ReportController extends Controller
             ->where('updated_at', '>=', $request->from)
             ->where('updated_at', '<=', $request->to)
             ->where('report_status','=','open')
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.open', ['report' => $report]);
@@ -154,7 +154,7 @@ class ReportController extends Controller
             ->where('updated_at', '>=', $request->from)
             ->where('updated_at', '<=', $request->to)
             ->where('report_status','=','ogp')
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.ogp', ['report' => $report]);
@@ -167,7 +167,7 @@ class ReportController extends Controller
             ->where('updated_at', '>=', $request->from)
             ->where('updated_at', '<=', $request->to)
             ->where('report_status','=','eskalasi')
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.eskalasi', ['report' => $report]);
@@ -180,7 +180,7 @@ class ReportController extends Controller
             ->where('updated_at', '>=', $request->from)
             ->where('updated_at', '<=', $request->to)
             ->where('report_status','=','closed')
-            ->simplePaginate(10);
+            ->paginate(10);
 
         // mengirim data report ke view index
         return view('report.closed', ['report' => $report]);

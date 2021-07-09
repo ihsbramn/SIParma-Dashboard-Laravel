@@ -120,14 +120,17 @@
                     @endforeach
                 </tbody>
             </table>
+            Showing {{ $report->count() }} from total {{ $report->total() }} ogp data
         </div>
 
             <!--pagination button-->
-            <div class="row" style="text-align: center; margin-top: 10px; margin-bottom: 60px">
-                <div class="col">
-                    {{ $report->links() }}
-                </div>
-            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li>
+                        {{ $report->onEachSide(5)->links() }}
+                    </li>
+                </ul>
+            </nav>
 
             <!-- Modal Details -->
             @foreach ($report as $rp)
