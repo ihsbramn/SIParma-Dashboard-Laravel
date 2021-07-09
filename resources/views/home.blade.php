@@ -286,12 +286,34 @@
                                             <button class="notif btn btn-success"
                                                 href="https://api.telegram.org/bot1786482522:AAES4KDR4jJiMue-Bu0x9iCqe9XF84C1y5c/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20Moban%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
                                         </div>
+                                        {{-- modal --}}
+                                        <div class="modal fade" id="modalnotif" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header text-center">
+                                                        <h5 class="modal-title" id="exampleModalLabel"
+                                                            style=" text-align: center;">Status</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p><b>Notif Telah dikirim !</b></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- modal --}}
                                         <script type="text/javascript">
                                             $(".notif").unbind().click(function() {
                                                 var url = $(this).attr("href");
                                                 console.log(url);
                                                 var exe = $.post(url, function() {
-                                                    alert("Notif Telah dikirim");
+                                                    $('#modalnotif').modal('show');
                                                 })
                                             });
                                         </script>
