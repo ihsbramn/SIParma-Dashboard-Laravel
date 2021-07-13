@@ -41,10 +41,10 @@ Route::get('search', [App\Http\Controllers\ReportController::class, 'search'])->
 
 //datefilter
 Route::get('datefilter', [App\Http\Controllers\ReportController::class, 'datefilter'])->name('report.datefilter');
-Route::get('datefilter_open', [App\Http\Controllers\ReportController::class, 'datefilter_open'])->name('report.open.datefilter');
-Route::get('datefilter_ogp', [App\Http\Controllers\ReportController::class, 'datefilter_ogp'])->name('report.ogp.datefilter');
-Route::get('datefilter_eskalsi', [App\Http\Controllers\ReportController::class, 'datefilter_eskalsi'])->name('report.eskalasi.datefilter');
-Route::get('datefilter_closed', [App\Http\Controllers\ReportController::class, 'datefilter_closed'])->name('report.closed.datefilter');
+Route::get('datefilter_open', [App\Http\Controllers\ReportController::class, 'datefilter_open'])->name('report.datefilter.open');
+Route::get('datefilter_ogp', [App\Http\Controllers\ReportController::class, 'datefilter_ogp'])->name('report.datefilter.ogp');
+Route::get('datefilter_eskalasi', [App\Http\Controllers\ReportController::class, 'datefilter_eskalasi'])->name('report.datefilter.eskalasi');
+Route::get('datefilter_closed', [App\Http\Controllers\ReportController::class, 'datefilter_closed'])->name('report.datefilter.closed');
 
 //page report sesuai status
 Route::get('report.open', [App\Http\Controllers\ReportController::class, 'open'])->name('report.open');

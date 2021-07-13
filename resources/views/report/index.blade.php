@@ -125,7 +125,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li>
-                        {{ $report->onEachSide(5)->links() }}
+                        {{ $report->appends($_GET)->links() }}
                     </li>
                 </ul>
             </nav>

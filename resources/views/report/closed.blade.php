@@ -3,8 +3,8 @@
 @section('content')
     <!--Search, Date Filter, and Download as excel Bar -->
     <div class="row" style="margin-top: 30px; padding-left: 20px; padding-right: 20px">
-        <div class="col" style="margin-top: 5px; text-align: right">
-            Choose
+        <div class="col" style="margin-top: 7px; text-align: right">
+            Search
         </div>
         <div class="col-2">
             <div class="input-group mb-3">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             
-            <div class="col-1" style="margin-top: 5px; text-align: right">
+            <div class="col-1" style="margin-top: 7px; text-align: right">
                 Start date
             </div>
                             
@@ -35,7 +35,7 @@
             </div>
                                                 
             <div class="col-1">
-                <a class="btn btn-outline-danger" type="button" href="{{ route('report.index') }}" id="button-addon2">Clear</a>
+                <a class="btn btn-outline-danger" type="button" href="{{ route('report.closed') }}" id="button-addon2">Clear</a>
             </div>
             
             <div class="col">
