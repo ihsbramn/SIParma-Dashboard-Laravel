@@ -9,6 +9,7 @@ use App\Exports\OpenExport;
 use App\Exports\OgpExport;
 use App\Exports\EskalasiExport;
 use App\Exports\ClosedExport;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 use Illuminate\Support\Facades\DB;
@@ -123,36 +124,63 @@ class ReportController extends Controller
 
     //filter berdasarkan date range_all
     public function datefilter(Request $request)
-    {       
-        // mengambil data dari table report sesuai pencarian data
-        $report = DB::table('reports')
-            ->where('updated_at', '>=', $request->from)
-            ->where('updated_at', '<=', $request->to)
+    {   
+        //validating    
+        $this->validate($request,[
+                'from' => 'required|date',
+                'to' => 'required|date|before_or_equal:from',
+               ]);
+        
+        //change db to carbon
+        $start = Carbon::parse($request->from);
+        $end = Carbon::parse($request->to);
+        
+        //filtering
+        $report = report::whereDate('updated_at','<=',$end->format('y-m-d'))
+            ->whereDate('updated_at','>=',$start->format('y-m-d'))
             ->paginate(10);
-
+        
         // mengirim data report ke view index
         return view('report.index', ['report' => $report]);
     }
 
     public function datefilter_open(Request $request)
-    {       
-        // mengambil data dari table report sesuai pencarian data
-        $report = DB::table('reports')
-            ->where('updated_at', '>=', $request->from)
-            ->where('updated_at', '<=', $request->to)
+    {   
+        //validating    
+        $this->validate($request,[
+                'from' => 'required|date',
+                'to' => 'required|date|before_or_equal:from',
+               ]);
+        
+        //change db to carbon
+        $start = Carbon::parse($request->from);
+        $end = Carbon::parse($request->to);
+        
+        //filtering
+        $report = report::whereDate('updated_at','<=',$end->format('y-m-d'))
+            ->whereDate('updated_at','>=',$start->format('y-m-d'))
             ->where('report_status','=','open')
-            ->paginate(10);
+            ->paginate(10);   
 
         // mengirim data report ke view index
         return view('report.open', ['report' => $report]);
     }
 
     public function datefilter_ogp(Request $request)
-    {       
-        // mengambil data dari table report sesuai pencarian data
-        $report = DB::table('reports')
-            ->where('updated_at', '>=', $request->from)
-            ->where('updated_at', '<=', $request->to)
+    {   
+        //validating    
+        $this->validate($request,[
+                'from' => 'required|date',
+                'to' => 'required|date|before_or_equal:from',
+               ]);
+        
+        //change db to carbon
+        $start = Carbon::parse($request->from);
+        $end = Carbon::parse($request->to);
+        
+        //filtering
+        $report = report::whereDate('updated_at','<=',$end->format('y-m-d'))
+            ->whereDate('updated_at','>=',$start->format('y-m-d'))
             ->where('report_status','=','ogp')
             ->paginate(10);
 
@@ -162,10 +190,19 @@ class ReportController extends Controller
 
     public function datefilter_eskalasi(Request $request)
     {       
-        // mengambil data dari table report sesuai pencarian data
-        $report = DB::table('reports')
-            ->where('updated_at', '>=', $request->from)
-            ->where('updated_at', '<=', $request->to)
+        //validating    
+        $this->validate($request,[
+                'from' => 'required|date',
+                'to' => 'required|date|before_or_equal:from',
+               ]);
+        
+        //change db to carbon
+        $start = Carbon::parse($request->from);
+        $end = Carbon::parse($request->to);
+        
+        //filtering
+        $report = report::whereDate('updated_at','<=',$end->format('y-m-d'))
+            ->whereDate('updated_at','>=',$start->format('y-m-d'))
             ->where('report_status','=','eskalasi')
             ->paginate(10);
 
@@ -175,10 +212,19 @@ class ReportController extends Controller
 
     public function datefilter_closed(Request $request)
     {       
-        // mengambil data dari table report sesuai pencarian data
-        $report = DB::table('reports')
-            ->where('updated_at', '>=', $request->from)
-            ->where('updated_at', '<=', $request->to)
+        //validating    
+        $this->validate($request,[
+                'from' => 'required|date',
+                'to' => 'required|date|before_or_equal:from',
+               ]);
+        
+        //change db to carbon
+        $start = Carbon::parse($request->from);
+        $end = Carbon::parse($request->to);
+        
+        //filtering
+        $report = report::whereDate('updated_at','<=',$end->format('y-m-d'))
+            ->whereDate('updated_at','>=',$start->format('y-m-d'))
             ->where('report_status','=','closed')
             ->paginate(10);
 

@@ -167,19 +167,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteNamed('report.index') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
+                            <a class="nav-link {{ Route::currentRouteNamed('report.index','report.search*','report.datefilter') ? 'active' : '' }} py-0" href="{{ route('report.index') }}">all</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteNamed('report.open') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
+                            <a class="nav-link {{ Route::currentRouteNamed('report.open','report.datefilter.open*') ? 'active' : '' }} py-0" href="{{ url('report.open') }}">open</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
+                            <a class="nav-link {{ Route::currentRouteNamed('report.ogp','report.datefilter.ogp*') ? 'active' : '' }} py-0" href="{{ url('report.ogp') }}">ogp</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
+                            <a class="nav-link {{ Route::currentRouteNamed('report.eskalasi','report.datefilter.eskalasi*') ? 'active' : '' }} py-0" href="{{ url('report.eskalasi') }}">eskalasi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteNamed('report.closed') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
+                            <a class="nav-link {{ Route::currentRouteNamed('report.closed','report.datefilter.closed*') ? 'active' : '' }} py-0" href="{{ url('report.closed') }}">closed</a>
                         </li>
                     </ul>
                 </div>
