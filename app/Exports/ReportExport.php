@@ -11,18 +11,36 @@ use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Illuminate\Support\Facades\DB;
+use SebastianBergmann\CodeCoverage\Report\Xml\Report as XmlReport;
 
-
-class ReportExport implements  FromCollection, WithHeadings{
+class ReportExport implements FromQuery, WithHeadings{
     /**
     * @return \Illuminate\Support\Collection
     */
     
-    // download db data in excel
-    public function collection()
-    {
-        return Report::all();
-    }
+    use Exportable;
+    
+        protected $from;
+        protected $to;
+    
+        function __construct($from,$to) {
+                $this->from = $from;
+                $this->to = $to;
+        }
+    
+        public function query()
+        {
+            $data = DB::table('reports')
+                    ->whereBetween('pdate',[ $this->from,$this->to]);
+    
+            return $data;
+        }
+    
+    // // download db data in excel
+    // public function collection()
+    // {
+    //     return Report::all();
+    // }
 
     // auto headings for excel file
     public function headings(): array
