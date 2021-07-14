@@ -73,10 +73,15 @@ class ReportController extends Controller
     }
 
     // export all data in excel
-    public function export()
+    public function export(Request $request)
     {
         $filename = 'report_data_'.date('Y-m-d_H:i:s').'.xlsx';
-        return Excel::download(new ReportExport, $filename);
+        // return Excel::download(new ReportExport, $filename);
+        $from_date=$request->from;
+        $to_date = $request->to;
+
+
+         return Excel::download(new ReportExport($from_date,$to_date), $filename);
     }
     
     // export open data in excel
@@ -126,10 +131,10 @@ class ReportController extends Controller
     public function datefilter(Request $request)
     {   
         //validating    
-        $this->validate($request,[
-                'from' => 'required|date',
-                'to' => 'required|date|before_or_equal:from',
-               ]);
+        // $this->validate($request,[
+        //         'from' => 'required|date',
+        //         'to' => 'required|date|before_or_equal:from',
+        //        ]);
         
         //change db to carbon
         $start = Carbon::parse($request->from);
@@ -146,11 +151,11 @@ class ReportController extends Controller
 
     public function datefilter_open(Request $request)
     {   
-        //validating    
-        $this->validate($request,[
-                'from' => 'required|date',
-                'to' => 'required|date|before_or_equal:from',
-               ]);
+        // //validating    
+        // $this->validate($request,[
+        //         'from' => 'required|date',
+        //         'to' => 'required|date|before_or_equal:from',
+        //        ]);
         
         //change db to carbon
         $start = Carbon::parse($request->from);
@@ -168,11 +173,11 @@ class ReportController extends Controller
 
     public function datefilter_ogp(Request $request)
     {   
-        //validating    
-        $this->validate($request,[
-                'from' => 'required|date',
-                'to' => 'required|date|before_or_equal:from',
-               ]);
+        // //validating    
+        // $this->validate($request,[
+        //         'from' => 'required|date',
+        //         'to' => 'required|date|before_or_equal:from',
+        //        ]);
         
         //change db to carbon
         $start = Carbon::parse($request->from);
@@ -190,11 +195,11 @@ class ReportController extends Controller
 
     public function datefilter_eskalasi(Request $request)
     {       
-        //validating    
-        $this->validate($request,[
-                'from' => 'required|date',
-                'to' => 'required|date|before_or_equal:from',
-               ]);
+        // //validating    
+        // $this->validate($request,[
+        //         'from' => 'required|date',
+        //         'to' => 'required|date|before_or_equal:from',
+        //        ]);
         
         //change db to carbon
         $start = Carbon::parse($request->from);
@@ -212,11 +217,11 @@ class ReportController extends Controller
 
     public function datefilter_closed(Request $request)
     {       
-        //validating    
-        $this->validate($request,[
-                'from' => 'required|date',
-                'to' => 'required|date|before_or_equal:from',
-               ]);
+        // //validating    
+        // $this->validate($request,[
+        //         'from' => 'required|date',
+        //         'to' => 'required|date|before_or_equal:from',
+        //        ]);
         
         //change db to carbon
         $start = Carbon::parse($request->from);
