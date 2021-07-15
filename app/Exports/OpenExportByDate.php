@@ -2,28 +2,38 @@
 
 namespace App\Exports;
 
-use App\Models\report;
-use Facade\FlareClient\Report as FlareClientReport;
+use App\Report;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
-use SebastianBergmann\CodeCoverage\Report\Xml\Report as XmlReport;
-
-class ReportExport implements FromCollection, WithHeadings{
+class OpenExportByDate implements FromQuery, WithHeadings
+{
     /**
     * @return \Illuminate\Support\Collection
     */
+    use Exportable;
+
+        protected $from;
+        protected $to;
     
-    public function collection()
-    {
-        return Report::all();
-    }
+        function __construct($from,$to) {
+                $this->from = $from;
+                $this->to = $to;
+        }
+    
+        public function query()
+        {
+            $data = DB::table('reports')
+                    ->whereDate('updated_at','<=',$this->to)
+                    ->whereDate('updated_at','>=',$this->from)
+                    ->where('report_status','=','open')
+                    ->orderBy('id');
+    
+            return $data;
+        }
     
     public function headings(): array
     {
@@ -50,4 +60,3 @@ class ReportExport implements FromCollection, WithHeadings{
         ];
     }
 }
-

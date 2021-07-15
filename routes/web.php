@@ -39,6 +39,14 @@ Route::get('report.export.ogp', [App\Http\Controllers\ReportController::class, '
 Route::get('report.export.eskalasi', [App\Http\Controllers\ReportController::class, 'exporteskalasi'])->name('report.export.eskalasi');
 Route::get('report.export.closed', [App\Http\Controllers\ReportController::class, 'exportclosed'])->name('report.export.closed');
 
+//report excel by date
+Route::get('report.export.bydate', [App\Http\Controllers\ReportController::class, 'exportbydate'])->name('report.export.bydate');
+Route::get('report.export.open.bydate', [App\Http\Controllers\ReportController::class, 'openexportbydate'])->name('report.export.open.bydate');
+Route::get('report.export.ogp.bydate', [App\Http\Controllers\ReportController::class, 'ogpexportbydate'])->name('report.export.ogp.bydate');
+Route::get('report.export.eskalasi.bydate', [App\Http\Controllers\ReportController::class, 'eskalasiexportbydate'])->name('report.export.eskalasi.bydate');
+Route::get('report.export.closed.bydate', [App\Http\Controllers\ReportController::class, 'closedexportbydate'])->name('report.export.closed.bydate');
+
+
 //report search by report number
 Route::get('search', [App\Http\Controllers\ReportController::class, 'search'])->name('report.search');
 
