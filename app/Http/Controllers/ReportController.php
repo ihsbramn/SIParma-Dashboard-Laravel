@@ -9,6 +9,11 @@ use App\Exports\OpenExport;
 use App\Exports\OgpExport;
 use App\Exports\EskalasiExport;
 use App\Exports\ClosedExport;
+use App\Exports\ReportExportByDate;
+use App\Exports\OpenExportByDate;
+use App\Exports\OgpExportByDate;
+use App\Exports\EskalasiExportByDate;
+use App\Exports\ClosedExportByDate;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
@@ -73,15 +78,13 @@ class ReportController extends Controller
     }
 
     // export all data in excel
-    public function export(Request $request)
+    public function export()
     {
+        //penamaan file
         $filename = 'report_data_'.date('Y-m-d_H:i:s').'.xlsx';
-        // return Excel::download(new ReportExport, $filename);
-        $from_date=$request->from;
-        $to_date = $request->to;
-
-
-         return Excel::download(new ReportExport($from_date,$to_date), $filename);
+        
+        //return download
+        return Excel::download(new ReportExport, $filename);
     }
     
     // export open data in excel
@@ -112,6 +115,78 @@ class ReportController extends Controller
         return Excel::download(new ClosedExport, $filename);
     }
 
+    // export all report data in excel by date
+    public function exportbydate(Request $request)
+    {
+        //mengambil data dr request
+        $from=$request->from;
+        $to = $request->to;
+
+        //penamaan file
+        $filename = 'report_data_from_'.date($from).'_until_'.date($to).'.xlsx';
+        
+        //return download
+        return Excel::download(new ReportExportByDate($from,$to), $filename);
+    }
+    
+    // export open report data in excel by date
+    public function openexportbydate(Request $request)
+    {
+        //mengambil data dr request
+        $from=$request->from;
+        $to = $request->to;
+
+        //penamaan file
+        $filename = 'open_data_from_'.date($from).'_until_'.date($to).'.xlsx';
+        
+        //return download
+        return Excel::download(new OpenExportByDate($from,$to), $filename);
+    }
+    
+    // export ogp report data in excel by date
+    public function ogpexportbydate(Request $request)
+    {
+        //mengambil data dr request
+        $from=$request->from;
+        $to = $request->to;
+
+        //penamaan file
+        $filename = 'ogp_data_from_'.date($from).'_until_'.date($to).'.xlsx';
+        
+        //return download
+        return Excel::download(new OgpExportByDate($from,$to), $filename);
+    }
+    
+    // export eskalasi report data in excel by date
+    public function eskalasiexportbydate(Request $request)
+    {
+        //mengambil data dr request
+        $from=$request->from;
+        $to = $request->to;
+
+        //penamaan file
+        $filename = 'eskalasi_data_from_'.date($from).'_until_'.date($to).'.xlsx';
+        
+        //return download
+        return Excel::download(new EskalasiExportByDate($from,$to), $filename);
+    }
+    
+    // export closed report data in excel by date
+    public function closedexportbydate(Request $request)
+    {
+        //mengambil data dr request
+        $from=$request->from;
+        $to = $request->to;
+
+        //penamaan file
+        $filename = 'closed_data_from_'.date($from).'_until_'.date($to).'.xlsx';
+        
+        //return download
+        return Excel::download(new ClosedExportByDate($from,$to), $filename);
+    }
+
+
+
     //search berdasarkan nomor moban
     public function search(Request $request)
     {
@@ -127,6 +202,7 @@ class ReportController extends Controller
         return view('report.index', ['report' => $report]);
     }
 
+    
     //filter berdasarkan date range_all
     public function datefilter(Request $request)
     {   

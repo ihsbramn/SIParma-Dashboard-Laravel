@@ -39,7 +39,7 @@
             </div>
             
             <div class="col">
-                <a href={{ 'report.export.eskalasi' }} type="button" class="btn btn-success">
+                <a href={{ 'report.export.eskalasi' }} type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ExcelModal">
                     Download
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-excel" viewBox="0 0 16 16" style="margin-bottom: 3px">
                         <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
@@ -236,7 +236,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        Download all report data from database : <a href={{ 'export_excel' }} class="btn btn-success" style="margin-left: 10px">Download</a>
+                                        Download eskalasi report data from database : <a href={{ 'report.export.eskalasi' }} class="btn btn-success" style="margin-left: 10px">Download</a>
                                     </div>
                                 </div>
                                 </div>
@@ -258,63 +258,13 @@
 
                                             <div class="row">
                                                 <div class="col" style="text-align: left">
-                                                    <form action={{ 'datefilter' }} method="POST">
+                                                    <form action={{ 'report.export.eskalasi.bydate' }}>
                                                     {{ csrf_field() }}
                                                         <div class="input-group mb-3" style="margin-top: 10px">
                                                             <input type="date" class="form-control" name="from" value="{{ date('y-m-d') }}">
                                                             <span class="input-group-text">to</span>
                                                             <input type="date" class="form-control" name="to" value="{{ date('y-m-d') }}"
                                                                 aria-describedby="button-addon2">
-                                                        </div>
-                                                        <div class="col-auto" style="margin-top: 10px">
-                                                            <button type="submit" class="btn btn-success mb-3">Download</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!--Option 3 BY REPORT TYPE-->
-                                <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    report type
-                                    </button>
-                                </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    Choose report type :
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col" style="text-align: left">
-                                                    <form action={{ 'datefilter' }} method="POST">
-                                                    {{ csrf_field() }}
-                                                        <div class="form-check form-check-inline" style="margin-top: 10px">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                                            <label class="form-check-label" for="inlineCheckbox1">AO</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                            <label class="form-check-label" for="inlineCheckbox2">GGN</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                            <label class="form-check-label" for="inlineCheckbox2">MO</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                            <label class="form-check-label" for="inlineCheckbox2">PDA</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                            <label class="form-check-label" for="inlineCheckbox2">MIG</label>
                                                         </div>
                                                         <div class="col-auto" style="margin-top: 10px">
                                                             <button type="submit" class="btn btn-success mb-3">Download</button>
