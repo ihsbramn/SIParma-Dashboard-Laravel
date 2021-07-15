@@ -109,7 +109,7 @@
                                 <input type="text" name="open_ogp" class="form-control" value="{{ Auth::user()->name }}"
                                     readonly>
                                 <input type="text" name="open_ogp_time" class="form-control"
-                                    value="{{ Carbon\Carbon::now()->format('H:i:s') }}" hidden>
+                                    value="{{ Carbon\Carbon::now() }}" hidden>
                             </div>
                         @endif
                         <script>
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_eskalasi_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now()->format('H:i:s') }}" id="timestamp">
+                                            value="{{ Carbon\Carbon::now() }}" id="timestamp">
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_closed_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now()->format('H:i:s') }}" id="timestamp">
+                                            value="{{ Carbon\Carbon::now() }}" id="timestamp">
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                                 <input type="text" name="eskalasi_closed" class="form-control"
                                     value="{{ Auth::user()->name }}" readonly>
                                 <input type="text" name="eskalasi_closed_time" class="form-control"
-                                    value="{{ Carbon\Carbon::now()->format('H:i:s') }}" hidden>
+                                    value="{{ Carbon\Carbon::now() }}" hidden>
                             </div>
                         @endif
 
