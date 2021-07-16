@@ -97,8 +97,8 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('performance.*') ? 'active' : '' }}"
-                                            href="{{ route('performance.index') }}">Performansi</a>
+                                        <a class="nav-link {{ Route::currentRouteNamed('user.*') ? 'active' : '' }}"
+                                            href="{{ route('user.index') }}">Performansi</a>
                                     </li>
                                 @endif
                             @endauth
@@ -134,7 +134,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

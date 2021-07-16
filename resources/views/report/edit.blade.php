@@ -111,6 +111,9 @@
                                 <input type="text" name="open_ogp_time" class="form-control"
                                     value="{{ Carbon\Carbon::now() }}" hidden>
                             </div>
+                            {{-- performansi --}}
+                            <input type="text" name="update_status" class="form-control" value="open_ogp" hidden>
+                            {{-- performansi --}}
                         @endif
                         <script>
                             $(function() {
@@ -141,8 +144,13 @@
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_eskalasi_time" type="checkbox"
                                             value="{{ Carbon\Carbon::now() }}" id="timestamp">
+                                        {{-- performansi --}}
+                                        <input class="form-check-input" type="checkbox" name="update_status"
+                                            value="ogp_eskalasi">
+                                        {{-- performansi --}}
                                     </div>
                                 </div>
+
                             </div>
                         @endif
                         @if ($report->report_status == 'ogp')
@@ -166,8 +174,13 @@
                                     <div class="col">
                                         <input class="form-check-input" name="ogp_closed_time" type="checkbox"
                                             value="{{ Carbon\Carbon::now() }}" id="timestamp">
+                                        {{-- performansi --}}
+                                        <input class="form-check-input" type="checkbox" name="update_status"
+                                            value="ogp_closed">
+                                        {{-- performansi --}}
                                     </div>
                                 </div>
+
                             </div>
                         @endif
                         @if ($report->report_status == 'eskalasi')
@@ -180,9 +193,17 @@
                                 <input type="text" name="eskalasi_closed_time" class="form-control"
                                     value="{{ Carbon\Carbon::now() }}" hidden>
                             </div>
+                            {{-- performansi --}}
+                            <input type="text" name="update_status" class="form-control" value="eskalasi_closed" hidden>
+                            {{-- performansi --}}
                         @endif
-
                     </div>
+                    {{-- create performansi --}}
+                    <input type="text" name="user_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
+                    <input type="text" name="user_name" class="form-control" value="{{ Auth::user()->name }}" hidden>
+                    <input type="text" name="id_moban" class="form-control" value="{{ $report->id }}" hidden>
+                    <input type="text" name="no_order" class="form-control" value="{{ $report->report_number }}" hidden>
+                    {{-- create performansi --}}
                 </div>
                 <div class="card-footer">
                     <div class="form-inline text-center">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\Performance;
 
 use App\Exports\ReportExport;
 use App\Exports\OpenExport;
@@ -366,6 +367,15 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $report->update($request->all());
+
+        Performance::create([
+            'user_id' => $request->user_id,
+            'user_name' => $request->user_name,
+            'id_moban' => $request->id_moban,
+            'no_order' => $request->no_order,
+            'update_status' => $request->update_status,
+        ]);
+
         return redirect()->route('home')->with('success', 'Update Successfull');
     }
 

@@ -97,8 +97,8 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('performance.*') ? 'active' : '' }}"
-                                            href="{{ route('performance.index') }}">Performansi</a>
+                                        <a class="nav-link {{ Route::currentRouteNamed('user.*') ? 'active' : '' }}"
+                                            href="{{ route('user.index') }}">Performansi</a>
                                     </li>
                                 @endif
                             @endauth
@@ -134,7 +134,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -210,20 +210,14 @@
                 <br>
                 <h2 class="text-center">Performansi</h2>
                 <br>
-                <div class="row bg-white rounded shadow">
-                    <div class="col-6 col-md-4 bg-white rounded shadow">
-                        <ul class="nav flex-column">
-                            @foreach ($user as $us)
-                                <li class="nav-item">
-                                    <a class="nav-link"
-                                        href="{{ route('performance.show', $us->id) }}">{{ $us->name }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
+                <div class="row bg-white shadow " style="border-radius: 1rem;">
+                    <div class="col-6 col-md-4 bg-white shadow" style="border-radius: 1rem;">
+                        @yield('user')
                     </div>
                     <div class="col-md-8 ">
-                        @yield('content')
+                        @yield('isi')
                     </div>
+                    <br>
                 </div>
                 <br>
         </main>

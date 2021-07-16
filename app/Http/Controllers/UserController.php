@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Performance;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PerformanceController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class PerformanceController extends Controller
      */
     public function index()
     {
-        
+        $user = \App\Models\User::all();
+        return view('user.index', compact('user'));
     }
 
     /**
@@ -41,21 +43,22 @@ class PerformanceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Performance  $performance
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Performance $performance)
+    public function show(User $user)
     {
-        
+        $performance = \App\Models\Performance::all();
+        return view('user.show',compact('user', 'performance'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Performance  $performance
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Performance $performance)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +67,10 @@ class PerformanceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Performance  $performance
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Performance $performance)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +78,10 @@ class PerformanceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Performance  $performance
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Performance $performance)
+    public function destroy($id)
     {
         //
     }
