@@ -134,7 +134,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -206,7 +206,20 @@
         @endif
 
         <main>
-            @yield('content')
+            <div class="container">
+                <br>
+                <h2 class="text-center">Performansi</h2>
+                <br>
+                <div class="row bg-white shadow " style="border-radius: 1rem;">
+                    <div class="col-6 col-md-4 bg-white shadow" style="border-radius: 1rem;">
+                        @yield('user')
+                    </div>
+                    <div class="col-md-8 ">
+                        @yield('isi')
+                    </div>
+                    <br>
+                </div>
+                <br>
         </main>
         <div style="position: bottom; 
         margin-bottom: 20px; 
@@ -216,7 +229,7 @@
         right: 0;
         text-align: center;">
             © 2021 Copyright
-            <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
+            <a id="footer" class=" text-dark" href="{{ url('/') }}">SIParma</a>
         </div>
     </div>
     @yield('script')

@@ -17,6 +17,11 @@ class CreatePerformancesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('id_moban');
+            $table->foreign('id_moban')->references('id')->on('reports');
+            $table->string('user_name');
+            $table->string('no_order');
+            $table->string('update_status');
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('performance', PerformanceController::class);
+Route::resource('user', UserController::class);
 
 Route::resource('report', ReportController::class);
 Route::get('home.filter', [HomeController::class, 'filter'])->name('home.filter');
