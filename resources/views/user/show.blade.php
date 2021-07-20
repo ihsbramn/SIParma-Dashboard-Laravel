@@ -19,6 +19,11 @@
 
 @section('isi')
     <div class="container">
+        <br>
+        <div class="chart" id="chart">
+        </div>
+    </div>
+    <div class="container">
         @foreach ($performance as $pr)
             @if ($pr->user_id == $user->id)
                 <table class="table">
@@ -50,4 +55,71 @@
             @endif
         @endforeach
     </div>
+@endsection
+
+@section('script')
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script>
+        Highcharts.chart('chart', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Grafik Performansi'
+            },
+            subtitle: {
+                text: '7 hari kebelakang'
+            },
+            xAxis: {
+                categories: [
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                    '7'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Jumlah'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'open_ogp',
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
+
+            }, {
+                name: 'ogp_eskalasi',
+                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0]
+
+            }, {
+                name: 'ogp_closed',
+                data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0]
+
+            }, {
+                name: 'eskalasi_closed',
+                data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4]
+
+            }]
+        });
+    </script>
 @endsection

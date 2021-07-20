@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Performance;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -49,6 +50,16 @@ class UserController extends Controller
     public function show(User $user)
     {
         $performance = \App\Models\Performance::all();
+        // $lastseven = \Carbon\Carbon::today()->subDays(7);
+        // // Data chart
+        // $data= [];
+
+        // foreach ($performance as $pr){
+        //     $tanggal[] = $pr->created_at;
+        // }
+        // $data = Performance::where('created_at', '>=', $lastseven)->get();
+        // dd($data);
+        // ,['data' => $data]
         return view('user.show',compact('user', 'performance'));
     }
 

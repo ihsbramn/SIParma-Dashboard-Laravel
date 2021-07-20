@@ -22,6 +22,10 @@ class CreatePerformancesTable extends Migration
             $table->string('user_name');
             $table->string('no_order');
             $table->string('update_status');
+            $table->integer('open_ogp')->nullable();
+            $table->integer('ogp_eskalasi')->nullable();
+            $table->integer('ogp_closed')->nullable();
+            $table->integer('eskalasi_closed')->nullable();
             $table->timestamps();
         });
     }
