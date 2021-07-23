@@ -28,6 +28,10 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    // bot token
+    'token' => env('BOT_TOKEN'),
+    // bot token
+    
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
