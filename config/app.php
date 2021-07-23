@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SIParma'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,6 +27,10 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+
+    // bot token
+    'token' => env('BOT_TOKEN'),
+    // bot token
 
     /*
     |--------------------------------------------------------------------------

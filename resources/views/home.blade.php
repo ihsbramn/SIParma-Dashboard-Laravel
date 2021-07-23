@@ -282,7 +282,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <button class="notif btn btn-success"
-                                                href="https://api.telegram.org/bot1786482522:AAES4KDR4jJiMue-Bu0x9iCqe9XF84C1y5c/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                                href="https://api.telegram.org/bot{{ config('app.token') }}/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
                                         </div>
                                         {{-- modal --}}
                                         <div class="modal fade" id="modalnotif" tabindex="-1"

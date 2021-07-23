@@ -29,7 +29,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('performance', PerformanceController::class);
+Route::get('user.filter', [UserController::class, 'filter'])->name('user.filter');
 Route::resource('user', UserController::class);
+
+//live or last seen status
+Route::get('users', [UserController::class, 'index']);
+Route::get('status', [UserController::class, 'status']);
+Route::get('live', [UserController::class, 'liveStatusPage']);
+Route::get('live-status/{id}', [UserController::class, 'liveStatus']);
 
 Route::resource('report', ReportController::class);
 Route::get('home.filter', [HomeController::class, 'filter'])->name('home.filter');

@@ -113,6 +113,7 @@
                             </div>
                             {{-- performansi --}}
                             <input type="text" name="update_status" class="form-control" value="open_ogp" hidden>
+                            <input type="text" name="open_ogp_stat" class="form-control" value="1" hidden>
                             {{-- performansi --}}
                         @endif
                         <script>
@@ -147,6 +148,7 @@
                                         {{-- performansi --}}
                                         <input class="form-check-input" type="checkbox" name="update_status"
                                             value="ogp_eskalasi">
+                                        <input class="form-check-input" type="checkbox" name="ogp_eskalasi_stat" value="1">
                                         {{-- performansi --}}
                                     </div>
                                 </div>
@@ -177,6 +179,7 @@
                                         {{-- performansi --}}
                                         <input class="form-check-input" type="checkbox" name="update_status"
                                             value="ogp_closed">
+                                        <input class="form-check-input" type="checkbox" name="ogp_closed_stat" value="1">
                                         {{-- performansi --}}
                                     </div>
                                 </div>
@@ -195,6 +198,7 @@
                             </div>
                             {{-- performansi --}}
                             <input type="text" name="update_status" class="form-control" value="eskalasi_closed" hidden>
+                            <input type="text" name="eskalasi_closed_stat" class="form-control" value="1" hidden>
                             {{-- performansi --}}
                         @endif
                     </div>
