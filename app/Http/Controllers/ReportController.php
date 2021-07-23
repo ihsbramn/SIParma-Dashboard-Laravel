@@ -374,10 +374,10 @@ class ReportController extends Controller
             'id_moban' => $request->id_moban,
             'no_order' => $request->no_order,
             'update_status' => $request->update_status,
-            'open_ogp' => $request->open_ogp,
-            'ogp_eskalasi' => $request->ogp_eskalasi,
-            'ogp_closed' => $request->ogp_closed,
-            'eskalasi_closed' => $request->eskalasi_closed,
+            'open_ogp_stat' => $request->open_ogp_stat,
+            'ogp_eskalasi_stat' => $request->ogp_eskalasi_stat,
+            'ogp_closed_stat' => $request->ogp_closed_stat,
+            'eskalasi_closed_stat' => $request->eskalasi_closed_stat,
         ]);
 
         return redirect()->route('home')->with('success', 'Update Successfull');

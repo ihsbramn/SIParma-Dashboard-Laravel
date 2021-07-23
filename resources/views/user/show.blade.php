@@ -11,6 +11,39 @@
             <hr>
             <p>Nama : {{ $user->name }}</p>
             <p>Email : {{ $user->email }}</p>
+
+            <br>
+
+            <table class="table table-hover ml-2">
+                <thead>
+                    <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Last Seen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @if (Cache::has('user-is-online-' . $user->id))
+                                <span class="text-success">Online</span>
+                            @else
+                                <span class="text-secondary">Offline</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($user->last_seen != null)
+                                {{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
+                            @else
+                                No data
+                            @endif
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <br>
+            <br>
         </div>
         <br>
     </div>
@@ -23,37 +56,46 @@
         <div class="chart" id="chart">
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
     <div class="container">
-        @foreach ($performance as $pr)
-            @if ($pr->user_id == $user->id)
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">User ID</th>
-                            <th scope="col">ID Moban</th>
-                            <th scope="col">Updated by</th>
-                            <th scope="col">No. Order</th>
-                            <th scope="col">Update Status</th>
-                            <th scope="col">Created At</th>
-                            <th scope="col">Updated At</th>
-                        </tr>
-                    </thead>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"> #</th>
+                        <th scope="col">User ID</th>
+                        <th scope="col">ID Moban</th>
+                        <th scope="col">Updated by</th>
+                        <th scope="col">No. Order</th>
+                        <th scope="col">Update Status</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                @foreach ($performance as $pr)
+                    {{-- @if ($pr->user_id == $user->id) --}}
                     <tbody>
                         <tr>
-                            <td>{{ $pr->id }}</td>
+                            <th scope="row"></th>
                             <td>{{ $pr->user_id }}</td>
                             <td>{{ $pr->id_moban }}</td>
                             <td>{{ $pr->user_name }}</td>
                             <td>{{ $pr->no_order }}</td>
                             <td>{{ $pr->update_status }}</td>
                             <td>{{ $pr->created_at }}</td>
-                            <td>{{ $pr->updated_at }}</td>
                         </tr>
                     </tbody>
-                </table>
-            @endif
-        @endforeach
+                    {{-- @endif --}}
+                @endforeach
+            </table>
+        </div>
+
     </div>
 @endsection
 
@@ -66,60 +108,41 @@
                 type: 'column'
             },
             title: {
-                text: 'Grafik Performansi'
+                text: 'User Performance'
             },
             subtitle: {
-                text: '7 hari kebelakang'
+                text: 'Last 30 days Data'
             },
             xAxis: {
-                categories: [
-                    '1',
-                    '2',
-                    '3',
-                    '4',
-                    '5',
-                    '6',
-                    '7'
-                ],
-                crosshair: true
+                categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
             },
+
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Jumlah'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
+                    text: 'Count'
                 }
             },
             series: [{
-                name: 'open_ogp',
-                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
-
-            }, {
-                name: 'ogp_eskalasi',
-                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0]
-
-            }, {
-                name: 'ogp_closed',
-                data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0]
-
-            }, {
-                name: 'eskalasi_closed',
-                data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4]
-
-            }]
+                name: 'Status',
+                data: [{
+                    name: 'Open -> OGP',
+                    color: '#e39400',
+                    y: {{ $open_ogp }}
+                }, {
+                    name: 'OGP -> Eskalasi',
+                    color: '#0aa9ff',
+                    y: {{ $ogp_eskalasi }}
+                }, {
+                    name: 'OGP -> Closed',
+                    color: '#1e4afa',
+                    y: {{ $ogp_closed }}
+                }, {
+                    name: 'Eskalasi -> Closed',
+                    color: '#03d100',
+                    y: {{ $eskalasi_closed }}
+                }]
+            }, ]
         });
     </script>
 @endsection
