@@ -11,9 +11,7 @@
             <hr>
             <p>Nama : {{ $user->name }}</p>
             <p>Email : {{ $user->email }}</p>
-
             <br>
-
             <table class="table table-hover ml-2">
                 <thead>
                     <tr>
@@ -40,12 +38,11 @@
                     </tr>
                 </tbody>
             </table>
-
-
             <br>
             <br>
         </div>
         <br>
+        <input type="button" class="btn btn-primary" value="Print" onclick="printDiv()">
     </div>
 
 @endsection
@@ -54,14 +51,6 @@
     <div class="container">
         <br>
         <div class="chart" id="chart">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-
-        </div>
-        <div class="col">
-
         </div>
     </div>
     <div class="container">
@@ -79,7 +68,6 @@
                     </tr>
                 </thead>
                 @foreach ($performance as $pr)
-                    {{-- @if ($pr->user_id == $user->id) --}}
                     <tbody>
                         <tr>
                             <th scope="row"></th>
@@ -91,11 +79,9 @@
                             <td>{{ $pr->created_at }}</td>
                         </tr>
                     </tbody>
-                    {{-- @endif --}}
                 @endforeach
             </table>
         </div>
-
     </div>
 @endsection
 
@@ -103,15 +89,28 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <script>
+        function printDiv() {
+            var divContents = document.getElementById("PFM").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+            a.document.write('<html>');
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
+
+    <script>
         Highcharts.chart('chart', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'User Performance'
+                text: '{{ $user->name }} Performance Data'
             },
             subtitle: {
-                text: 'Last 30 days Data'
+                text: 'Data for the last 30 days'
             },
             xAxis: {
                 categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
@@ -127,7 +126,7 @@
                 name: 'Status',
                 data: [{
                     name: 'Open -> OGP',
-                    color: '#e39400',
+                    color: '#f2bd1f',
                     y: {{ $open_ogp }}
                 }, {
                     name: 'OGP -> Eskalasi',

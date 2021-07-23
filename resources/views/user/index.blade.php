@@ -16,8 +16,6 @@
 
 @section('isi')
     <div class="spinner"></div>
-
-
     <style>
         .spinner {
             width: 85px;

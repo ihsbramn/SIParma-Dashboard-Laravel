@@ -134,7 +134,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -214,12 +214,13 @@
                     <div class="col-6 col-md-4 bg-white shadow" style="border-radius: 1rem;">
                         @yield('user')
                     </div>
-                    <div class="col-md-8 ">
+                    <div class="col-md-8" id="PFM">
                         @yield('isi')
                     </div>
                     <br>
                 </div>
                 <br>
+            </div>
         </main>
         <div style="position: bottom; 
         margin-bottom: 20px; 
