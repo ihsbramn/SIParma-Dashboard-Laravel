@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SIParma'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     // bot token
     'token' => env('BOT_TOKEN'),
     // bot token
-    
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
