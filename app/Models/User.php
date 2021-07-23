@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function performance(){
+        return $this->hasMany('App\Performance');
+    }
     use HasFactory, Notifiable;
 
     /**
