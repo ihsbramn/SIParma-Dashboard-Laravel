@@ -27,6 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact']);
 
 Route::resource('performance', PerformanceController::class);
 Route::get('user.filter', [UserController::class, 'filter'])->name('user.filter');
