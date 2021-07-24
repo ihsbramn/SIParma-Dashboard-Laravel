@@ -17,6 +17,10 @@
 - COPY the .env-example then rename it to .env 
 - Configure The database
 
+INSERT BOT TOKEN IN .env
+
+BOT_TOKEN=[BOT_TOKEN]
+
 ```
 
 ## Contributing
