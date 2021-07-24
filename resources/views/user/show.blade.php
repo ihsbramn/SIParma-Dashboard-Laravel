@@ -55,10 +55,10 @@
     </div>
     <div class="container">
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="my_table">
                 <thead>
                     <tr>
-                        <th scope="col"> #</th>
+                        <th scope="col">ID</th>
                         <th scope="col">User ID</th>
                         <th scope="col">ID Moban</th>
                         <th scope="col">Updated by</th>
@@ -70,7 +70,7 @@
                 @foreach ($performance as $pr)
                     <tbody>
                         <tr>
-                            <th scope="row"></th>
+                            <th scope="row">{{ $pr->id }}</th>
                             <td>{{ $pr->user_id }}</td>
                             <td>{{ $pr->id_moban }}</td>
                             <td>{{ $pr->user_name }}</td>
