@@ -73,13 +73,4 @@
 
 @section('script')
     <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-    <script src="https://raw.githubusercontent.com/ihsbramn/SIParma_Dashboard"></script>
-    <script>
-        $(function() {
-            $('body').repo({
-                user: 'ihsbramn',
-                name: 'SIParma_Dashboard'
-            })
-        });
-    </script>
 @endsection

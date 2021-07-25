@@ -101,7 +101,47 @@
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                            href="{{ route('report.edit', $rp->id) }}">Update</a>
+                                    </div>
+                                    <div class="col">
+                                        <button class="reqlam btn btn-success"
+                                            href="https://api.telegram.org/bot{{ config('app.token') }}/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20mohon%20dikirimkan%20lampiran-nya%20ke%20%40{{ Auth::user()->teleuser }}%20%2F%20{{ Auth::user()->name }}%20Melalui%20telegram%0A%0ATerimakasih%20%F0%9F%98%80">Request
+                                            Lampiran</button>
+                                        {{-- modal --}}
+                                        <div class="modal fade" id="modallampiran" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header text-center">
+                                                        <h5 class="modal-title" id="exampleModalLabel"
+                                                            style=" text-align: center;">Status</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p><b>Request Lampiran Telah dikirim !</b></p>
+                                                        <p>mohon cek pelapor melalui telegram</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- modal --}}
+                                        <script type="text/javascript">
+                                            $(".reqlam").unbind().click(function() {
+                                                var url = $(this).attr("href");
+                                                console.log(url);
+                                                var exe = $.post(url, function() {
+                                                    $('#modallampiran').modal('show');
+                                                    const audio = new Audio(
+                                                        'http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+                                                    audio.play();
+                                                })
+                                            });
+                                        </script>
                                     </div>
                                     @if (Auth::user()->admin == 1)
                                         <div class="col">
@@ -160,7 +200,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                            href="{{ route('report.edit', $rp->id) }}">Update</a>
                                     </div>
                                     @if (Auth::user()->admin == 1)
                                         <div class="col">
@@ -219,7 +259,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary btn-block "
-                                            href="{{ route('report.edit', $rp->id) }}">Update !</a>
+                                            href="{{ route('report.edit', $rp->id) }}">Update</a>
                                     </div>
                                     @if (Auth::user()->admin == 1)
                                         <div class="col">
@@ -312,6 +352,9 @@
                                                 console.log(url);
                                                 var exe = $.post(url, function() {
                                                     $('#modalnotif').modal('show');
+                                                    const audio = new Audio(
+                                                        'http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+                                                    audio.play();
                                                 })
                                             });
                                         </script>
