@@ -11,6 +11,8 @@
             <hr>
             <p>Nama : {{ $user->name }}</p>
             <p>Email : {{ $user->email }}</p>
+            <p>Telegram username : <a target="_blank"
+                    href="https://t.me/{{ $user->teleuser }}">{{ $user->teleuser }}</a></p>
             <br>
             <table class="table table-hover ml-2">
                 <thead>
