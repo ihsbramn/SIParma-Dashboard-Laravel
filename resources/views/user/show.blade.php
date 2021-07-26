@@ -7,8 +7,6 @@
         <br>
         <hr>
         <div class="container">
-
-
             <div class="row bg-light shadow rounded">
                 <h5 class=" text-center"> Data User </h5>
                 <hr>
@@ -58,7 +56,10 @@
 @section('showuser')
     <div class="container">
         <br>
-        <div class="chart" id="chart">
+        <div class="row text-center">
+            <center>
+                <div class="chart" id="chart" style=" width:600px"></div>
+            </center>
         </div>
     </div>
     <div class="container">
@@ -66,7 +67,7 @@
             <table class="table table-hover" id="my_table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">No</th>
                         <th scope="col">User ID</th>
                         <th scope="col">ID Moban</th>
                         <th scope="col">Updated by</th>
@@ -78,7 +79,7 @@
                 @foreach ($performance as $pr)
                     <tbody>
                         <tr>
-                            <th scope="row">{{ $pr->id }}</th>
+                            <th scope="row">{{ $count++ }}</th>
                             <td>{{ $pr->user_id }}</td>
                             <td>{{ $pr->id_moban }}</td>
                             <td>{{ $pr->user_name }}</td>
@@ -100,10 +101,10 @@
         function printDiv() {
             var divContents = document.getElementById("PFM").innerHTML;
             var a = window.open('', '', 'height=500, width=500');
-            a.document.write('<html>');
-            a.document.write('<body>');
+            // a.document.write('<html>');
+            // a.document.write('<body>');
             a.document.write(divContents);
-            a.document.write('</body></html>');
+            // a.document.write('</body></html>');
             a.document.close();
             a.print();
         }

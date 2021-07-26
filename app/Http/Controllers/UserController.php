@@ -82,10 +82,13 @@ class UserController extends Controller
                                     ->where('user_id','=' , $id)
                                     ->where('eskalasi_closed_stat',1)
                                     ->count();
+        //no row
+        $count = 1;        
+        
         // testing
         // dd($user, $performance, $open_ogp , $ogp_eskalasi , $ogp_closed , $eskalasi_closed);
         
-        return view('user.show',compact('user', 'performance','open_ogp','ogp_eskalasi','ogp_closed','eskalasi_closed'));
+        return view('user.show',compact('user', 'performance','open_ogp','ogp_eskalasi','ogp_closed','eskalasi_closed','count'));
     }
 
     public function status()
