@@ -82,7 +82,7 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Pelapor :
+                                    <p>Telegram Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
@@ -105,22 +105,23 @@
                                     </div>
                                     <div class="col">
                                         <button class="reqlam btn btn-success"
-                                            href="https://api.telegram.org/bot{{ config('app.token') }}/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20mohon%20dikirimkan%20lampiran-nya%20ke%20%40{{ Auth::user()->teleuser }}%20%2F%20{{ Auth::user()->name }}%20Melalui%20telegram%0A%0ATerimakasih%20%F0%9F%98%80">Request
+                                            href="https://api.telegram.org/bot{{ config('app.token') }}/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20mohon%20dikirimkan%20lampiran-nya%20ke%20%40{{ Auth::user()->teleuser }}%20%2F%20{{ Auth::user()->name }}%20Melalui%20telegram%0A%0ATerimakasih%20%F0%9F%98%80">
                                             Lampiran</button>
                                         {{-- modal --}}
                                         <div class="modal fade" id="modallampiran" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <div class="modal-header text-center">
+                                                    <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel"
-                                                            style=" text-align: center;">Status</h5>
+                                                            style=" text-align: center;">Request Lampiran Telah dikirim !
+                                                        </h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p><b>Request Lampiran Telah dikirim !</b></p>
-                                                        <p>mohon cek pelapor melalui telegram</p>
+                                                        <p>mohon cek pelapor melalui telegram yang tertera </p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
@@ -181,7 +182,7 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Pelapor :
+                                    <p>Telegram Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
@@ -240,7 +241,7 @@
                             </p>
                             <div class="collapse" id="collapse{{ $rp->id }}">
                                 <div class="card-body">
-                                    <p>Pelapor :
+                                    <p>Telegram Pelapor :
                                         <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                             rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                     </p>
@@ -300,7 +301,7 @@
                                 </p>
                                 <div class="collapse" id="collapse{{ $rp->id }}">
                                     <div class="card-body">
-                                        <p>Pelapor :
+                                        <p>Telegram Pelapor :
                                             <a href="https://t.me/{{ $rp->report_sender }}" target="_blank"
                                                 rel="noopener noreferrer">{{ $rp->report_sender }} </a>
                                         </p>
