@@ -1,55 +1,61 @@
 @extends('layouts.performansi')
 
-@section('user')
-    <br>
+@section('usershow')
     <div class="container">
+        <br>
         <a href="javascript: history.go(-1)" class="">Back</a>
         <br>
         <hr>
-        <div class="row bg-light shadow rounded">
-            <h5 class=" text-center"> Data User </h5>
-            <hr>
-            <p>Nama : {{ $user->name }}</p>
-            <p>Email : {{ $user->email }}</p>
-            <p>Telegram username : <a target="_blank"
-                    href="https://t.me/{{ $user->teleuser }}">{{ $user->teleuser }}</a></p>
-            <br>
-            <table class="table table-hover ml-2">
-                <thead>
-                    <tr>
-                        <th scope="col">Status</th>
-                        <th scope="col">Last Seen</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            @if (Cache::has('user-is-online-' . $user->id))
-                                <span class="text-success">Online</span>
-                            @else
-                                <span class="text-secondary">Offline</span>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($user->last_seen != null)
-                                {{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
-                            @else
-                                No data
-                            @endif
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <br>
+        <div class="container">
+
+
+            <div class="row bg-light shadow rounded">
+                <h5 class=" text-center"> Data User </h5>
+                <hr>
+                <p>Nama : {{ $user->name }}</p>
+                <p>Email : {{ $user->email }}</p>
+                <p>Telegram username : <a target="_blank"
+                        href="https://t.me/{{ $user->teleuser }}">{{ $user->teleuser }}</a></p>
+                <br>
+                <table class="table table-hover ml-2">
+                    <thead>
+                        <tr>
+                            <th scope="col">Status</th>
+                            <th scope="col">Last Seen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @if (Cache::has('user-is-online-' . $user->id))
+                                    <span class="text-success">Online</span>
+                                @else
+                                    <span class="text-secondary">Offline</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($user->last_seen != null)
+                                    {{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
+                                @else
+                                    No data
+                                @endif
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+            </div>
         </div>
         <br>
         <input type="button" class="btn btn-primary" value="Print" onclick="printDiv()">
+        <br>
+        <br>
     </div>
 
 @endsection
 
-@section('isi')
+@section('showuser')
     <div class="container">
         <br>
         <div class="chart" id="chart">
