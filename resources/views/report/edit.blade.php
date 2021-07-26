@@ -143,16 +143,32 @@
                                         <div class="label" for="timestamp">Timestamp </div>
                                     </div>
                                     <div class="col">
-                                        <input class="form-check-input" name="ogp_eskalasi_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now() }}" id="timestamp">
+                                        <input class="form-check-input" id="selectAll1" type="checkbox">
+                                        <input class="form-check-input" id="up_ogp_eskalasi1" name="ogp_eskalasi_time"
+                                            type="checkbox" value="{{ Carbon\Carbon::now() }}" id="timestamp" hidden>
                                         {{-- performansi --}}
-                                        <input class="form-check-input" type="checkbox" name="update_status"
-                                            value="ogp_eskalasi">
-                                        <input class="form-check-input" type="checkbox" name="ogp_eskalasi_stat" value="1">
+                                        <input class="form-check-input" id="up_ogp_eskalasi2" type="checkbox"
+                                            name="update_status" value="ogp_eskalasi" hidden>
+                                        <input class="form-check-input" id="up_ogp_eskalasi3" type="checkbox"
+                                            name="ogp_eskalasi_stat" value="1" hidden>
                                         {{-- performansi --}}
                                     </div>
                                 </div>
+                                <script type="text/javascript">
+                                    $("#selectAll1").click(function() {
+                                        $("#up_ogp_eskalasi1").prop("checked", $(this).prop("checked"));
+                                        $("#up_ogp_eskalasi2").prop("checked", $(this).prop("checked"));
+                                        $("#up_ogp_eskalasi3").prop("checked", $(this).prop("checked"));
+                                    });
 
+                                    $("#selectAll1").click(function() {
+                                        if (!$(this).prop("checked")) {
+                                            $("#up_ogp_eskalasi1").prop("checked", false);
+                                            $("#up_ogp_eskalasi2").prop("checked", false);
+                                            $("#up_ogp_eskalasi3").prop("checked", false);
+                                        }
+                                    });
+                                </script>
                             </div>
                         @endif
                         @if ($report->report_status == 'ogp')
@@ -174,16 +190,32 @@
                                         <div class="label" for="timestamp">Timestamp </div>
                                     </div>
                                     <div class="col">
-                                        <input class="form-check-input" name="ogp_closed_time" type="checkbox"
-                                            value="{{ Carbon\Carbon::now() }}" id="timestamp">
+                                        <input class="form-check-input" id="selectAll2" type="checkbox">
+                                        <input class="form-check-input" id="up_ogp_closed1" name="ogp_closed_time"
+                                            type="checkbox" value="{{ Carbon\Carbon::now() }}" id="timestamp" hidden>
                                         {{-- performansi --}}
-                                        <input class="form-check-input" type="checkbox" name="update_status"
-                                            value="ogp_closed">
-                                        <input class="form-check-input" type="checkbox" name="ogp_closed_stat" value="1">
+                                        <input class="form-check-input" id="up_ogp_closed2" type="checkbox"
+                                            name="update_status" value="ogp_closed" hidden>
+                                        <input class="form-check-input" id="up_ogp_closed3" type="checkbox"
+                                            name="ogp_closed_stat" value="1" hidden>
                                         {{-- performansi --}}
                                     </div>
                                 </div>
+                                <script type="text/javascript">
+                                    $("#selectAll2").click(function() {
+                                        $("#up_ogp_closed1").prop("checked", $(this).prop("checked"));
+                                        $("#up_ogp_closed2").prop("checked", $(this).prop("checked"));
+                                        $("#up_ogp_closed3").prop("checked", $(this).prop("checked"));
+                                    });
 
+                                    $("#selectAll2").click(function() {
+                                        if (!$(this).prop("checked")) {
+                                            $("#up_ogp_closed1").prop("checked", false);
+                                            $("#up_ogp_closed2").prop("checked", false);
+                                            $("#up_ogp_closed3").prop("checked", false);
+                                        }
+                                    });
+                                </script>
                             </div>
                         @endif
                         @if ($report->report_status == 'eskalasi')

@@ -54,7 +54,7 @@ class UserController extends Controller
         // last 30 days
         $lastmonth = \Carbon\Carbon::today()->subDays(30);
 
-        // get user id var
+        // get user id value
         $id = $user->id;
 
         // getting user data
@@ -83,7 +83,7 @@ class UserController extends Controller
                                     ->where('eskalasi_closed_stat',1)
                                     ->count();
         // testing
-        // dd($performance, $open_ogp , $ogp_eskalasi , $ogp_closed , $eskalasi_closed);
+        // dd($user, $performance, $open_ogp , $ogp_eskalasi , $ogp_closed , $eskalasi_closed);
         
         return view('user.show',compact('user', 'performance','open_ogp','ogp_eskalasi','ogp_closed','eskalasi_closed'));
     }

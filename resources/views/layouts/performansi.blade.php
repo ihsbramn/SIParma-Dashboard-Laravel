@@ -134,7 +134,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -210,14 +210,15 @@
                 <br>
                 <h2 class="text-center">Performansi</h2>
                 <br>
+                @yield('user')
+                @yield('isi')
+                <br>
                 <div class="row bg-white shadow " style="border-radius: 1rem;">
-                    <div class="col-6 col-md-4 bg-white shadow" style="border-radius: 1rem;">
-                        @yield('user')
-                    </div>
-                    <div class="col-md-8" id="PFM">
-                        @yield('isi')
-                    </div>
-                    <br>
+                    @yield('usershow')
+                </div>
+                <br>
+                <div class="row bg-white shadow " style="border-radius: 1rem;">
+                    @yield('showuser')
                 </div>
                 <br>
             </div>
@@ -229,8 +230,15 @@
         left: 0;
         right: 0;
         text-align: center;">
-            © 2021 Copyright
-            <a id="footer" class=" text-dark" href="{{ url('/') }}">SIParma</a>
+            © 2021
+            <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
+            |
+            free to use,
+            <a class=" text-dark" target="_blank" href="{{ url('https://opensource.org/licenses/MIT') }}">licensed
+                under MIT</a>
+            |
+            <a class=" text-dark" href="{{ url('/contact') }}">Contact
+                Developer</a>
         </div>
     </div>
     @yield('script')

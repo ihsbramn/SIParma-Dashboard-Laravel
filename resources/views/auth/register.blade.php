@@ -51,6 +51,23 @@
                             </div>
                             <br>
                             <div class="form-group row">
+                                <label for="teleuser"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Telegram username (tanpa @)') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="teleuser" type="text"
+                                        class="form-control @error('teleuser') is-invalid @enderror" name="teleuser"
+                                        value="{{ old('teleuser') }}" required autocomplete="teleuser" autofocus>
+
+                                    @error('teleuser')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

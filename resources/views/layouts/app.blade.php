@@ -37,6 +37,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Styles -->
+    @yield('style')
     <link rel="shortcut icon" href="{{ url('images/favicon.png') }}">
     <link rel="icon" type="image/png" href="{{ url('images/favicon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -134,7 +135,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -215,8 +216,15 @@
         left: 0;
         right: 0;
         text-align: center;">
-            © 2021 Copyright
+            © 2021
             <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
+            |
+            free to use,
+            <a class=" text-dark" target="_blank" href="{{ url('https://opensource.org/licenses/MIT') }}">licensed
+                under MIT</a>
+            |
+            <a class=" text-dark" href="{{ url('/contact') }}">Contact
+                Developer</a>
         </div>
     </div>
     @yield('script')
