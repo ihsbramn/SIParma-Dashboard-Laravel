@@ -96,6 +96,9 @@
 
 @section('script')
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <script>
         function printDiv() {
@@ -147,7 +150,7 @@
                     y: {{ $ogp_closed }}
                 }, {
                     name: 'Eskalasi -> Closed',
-                    color: '#03d100',
+                    color: '#1cbd00',
                     y: {{ $eskalasi_closed }}
                 }]
             }, ]

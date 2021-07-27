@@ -18,7 +18,28 @@ class UserController extends Controller
     public function index()
     {
         $user = \App\Models\User::all();
-        return view('user.index', compact('user'));
+
+        $today = \Carbon\Carbon::today();
+        //data piechart
+        $open_ogpi= Performance::where('created_at', '>=', $today)
+                                    ->where('update_status','open_ogp')
+                                    ->count();
+
+        $ogp_eskalasii= Performance::where('created_at', '>=', $today)
+                                    ->where('update_status','ogp_eskalasi')
+                                    ->count();
+
+        $ogp_closedi= Performance::where('created_at', '>=', $today)
+                                    ->where('update_status','ogp_closed')
+                                    ->count();
+
+        $eskalasi_closedi= Performance::where('created_at', '>=', $today)
+                                    ->where('update_status','eskalasi_closed')
+                                    ->count();
+        // testing
+        // dd($user,$open_ogpi , $ogp_eskalasii, $ogp_closedi, $eskalasi_closedi);
+
+        return view('user.index', compact('user','open_ogpi','ogp_eskalasii','ogp_closedi','eskalasi_closedi'));
     }
 
     /**
