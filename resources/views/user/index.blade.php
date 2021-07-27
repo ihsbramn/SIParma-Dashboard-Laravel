@@ -5,10 +5,11 @@
         <div class="col-6 col-md-4 bg-white shadow" style="border-radius: 1rem;">
             <ul class="nav flex-column">
                 <br>
-                <h5 class=" text-center"> List User</h5>
+                <p class=" text-center"><b>User Performance</b> </p>
                 <hr>
+                <p class=" text-center"> List User</p>
                 @foreach ($user as $us)
-                    <li class="nav-item">
+                    <li class="nav-item hover bg-white">
                         <a class="nav-link" href="{{ route('user.show', $us->id) }}">{{ $us->name }}</a>
                     </li>
                 @endforeach
@@ -19,57 +20,90 @@
     @endsection
 
     @section('isi')
-        <div class="col-md-8" id="PFM">
-            <div class="spinner"></div>
-            <style>
-                .spinner {
-                    width: 85px;
-                    height: 85px;
-                    background-color: #333;
-
-                    margin: 100px auto;
-                    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-                    animation: sk-rotateplane 1.2s infinite ease-in-out;
-                }
-
-                @-webkit-keyframes sk-rotateplane {
-                    0% {
-                        -webkit-transform: perspective(120px)
-                    }
-
-                    50% {
-                        -webkit-transform: perspective(120px) rotateY(180deg)
-                    }
-
-                    100% {
-                        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
-                    }
-                }
-
-                @keyframes sk-rotateplane {
-                    0% {
-                        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-                        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
-                    }
-
-                    50% {
-                        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-                        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
-                    }
-
-                    100% {
-                        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-                        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-                    }
-                }
-
-            </style>
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <br>
+                <h3 class=" text-center">Today Performance Data</h3>
+                <p class="text-center" id='ct'></p>
+                <br>
+                <div id="container"></div>
+                <br>
+                <br>
+            </figure>
         </div>
     </div>
 @endsection
 
-@section('scrpit')
-    <script>
+@section('script')
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Count',
+                colorByPoint: true,
+                data: [{
+                    name: 'Open -> OGP',
+                    color: '#f2bd1f',
+                    y: {{ $open_ogpi }}
+                }, {
+                    name: 'OGP -> Eskalasi',
+                    color: '#0aa9ff',
+                    y: {{ $ogp_eskalasii }}
+                }, {
+                    name: 'OGP -> Closed',
+                    color: '#1e4afa',
+                    y: {{ $ogp_closedi }}
+                }, {
+                    name: 'Eskalasi -> Closed',
+                    color: '#1cbd00',
+                    y: {{ $eskalasi_closedi }}
+                }]
+            }]
+        });
+    </script>
+    <script type="text/javascript">
+        function display_c() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var x = new Date()
+            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+        }
     </script>
 @endsection
