@@ -75,8 +75,15 @@
     left: 0;
     right: 0;
     text-align: center;">
-        © 2021 Copyright
+        © 2021
         <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
+        |
+        free to use,
+        <a class=" text-dark" target="_blank" href="{{ url('https://opensource.org/licenses/MIT') }}">licensed
+            under MIT</a>
+        |
+        <a class=" text-dark" href="{{ url('/contact') }}">Contact
+            Developer</a>
     </div>
 </body>
 
