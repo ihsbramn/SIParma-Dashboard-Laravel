@@ -26,7 +26,9 @@
                 <h3 class=" text-center">Today Performance Data</h3>
                 <p class="text-center" id='ct'></p>
                 <br>
-                <div id="container"></div>
+                <div class="container">
+                    <div id="containerpie"></div>
+                </div>
                 <br>
                 <br>
             </figure>
@@ -41,7 +43,7 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <script>
-        Highcharts.chart('container', {
+        Highcharts.chart('containerpie', {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
