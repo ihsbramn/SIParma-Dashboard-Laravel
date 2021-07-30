@@ -73,3 +73,11 @@ Route::get('report.ogp', [App\Http\Controllers\ReportController::class, 'ogp'])-
 Route::get('report.eskalasi', [App\Http\Controllers\ReportController::class, 'eskalasi'])->name('report.eskalasi');
 Route::get('report.closed', [App\Http\Controllers\ReportController::class, 'closed'])->name('report.closed');
 
+//name search performansi
+Route::get('performansi.search', [App\Http\Controllers\UserController::class, 'search'])->name('performansi.search');
+
+//filter action performansi
+Route::get('performansi.filter', [App\Http\Controllers\UserController::class, 'filter'])->name('performansi.filter');
+
+//chart overview all user
+Route::get('overview.user', [App\Http\Controllers\UserController::class, 'overview'])->name('performansi.overview');
