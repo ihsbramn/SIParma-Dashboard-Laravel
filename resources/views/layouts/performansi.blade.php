@@ -97,7 +97,7 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('user.*') ? 'active' : '' }}"
+                                        <a class="nav-link {{ Route::currentRouteNamed('user.*','performansi.*') ? 'active' : '' }}"
                                             href="{{ route('user.index') }}">Performansi</a>
                                     </li>
                                 @endif
@@ -207,20 +207,21 @@
 
         <main>
             <div class="container">
-                <br>
-                <h2 class="text-center">Performansi</h2>
-                <br>
-                @yield('user')
-                @yield('isi')
-                <br>
+                <h1 class="text-center" style="font-weight: bold; font-size: 35px; color: #F44336; margin-top: 15px; margin-bottom: 15px">Performansi</h1>
+                <div class="row">
+                    <div class="col-4">
+                        @yield('user')
+                    </div>
+                    <div class="col-8">
+                        @yield('isi')
+                    </div>
+                </div>
                 <div class="row bg-white shadow " style="border-radius: 1rem;">
                     @yield('usershow')
                 </div>
-                <br>
-                <div class="row bg-white shadow " id="PFM" style="border-radius: 1rem;">
+                <div class="row" id="PFM" style="margin-top: 25px">
                     @yield('showuser')
                 </div>
-                <br>
             </div>
         </main>
         <div style="position: bottom; 
@@ -229,7 +230,8 @@
         margin-right: auto;
         left: 0;
         right: 0;
-        text-align: center;">
+        text-align: center;
+        padding-top: 25px">
             © 2021
             <a class=" text-dark" href="{{ url('/') }}">SIParma</a>
             |

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Performance;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Cache;
+use PhpParser\Builder\Function_;
 
 class UserController extends Controller
 {
@@ -21,25 +23,60 @@ class UserController extends Controller
 
         $today = \Carbon\Carbon::today();
         //data piechart
-        $open_ogpi= Performance::where('created_at', '>=', $today)
-                                    ->where('update_status','open_ogp')
-                                    ->count();
+        $open_ogpi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'open_ogp')
+            ->count();
 
-        $ogp_eskalasii= Performance::where('created_at', '>=', $today)
-                                    ->where('update_status','ogp_eskalasi')
-                                    ->count();
+        $ogp_eskalasii = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'ogp_eskalasi')
+            ->count();
 
-        $ogp_closedi= Performance::where('created_at', '>=', $today)
-                                    ->where('update_status','ogp_closed')
-                                    ->count();
+        $ogp_closedi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'ogp_closed')
+            ->count();
 
-        $eskalasi_closedi= Performance::where('created_at', '>=', $today)
-                                    ->where('update_status','eskalasi_closed')
-                                    ->count();
+        $eskalasi_closedi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'eskalasi_closed')
+            ->count();
         // testing
         // dd($user,$open_ogpi , $ogp_eskalasii, $ogp_closedi, $eskalasi_closedi);
 
-        return view('user.index', compact('user','open_ogpi','ogp_eskalasii','ogp_closedi','eskalasi_closedi'));
+        return view('user.index', compact('user', 'open_ogpi', 'ogp_eskalasii', 'ogp_closedi', 'eskalasi_closedi'));
+    }
+
+    //search berdasarkan nama user
+    public function search(Request $request)
+    {
+        // menangkap data pencarian
+        $search = $request->search;
+
+        $user = \App\Models\User::all();
+
+        $today = \Carbon\Carbon::today();
+        //data piechart
+        $open_ogpi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'open_ogp')
+            ->count();
+
+        $ogp_eskalasii = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'ogp_eskalasi')
+            ->count();
+
+        $ogp_closedi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'ogp_closed')
+            ->count();
+
+        $eskalasi_closedi = Performance::where('created_at', '>=', $today)
+            ->where('update_status', 'eskalasi_closed')
+            ->count();
+
+        // mengambil data dari table report sesuai pencarian data
+        $user = DB::table('users')
+            ->where('name', 'like', "%" . $search . "%")
+            ->get();
+
+        // mengirim data report ke view index
+        return view('user.index', ['user' => $user], compact('user', 'open_ogpi', 'ogp_eskalasii', 'ogp_closedi', 'eskalasi_closedi'));
     }
 
     /**
@@ -69,7 +106,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+
     public function show(User $user)
     {
         // last 30 days
@@ -80,36 +117,59 @@ class UserController extends Controller
 
         // getting user data
         $performance = Performance::where('created_at', '>=', $lastmonth)
-                                        ->where('user_id','=' , $id)
-                                        ->get();
-        
+            ->where('user_id', '=', $id)
+            ->get();
+
         // Data chart
-        $open_ogp= Performance::where('created_at', '>=', $lastmonth)
-                                    ->where('user_id','=' , $id)
-                                    ->where('open_ogp_stat',1)
-                                    ->count();
+        $open_ogp = Performance::where('created_at', '>=', $lastmonth)
+            ->where('user_id', '=', $id)
+            ->where('open_ogp_stat', 1)
+            ->count();
 
-        $ogp_eskalasi= Performance::where('created_at', '>=', $lastmonth)
-                                    ->where('user_id','=' , $id)
-                                    ->where('ogp_eskalasi_stat',1)
-                                    ->count();
-        
-        $ogp_closed= Performance::where('created_at', '>=', $lastmonth)
-                                    ->where('user_id','=' , $id)
-                                    ->where('ogp_closed_stat',1)
-                                    ->count();
+        $ogp_eskalasi = Performance::where('created_at', '>=', $lastmonth)
+            ->where('user_id', '=', $id)
+            ->where('ogp_eskalasi_stat', 1)
+            ->count();
 
-        $eskalasi_closed= Performance::where('created_at', '>=', $lastmonth)
-                                    ->where('user_id','=' , $id)
-                                    ->where('eskalasi_closed_stat',1)
-                                    ->count();
+        $ogp_closed = Performance::where('created_at', '>=', $lastmonth)
+            ->where('user_id', '=', $id)
+            ->where('ogp_closed_stat', 1)
+            ->count();
+
+        $eskalasi_closed = Performance::where('created_at', '>=', $lastmonth)
+            ->where('user_id', '=', $id)
+            ->where('eskalasi_closed_stat', 1)
+            ->count();
         //no row
-        $count = 1;        
-        
+        $count = 1;
+
         // testing
         // dd($user, $performance, $open_ogp , $ogp_eskalasi , $ogp_closed , $eskalasi_closed);
+
+        return view('user.show', compact('user', 'performance', 'open_ogp', 'ogp_eskalasi', 'ogp_closed', 'eskalasi_closed', 'count'));
+    }
+
+    //filter action
+    public function filter(Request $request, User $user)
+    {
+        // get user id value
+        $id = $user->id;
+
+        // get filter parameter
+        $filter = $request->input('filteraction');
+
         
-        return view('user.show',compact('user', 'performance','open_ogp','ogp_eskalasi','ogp_closed','eskalasi_closed','count'));
+        $performance_filter = DB::table('performances')
+            ->where('user_id','=',$id)
+            ->where('update_status', 'LIKE', "%{$filter}%")
+            ->get();
+
+        return view('user.show', compact('performance_filter', 'user'));
+    }
+
+    public function overview()
+    {
+        return view('user.overview');
     }
 
     public function status()
@@ -165,7 +225,7 @@ class UserController extends Controller
             'last_seen' => $last_seen,
         ]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
