@@ -10,7 +10,7 @@
     {{-- <br> --}}
     <script type="text/javascript">
         function display_c() {
-            var refresh = 1000; // Refresh rate in milli seconds
+            var refresh = 3000; // Refresh rate in milli seconds
             mytime = setTimeout('display_ct()', refresh)
         }
 
@@ -197,6 +197,33 @@
                                 <p>No SC : {{ $rp->report_number }}</p>
                                 <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
+                            {{-- collapse send photo --}}
+                            <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsephoto{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
+                                Send Photo
+                            </button>
+                            <div class="collapse" id="collapsephoto{{ $rp->id }}">
+                                <div class="container">
+                                    <form method="POST" target="_blank"
+                                        action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
+                                        enctype="multipart/form-data">
+                                        <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
+                                        <input type="text" name="reply_to_message_id" value="{{ $rp->msg_id }}" hidden />
+                                        <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                        <br />
+                                        <input class="form-control" type="text" name="caption" placeholder="caption" />
+                                        <br />
+                                        <input class="form-control" type="file" name="photo" />
+                                        <br />
+                                        <div class="container text-center">
+                                            <input class="btn btn-outline-primary" type="submit" value="Send" />
+                                        </div>
+                                    </form>
+                                    <br>
+                                </div>
+                            </div>
+                            {{-- collapse send photo --}}
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
@@ -256,6 +283,33 @@
                                 <p>No SC : {{ $rp->report_number }}</p>
                                 <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}</p>
                             </div>
+                            {{-- collapse send photo --}}
+                            <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsephoto{{ $rp->id }}" aria-expanded="false"
+                                aria-controls="collapse{{ $rp->id }}">
+                                Send Photo
+                            </button>
+                            <div class="collapse" id="collapsephoto{{ $rp->id }}">
+                                <div class="container">
+                                    <form method="POST" target="_blank"
+                                        action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
+                                        enctype="multipart/form-data">
+                                        <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
+                                        <input type="text" name="reply_to_message_id" value="{{ $rp->msg_id }}" hidden />
+                                        <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                        <br />
+                                        <input class="form-control" type="text" name="caption" placeholder="caption" />
+                                        <br />
+                                        <input class="form-control" type="file" name="photo" />
+                                        <br />
+                                        <div class="container text-center">
+                                            <input class="btn btn-outline-primary" type="submit" value="Send" />
+                                        </div>
+                                    </form>
+                                    <br>
+                                </div>
+                            </div>
+                            {{-- collapse send photo --}}
                             <div class="card-footer text-center">
                                 <div class="row">
                                     <div class="col">
@@ -319,6 +373,35 @@
                                     <p>Deskripsi : {{ $rp->report_value }} , {{ $rp->report_detail }}
                                     </p>
                                 </div>
+                                {{-- collapse send photo --}}
+                                <button class="btn btn-light" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapsephoto{{ $rp->id }}" aria-expanded="false"
+                                    aria-controls="collapse{{ $rp->id }}">
+                                    Send Photo
+                                </button>
+                                <div class="collapse" id="collapsephoto{{ $rp->id }}">
+                                    <div class="container">
+                                        <form method="POST" target="_blank"
+                                            action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
+                                            enctype="multipart/form-data">
+                                            <input type="text" name="chat_id" value="{{ config('app.idgroup') }}"
+                                                hidden />
+                                            <input type="text" name="reply_to_message_id" value="{{ $rp->msg_id }}"
+                                                hidden />
+                                            <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                            <br />
+                                            <input class="form-control" type="text" name="caption" placeholder="caption" />
+                                            <br />
+                                            <input class="form-control" type="file" name="photo" />
+                                            <br />
+                                            <div class="container text-center">
+                                                <input class="btn btn-outline-primary" type="submit" value="Send" />
+                                            </div>
+                                        </form>
+                                        <br>
+                                    </div>
+                                </div>
+                                {{-- collapse send photo --}}
                                 <div class="card-footer text-center">
                                     <div class="row">
                                         <div class="col">
@@ -353,9 +436,6 @@
                                                 console.log(url);
                                                 var exe = $.post(url, function() {
                                                     $('#modalnotif').modal('show');
-                                                    const audio = new Audio(
-                                                        'http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
-                                                    audio.play();
                                                 })
                                             });
                                         </script>
@@ -386,6 +466,6 @@
     <script>
         window.setTimeout(function() {
             window.location.reload();
-        }, 20000);
+        }, 30000);
     </script>
 @endsection

@@ -1,89 +1,72 @@
 @extends('layouts.performansi')
 
 @section('usershow')
-    <h2
-        style="font-weight: bold; font-size: 25px; color: #F44336; padding-left: 20px; padding-top: 20px; padding-bottom: 10px">
-        today performance data</h2>
-    <figure class="highcharts-figure">
-        <br>
-        <p class="text-center" id='ct'></p>
-        <br>
-        <div id="container"></div>
-        <br>
-        <br>
-    </figure>
+    <div class="container text-center">
+        <h2 style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 20px; padding-bottom: 10px">
+            today performance data</h2>
+        <p>(Closed data)</p>
+    </div>
+
+
+    <br>
+    <div class="container">
+        <center>
+            <div class="chart" id="chart" style=" width:600px"></div>
+        </center>
+        @foreach ($performance as $pr)
+            @if ($pr->update_status == 'ogp_closed')
+                <p>{{ $pr->user_name }}</p>
+            @endif
+        @endforeach
+    </div>
 @endsection
 
 @section('script')
-    {{-- <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+
     <script>
-        Highcharts.chart('container', {
+        Highcharts.chart('chart', {
             chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
+                type: 'column'
             },
             title: {
                 text: ''
             },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            subtitle: {
+                text: ''
             },
-            accessibility: {
-                point: {
-                    valueSuffix: '%'
+            xAxis: {
+                categories: {!! json_encode($namauser) !!},
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Closed Count'
                 }
             },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
             plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
                 }
             },
             series: [{
-                name: 'Count',
-                colorByPoint: true,
-                data: [{
-                    name: 'Open -> OGP',
-                    color: '#f2bd1f',
-                    y: {{ $open_ogpi }}
-                }, {
-                    name: 'OGP -> Eskalasi',
-                    color: '#0aa9ff',
-                    y: {{ $ogp_eskalasii }}
-                }, {
-                    name: 'OGP -> Closed',
-                    color: '#1e4afa',
-                    y: {{ $ogp_closedi }}
-                }, {
-                    name: 'Eskalasi -> Closed',
-                    color: '#1cbd00',
-                    y: {{ $eskalasi_closedi }}
-                }]
+                name: 'Closed in Count',
+                data: [49.9, 71.5, 106.4, 129.2]
             }]
         });
     </script>
-    <script type="text/javascript">
-        function display_c() {
-            var refresh = 1000; // Refresh rate in milli seconds
-            mytime = setTimeout('display_ct()', refresh)
-        }
-
-        function display_ct() {
-            var x = new Date()
-            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-            x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-            document.getElementById('ct').innerHTML = x1;
-            display_c();
-        }
-    </script> --}}
 @endsection

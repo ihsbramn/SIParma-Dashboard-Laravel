@@ -198,6 +198,8 @@
                                             name="update_status" value="ogp_closed" hidden>
                                         <input class="form-check-input" id="up_ogp_closed3" type="checkbox"
                                             name="ogp_closed_stat" value="1" hidden>
+                                        <input class="form-check-input" id="up_closed3" type="checkbox" name="closed_stat"
+                                            value="1" hidden>
                                         {{-- performansi --}}
                                     </div>
                                 </div>
@@ -206,6 +208,7 @@
                                         $("#up_ogp_closed1").prop("checked", $(this).prop("checked"));
                                         $("#up_ogp_closed2").prop("checked", $(this).prop("checked"));
                                         $("#up_ogp_closed3").prop("checked", $(this).prop("checked"));
+                                        $("#up_closed3").prop("checked", $(this).prop("checked"));
                                     });
 
                                     $("#selectAll2").click(function() {
@@ -213,6 +216,7 @@
                                             $("#up_ogp_closed1").prop("checked", false);
                                             $("#up_ogp_closed2").prop("checked", false);
                                             $("#up_ogp_closed3").prop("checked", false);
+                                            $("#up_closed3").prop("checked", false);
                                         }
                                     });
                                 </script>
@@ -231,6 +235,7 @@
                             {{-- performansi --}}
                             <input type="text" name="update_status" class="form-control" value="eskalasi_closed" hidden>
                             <input type="text" name="eskalasi_closed_stat" class="form-control" value="1" hidden>
+                            <input type="text" name="closed_stat" class="form-control" value="1" hidden>
                             {{-- performansi --}}
                         @endif
                     </div>
