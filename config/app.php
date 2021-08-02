@@ -32,6 +32,10 @@ return [
     'token' => env('BOT_TOKEN'),
     // bot token
 
+     // idgroup
+     'idgroup' => env('ID_GROUP'),
+     // idgroup
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

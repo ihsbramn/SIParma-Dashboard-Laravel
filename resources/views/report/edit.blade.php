@@ -18,13 +18,11 @@
         <h1 class="text-center">Moban Update</h1>
         <br>
 
-        <div class="card">
+        <div class="card shadow">
             <form action="{{ route('report.update', $report->id) }}" method="POST">
                 <div class="card-header">
-
                     @csrf
                     @method('PUT')
-
                     <div class="row">
                         <div class="col">
                             <div class="label">ID Moban : <b>{{ $report->id }}</b> </div>
@@ -198,6 +196,8 @@
                                             name="update_status" value="ogp_closed" hidden>
                                         <input class="form-check-input" id="up_ogp_closed3" type="checkbox"
                                             name="ogp_closed_stat" value="1" hidden>
+                                        <input class="form-check-input" id="up_closed3" type="checkbox" name="closed_stat"
+                                            value="1" hidden>
                                         {{-- performansi --}}
                                     </div>
                                 </div>
@@ -206,6 +206,7 @@
                                         $("#up_ogp_closed1").prop("checked", $(this).prop("checked"));
                                         $("#up_ogp_closed2").prop("checked", $(this).prop("checked"));
                                         $("#up_ogp_closed3").prop("checked", $(this).prop("checked"));
+                                        $("#up_closed3").prop("checked", $(this).prop("checked"));
                                     });
 
                                     $("#selectAll2").click(function() {
@@ -213,9 +214,21 @@
                                             $("#up_ogp_closed1").prop("checked", false);
                                             $("#up_ogp_closed2").prop("checked", false);
                                             $("#up_ogp_closed3").prop("checked", false);
+                                            $("#up_closed3").prop("checked", false);
                                         }
                                     });
                                 </script>
+                                <br>
+                                <div class="row">
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                            data-bs-target="#notifogpclosed">
+                                            Reply User
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         @endif
                         @if ($report->report_status == 'eskalasi')
@@ -231,7 +244,20 @@
                             {{-- performansi --}}
                             <input type="text" name="update_status" class="form-control" value="eskalasi_closed" hidden>
                             <input type="text" name="eskalasi_closed_stat" class="form-control" value="1" hidden>
+                            <input type="text" name="closed_stat" class="form-control" value="1" hidden>
                             {{-- performansi --}}
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                </div>
+                                <div class="col" style="margin-left:25px">
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#notifeskalasiclosed">
+                                        Reply User
+                                    </button>
+                                </div>
+                            </div>
                         @endif
                     </div>
                     {{-- create performansi --}}
@@ -248,8 +274,69 @@
                 </div>
             </form>
         </div>
-    </div>
+        <br>
+        <!-- Modal ogp_closed -->
+        <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <form method="POST" target="_blank" action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
+                enctype="multipart/form-data">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
+                            <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                            <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                            <br />
+                            <input class="form-control" type="text" name="caption" placeholder="caption" />
+                            <br />
+                            <input class="form-control" type="file" name="photo" />
+                            <br />
+                            <div class="container text-center">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-
+        <!-- Modal eskalasi_closed -->
+        <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <form method="POST" target="_blank" action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
+                enctype="multipart/form-data">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
+                            <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                            <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                            <br />
+                            <input class="form-control" type="text" name="caption" placeholder="caption" />
+                            <br />
+                            <input class="form-control" type="file" name="photo" />
+                            <br />
+                            <div class="container text-center">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <br>
 @endsection

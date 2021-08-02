@@ -10,7 +10,7 @@
     {{-- <br> --}}
     <script type="text/javascript">
         function display_c() {
-            var refresh = 1000; // Refresh rate in milli seconds
+            var refresh = 3000; // Refresh rate in milli seconds
             mytime = setTimeout('display_ct()', refresh)
         }
 
@@ -66,7 +66,6 @@
             <div class="container" style="padding: 0px">
                 <br>
                 <h4 class="text-danger text-center">OPEN</h4>
-
                 <br>
                 @foreach ($report as $rp)
                     @if ($rp->report_status == 'open')
@@ -353,9 +352,6 @@
                                                 console.log(url);
                                                 var exe = $.post(url, function() {
                                                     $('#modalnotif').modal('show');
-                                                    const audio = new Audio(
-                                                        'http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
-                                                    audio.play();
                                                 })
                                             });
                                         </script>
@@ -386,6 +382,6 @@
     <script>
         window.setTimeout(function() {
             window.location.reload();
-        }, 20000);
+        }, 30000);
     </script>
 @endsection

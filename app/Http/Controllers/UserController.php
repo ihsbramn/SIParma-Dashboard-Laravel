@@ -169,7 +169,40 @@ class UserController extends Controller
 
     public function overview()
     {
-        return view('user.overview');
+        //connect model user and performance
+        $user = \App\Models\User::all();
+        // $performance = \App\Models\Performance::all();
+        $today = \Carbon\Carbon::today();
+        
+        //get user data
+        $iduser = [];
+        $namauser = [];
+        $datauser = [];
+        foreach ($user as $us){
+            $namauser[] = $us->name;
+            $iduser[] = $us->id;
+            $datauser[] = $performance = Performance::where('user_id','=',$iduser)
+                                                    ->where('closed_stat',1)
+                                                    ->get();
+        }
+        // $closed = Performance::
+        //                     where('user_id','=',$iduser)
+        //                     ->where('user_id','=',$iduser)
+        //                     ->get();
+        // $closed = Performance::where('created_at', '>=', $today)
+        // ->where('user_id', '=', $iduser)
+        // ->where('closed_stat', 1)
+        // ->count();
+        // get data user
+        
+        // foreach ($performance as $pr){
+        //     $dataperformance[] = $pr->
+        // }
+        
+
+        // testing 
+        dd($today,$namauser , $iduser,$datauser);
+        return view('user.overview', compact('namauser','iduser','datauser'));
     }
 
     public function status()

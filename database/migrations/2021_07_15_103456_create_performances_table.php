@@ -26,6 +26,7 @@ class CreatePerformancesTable extends Migration
             $table->integer('ogp_eskalasi_stat')->nullable();
             $table->integer('ogp_closed_stat')->nullable();
             $table->integer('eskalasi_closed_stat')->nullable();
+            $table->integer('closed_stat')->nullable();
             $table->timestamps();
         });
     }
