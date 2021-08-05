@@ -167,23 +167,20 @@ class UserController extends Controller
         return view('user.show', compact('performance_filter', 'user'));
     }
 
-    public function overview()
+    public function overview($id)
     {
-        //connect model user and performance
         $user = \App\Models\User::all();
-        // $performance = \App\Models\Performance::all();
-        $today = \Carbon\Carbon::today();
-        
-        //get user data
-        $iduser = [];
+
+        $namauser = \App\Models\User::find($id);
+
+        $performance = \App\Models\Performance::all();
+        //array kosong 
         $namauser = [];
         $datauser = [];
+
         foreach ($user as $us){
             $namauser[] = $us->name;
-            $iduser[] = $us->id;
-            $datauser[] = $performance = Performance::where('user_id','=',$iduser)
-                                                    ->where('closed_stat',1)
-                                                    ->get();
+            $datauser[] = $namauser->performance;
         }
         // $closed = Performance::
         //                     where('user_id','=',$iduser)
@@ -201,7 +198,7 @@ class UserController extends Controller
         
 
         // testing 
-        dd($today,$namauser , $iduser,$datauser);
+        dd($namauser,$datauser);
         return view('user.overview', compact('namauser','iduser','datauser'));
     }
 

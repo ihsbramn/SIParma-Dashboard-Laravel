@@ -337,6 +337,31 @@
                 </div>
             </form>
         </div>
+
     </div>
     <br>
+@endsection
+@section('head')
+    <script type="text/javascript">
+        $(document).on("submit", "form", function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function(data, status) {
+                    alert('Photo has been sent !');
+                    $('#notifogpclosed').modal('hide');
+                    $('#notifeskalasiclosed').modal('hide');
+                },
+                error: function(xhr, desc, err) {
+                    window.location.href = "/home";
+                    alert('Update Berhasil');
+                }
+            });
+        });
+    </script>
 @endsection

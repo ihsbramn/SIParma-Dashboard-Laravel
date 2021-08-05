@@ -80,4 +80,4 @@ Route::get('performansi.search', [App\Http\Controllers\UserController::class, 's
 Route::get('performansi.filter', [App\Http\Controllers\UserController::class, 'filter'])->name('performansi.filter');
 
 //chart overview all user
-Route::get('overview/user', [App\Http\Controllers\UserController::class, 'overview'])->name('performansi/overview');
+Route::get('overview/{id}', [App\Http\Controllers\UserController::class, 'overview'])->name('performansi/overview');
