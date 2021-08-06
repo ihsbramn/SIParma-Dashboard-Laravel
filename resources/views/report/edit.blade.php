@@ -221,6 +221,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col">
+                                        <div class="label">Evidance : </div>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -250,6 +251,7 @@
                             <br>
                             <div class="row">
                                 <div class="col">
+                                    <div class="label">Evidance : </div>
                                 </div>
                                 <div class="col" style="margin-left:25px">
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -297,6 +299,14 @@
                             <div class="container text-center">
                             </div>
                         </div>
+                        <div class="container text-centre">
+                            <center>
+                                <div id="spinner-border1" name="spinner-border1" class="spinner-border"
+                                    style="display:none">
+                                </div>
+                            </center>
+                        </div>
+                        <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <input class="btn btn-primary" type="submit" value="Send" />
@@ -329,6 +339,14 @@
                             <div class="container text-center">
                             </div>
                         </div>
+                        <div class="container text-centre">
+                            <center>
+                                <div id="spinner-border2" name="spinner-border2" class="spinner-border"
+                                    style="display:none">
+                                </div>
+                            </center>
+                        </div>
+                        <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <input class="btn btn-primary" type="submit" value="Send" />
@@ -345,6 +363,8 @@
     <script type="text/javascript">
         $(document).on("submit", "form", function(event) {
             event.preventDefault();
+            $("#spinner-border1").show();
+            $("#spinner-border2").show();
             $.ajax({
                 url: $(this).attr("action"),
                 type: $(this).attr("method"),
