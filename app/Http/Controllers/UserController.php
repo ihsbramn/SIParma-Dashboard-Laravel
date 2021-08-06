@@ -181,7 +181,7 @@ class UserController extends Controller
         $namauser = [];
         $datauser = [];
 
-        /   /isi array 
+        // isi array 
         foreach ($user as $us){
         $namauser[] = $us->name;
         $iduser[] = $us->id;
