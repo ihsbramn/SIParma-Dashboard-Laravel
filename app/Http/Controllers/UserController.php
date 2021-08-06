@@ -170,48 +170,31 @@ class UserController extends Controller
 
     public function overview()
     {
-        $today = \Carbon\Carbon::today();
-        $performance = Performance::whereDate('updated_at',$today)->where('closed_stat','=',1)->get();
-        $user = \App\Models\User::all();
-        $count = 1;
-
-        $open = Report::whereDate('created_at',$today)
-                        ->where('report_status','=','open')
-                        ->count();
-
-        $ogp = Report::whereDate('updated_at',$today)
-                        ->where('report_status','=','ogp')
-                        ->count();
-
-        $eskalasi = Report::whereDate('updated_at',$today)
-                        ->where('report_status','=','eskalasi')
-                        ->count();
-
-        $closed = Report::whereDate('updated_at',$today)
-                        ->where('report_status','=','closed')
-                        ->count();
-
-        //dd($today,$performance,$open,$ogp,$eskalasi,$closed);
-
-        return view('user/overview' ,compact('performance','open','ogp','eskalasi','closed','count','user'));
-    }
-
-    public function filteroverview(Request $request)
-    {
-
-        $user = \App\Models\User::all();
-        $count = 1;
+        //  variable tanggal
         $today = \Carbon\Carbon::today();
 
-        $filter = $request->input('filternama');
-        $performance = Performance::query()
-            ->where('user_name', 'LIKE', "%{$filter}%")
-            ->whereDate('updated_at',$today)
-            ->where('closed_stat','=',1)
-            ->get();
+        // get all user data
+        $user = \App\Models\User::all();
+        
+        //  array kosong
+        $iduser = [];
+        $namauser = [];
+        $datauser = [];
 
+        /   /isi array 
+        foreach ($user as $us){
+        $namauser[] = $us->name;
+        $iduser[] = $us->id;
+        $datauser[] = $performance = Performance::whereIn('user_id',[$us->id])
+                                                ->whereDate('updated_at',$today)
+                                                ->where('closed_stat',1)
+                                                ->count();
+        }
 
-        return view('user/overview', compact('performance','user','count'));
+        //  testing
+        //  dd($namauser,$iduser,$datauser);
+
+        return view('user/overview' ,compact('namauser','iduser','datauser'));
     }
 
     public function status()
