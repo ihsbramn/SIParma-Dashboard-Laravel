@@ -79,5 +79,8 @@ Route::get('performansi.search', [App\Http\Controllers\UserController::class, 's
 //filter action performansi
 Route::get('performansi.filter', [App\Http\Controllers\UserController::class, 'filter'])->name('performansi.filter');
 
-//chart overview all user
-Route::get('overview/{id}', [App\Http\Controllers\UserController::class, 'overview'])->name('performansi/overview');
+// overview all user
+Route::get('overview/user', [App\Http\Controllers\UserController::class, 'overview'])->name('performansi/overview');
+
+//filter overview all user
+Route::get('overview/user/filter', [UserController::class, 'filteroverview'])->name('overview/user/filter');

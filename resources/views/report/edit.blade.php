@@ -290,9 +290,9 @@
                             <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
                             <input type="text" name="allow_sending_without_reply" value="true" hidden />
                             <br />
-                            <input class="form-control" type="text" name="caption" placeholder="caption" />
+                            <input class="form-control" type="text" name="caption" placeholder="caption" required>
                             <br />
-                            <input class="form-control" type="file" name="photo" />
+                            <input class="form-control" type="file" name="photo" required>
                             <br />
                             <div class="container text-center">
                             </div>

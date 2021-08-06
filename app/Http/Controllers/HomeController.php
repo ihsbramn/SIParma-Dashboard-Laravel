@@ -35,7 +35,6 @@ class HomeController extends Controller
     public function filter(Request $request)
     {
         $filter = $request->input('filterorder');
-
         $report = Report::query()
             ->where('report_type', 'LIKE', "%{$filter}%")
             ->get();
