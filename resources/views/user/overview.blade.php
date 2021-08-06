@@ -39,11 +39,17 @@
         </form>
         <br>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-sm-4">
                 <p> Total Closed Data : </p>
             </div>
             <div class="col-sm-8"> <b> <span id="totalrow"> </b></span></div>
+        </div> --}}
+        <div class="container">
+            <p style="display:inline">Total Closed Data : </p>
+            <b>
+                <p id="totalrow" style="display:inline"></p>
+            </b>
         </div>
         <br>
 
