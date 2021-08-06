@@ -21,7 +21,8 @@
             <hr class="mx-auto" style="width: 350px">
 
             <div class="row" style="padding-left: 40px; padding-right: 40px; padding-bottom: 10px">
-                <a href="{{ 'overview/user' }}" type="button" class="btn btn-danger btn-sm d-grid">overview all user</a>
+                <a href="{{ 'overview/user' }}" type="button" class="btn btn-danger btn-sm d-grid">overview today
+                    user performance</a>
             </div>
 
             <div class="row" style="height: 330px; width: 400px; overflow:auto">
@@ -42,7 +43,7 @@
     <div class="col bg-white shadow" style="border-radius: 1rem; height: 605px">
         <h2
             style="font-weight: bold; font-size: 25px; color: #F44336; padding-left: 20px; padding-top: 20px; padding-bottom: 10px">
-            today performance data</h2>
+            today "update" performance data</h2>
         <figure class="highcharts-figure">
             <br>
             <p class="text-center" id='ct'></p>

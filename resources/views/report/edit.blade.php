@@ -290,9 +290,9 @@
                             <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
                             <input type="text" name="allow_sending_without_reply" value="true" hidden />
                             <br />
-                            <input class="form-control" type="text" name="caption" placeholder="caption" />
+                            <input class="form-control" type="text" name="caption" placeholder="caption" required>
                             <br />
-                            <input class="form-control" type="file" name="photo" />
+                            <input class="form-control" type="file" name="photo" required>
                             <br />
                             <div class="container text-center">
                             </div>
@@ -337,6 +337,31 @@
                 </div>
             </form>
         </div>
+
     </div>
     <br>
+@endsection
+@section('head')
+    <script type="text/javascript">
+        $(document).on("submit", "form", function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function(data, status) {
+                    alert('Photo has been sent !');
+                    $('#notifogpclosed').modal('hide');
+                    $('#notifeskalasiclosed').modal('hide');
+                },
+                error: function(xhr, desc, err) {
+                    window.location.href = "/home";
+                    alert('Update Berhasil');
+                }
+            });
+        });
+    </script>
 @endsection

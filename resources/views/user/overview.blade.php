@@ -3,70 +3,101 @@
 @section('usershow')
     <div class="container text-center">
         <h2 style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 20px; padding-bottom: 10px">
-            today performance data</h2>
-        <p>(Closed data)</p>
+            Today User Performance Data "Closed"</h2>
+
+        <p class="text-center" id='ct'></p>
     </div>
 
 
     <br>
+    <br>
+    <br>
     <div class="container">
-        <center>
+        <br>
+        {{-- <center>
             <div class="chart" id="chart" style=" width:600px"></div>
-        </center>
-        @foreach ($performance as $pr)
-            @if ($pr->update_status == 'ogp_closed')
-                <p>{{ $pr->user_name }}</p>
-            @endif
-        @endforeach
+        </center> --}}
+        <form class="form" method="get" action="{{ 'user/filter' }}">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <select class="form-control" name="filternama" id="filter-nama">
+                            <option value="">Nama</option>
+                            @foreach ($user as $us)
+                                <option value={{ $us->name }}>{{ $us->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col d-grid">
+                    <a href="{{ url('overview/user') }}" class="btn btn-light">Reset</a>
+                </div>
+                <div class="col d-grid">
+                    <button type="submit" class="btn btn-danger ">Filter</button>
+                </div>
+            </div>
+        </form>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <p> Total Closed Data : </p>
+            </div>
+            <div class="col-sm-8"> <b> <span id="totalrow"> </b></span></div>
+        </div>
+        <br>
+
+        <div class="table-responsive bg-light rounded shadow">
+            <table class="table table-hover" id="my_table">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">User ID</th>
+                        <th scope="col">ID Moban</th>
+                        <th scope="col">Updated by</th>
+                        <th scope="col">No. Order</th>
+                        <th scope="col">Update Status</th>
+                        <th scope="col">Waktu Update</th>
+                    </tr>
+                </thead>
+                @foreach ($performance as $pr)
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ $count++ }}</th>
+                            <td>{{ $pr->user_id }}</td>
+                            <td>{{ $pr->id_moban }}</td>
+                            <td>{{ $pr->user_name }}</td>
+                            <td>{{ $pr->no_order }}</td>
+                            <td>{{ $pr->update_status }}</td>
+                            <td>{{ $pr->updated_at }}</td>
+                        </tr>
+                    </tbody>
+                @endforeach
+            </table>
+        </div>
+        <br>
+        <br>
     </div>
 @endsection
 
 @section('script')
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script type="text/javascript">
+        function display_c() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
 
+        function display_ct() {
+            var x = new Date()
+            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+        }
+    </script>
+    <script type="text/javascript">
+        var totalrow = $('#my_table tr').length - 1;
 
-    <script>
-        Highcharts.chart('chart', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: ''
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories: {!! json_encode($namauser) !!},
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Closed Count'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: 'Closed in Count',
-                data: [49.9, 71.5, 106.4, 129.2]
-            }]
-        });
+        document.getElementById("totalrow").innerHTML = totalrow;
     </script>
 @endsection
