@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Performance;
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -169,7 +170,48 @@ class UserController extends Controller
 
     public function overview()
     {
-        return view('user.overview');
+        $today = \Carbon\Carbon::today();
+        $performance = Performance::whereDate('updated_at',$today)->where('closed_stat','=',1)->get();
+        $user = \App\Models\User::all();
+        $count = 1;
+
+        $open = Report::whereDate('created_at',$today)
+                        ->where('report_status','=','open')
+                        ->count();
+
+        $ogp = Report::whereDate('updated_at',$today)
+                        ->where('report_status','=','ogp')
+                        ->count();
+
+        $eskalasi = Report::whereDate('updated_at',$today)
+                        ->where('report_status','=','eskalasi')
+                        ->count();
+
+        $closed = Report::whereDate('updated_at',$today)
+                        ->where('report_status','=','closed')
+                        ->count();
+
+        //dd($today,$performance,$open,$ogp,$eskalasi,$closed);
+
+        return view('user/overview' ,compact('performance','open','ogp','eskalasi','closed','count','user'));
+    }
+
+    public function filteroverview(Request $request)
+    {
+
+        $user = \App\Models\User::all();
+        $count = 1;
+        $today = \Carbon\Carbon::today();
+
+        $filter = $request->input('filternama');
+        $performance = Performance::query()
+            ->where('user_name', 'LIKE', "%{$filter}%")
+            ->whereDate('updated_at',$today)
+            ->where('closed_stat','=',1)
+            ->get();
+
+
+        return view('user/overview', compact('performance','user','count'));
     }
 
     public function status()

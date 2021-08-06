@@ -378,6 +378,7 @@ class ReportController extends Controller
             'ogp_eskalasi_stat' => $request->ogp_eskalasi_stat,
             'ogp_closed_stat' => $request->ogp_closed_stat,
             'eskalasi_closed_stat' => $request->eskalasi_closed_stat,
+            'closed_stat' => $request->closed_stat,
         ]);
 
         return redirect()->route('home')->with('success', 'Update Successfull');
