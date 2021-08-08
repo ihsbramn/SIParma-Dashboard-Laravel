@@ -113,6 +113,15 @@ class UserController extends Controller
         // last 30 days
         $lastmonth = \Carbon\Carbon::today()->subDays(30);
 
+        // last weeks
+        $lastweek = \Carbon\Carbon::today()->subDays(7);
+
+        // yesterday
+        $yesterday = \Carbon\Carbon::yesterday();
+
+        // today
+        $today = \Carbon\Carbon::today();
+
         // get user id value
         $id = $user->id;
 
@@ -121,33 +130,97 @@ class UserController extends Controller
             ->where('user_id', '=', $id)
             ->get();
 
-        // Data chart
-        $open_ogp = Performance::where('created_at', '>=', $lastmonth)
+        // Data chart 30
+        $open_ogp30 = Performance::where('created_at', '>=', $lastmonth)
             ->where('user_id', '=', $id)
             ->where('open_ogp_stat', 1)
             ->count();
 
-        $ogp_eskalasi = Performance::where('created_at', '>=', $lastmonth)
+        $ogp_eskalasi30 = Performance::where('created_at', '>=', $lastmonth)
             ->where('user_id', '=', $id)
             ->where('ogp_eskalasi_stat', 1)
             ->count();
 
-        $ogp_closed = Performance::where('created_at', '>=', $lastmonth)
+        $ogp_closed30 = Performance::where('created_at', '>=', $lastmonth)
             ->where('user_id', '=', $id)
             ->where('ogp_closed_stat', 1)
             ->count();
 
-        $eskalasi_closed = Performance::where('created_at', '>=', $lastmonth)
+        $eskalasi_closed30 = Performance::where('created_at', '>=', $lastmonth)
             ->where('user_id', '=', $id)
             ->where('eskalasi_closed_stat', 1)
             ->count();
+
+        // Data chart 7
+        $open_ogp7 = Performance::where('created_at', '>=', $lastweek)
+        ->where('user_id', '=', $id)
+        ->where('open_ogp_stat', 1)
+        ->count();
+
+        $ogp_eskalasi7 = Performance::where('created_at', '>=', $lastweek)
+        ->where('user_id', '=', $id)
+        ->where('ogp_eskalasi_stat', 1)
+        ->count();
+
+        $ogp_closed7 = Performance::where('created_at', '>=', $lastweek)
+        ->where('user_id', '=', $id)
+        ->where('ogp_closed_stat', 1)
+        ->count();
+
+        $eskalasi_closed7 = Performance::where('created_at', '>=', $lastweek)
+        ->where('user_id', '=', $id)
+        ->where('eskalasi_closed_stat', 1)
+        ->count();
+
+        // Data chart yesterday
+        $open_ogpy = Performance::where('created_at', '>=', $yesterday)
+        ->where('user_id', '=', $id)
+        ->where('open_ogp_stat', 1)
+        ->count();
+
+        $ogp_eskalasiy = Performance::where('created_at', '>=', $yesterday)
+        ->where('user_id', '=', $id)
+        ->where('ogp_eskalasi_stat', 1)
+        ->count();
+
+        $ogp_closedy = Performance::where('created_at', '>=', $yesterday)
+        ->where('user_id', '=', $id)
+        ->where('ogp_closed_stat', 1)
+        ->count();
+
+        $eskalasi_closedy = Performance::where('created_at', '>=', $yesterday)
+        ->where('user_id', '=', $id)
+        ->where('eskalasi_closed_stat', 1)
+        ->count();
+
+         // Data chart today
+        $open_ogpt = Performance::where('created_at', '>=', $today)
+        ->where('user_id', '=', $id)
+        ->where('open_ogp_stat', 1)
+        ->count();
+
+        $ogp_eskalasit = Performance::where('created_at', '>=', $today)
+        ->where('user_id', '=', $id)
+        ->where('ogp_eskalasi_stat', 1)
+        ->count();
+        
+        $ogp_closedt = Performance::where('created_at', '>=', $today)
+        ->where('user_id', '=', $id)
+        ->where('ogp_closed_stat', 1)
+        ->count();
+
+        $eskalasi_closedt = Performance::where('created_at', '>=', $today)
+        ->where('user_id', '=', $id)
+        ->where('eskalasi_closed_stat', 1)
+        ->count();
+
         //no row
         $count = 1;
 
         // testing
         // dd($user, $performance, $open_ogp , $ogp_eskalasi , $ogp_closed , $eskalasi_closed);
 
-        return view('user.show', compact('user', 'performance', 'open_ogp', 'ogp_eskalasi', 'ogp_closed', 'eskalasi_closed', 'count'));
+        return view('user.show', compact('user', 'performance', 'open_ogp30', 'ogp_eskalasi30', 'ogp_closed30', 'eskalasi_closed30', 'open_ogp7', 'ogp_eskalasi7', 'ogp_closed7', 'eskalasi_closed7', 'open_ogpy', 'ogp_eskalasiy', 'ogp_closedy', 'eskalasi_closedy', 'open_ogpt', 'ogp_eskalasit', 'ogp_closedt', 'eskalasi_closedt', 'count'));
     }
 
     //filter action

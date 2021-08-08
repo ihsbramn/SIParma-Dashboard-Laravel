@@ -376,6 +376,8 @@
                     alert('Photo has been sent !');
                     $('#notifogpclosed').modal('hide');
                     $('#notifeskalasiclosed').modal('hide');
+                    $("#spinner-border1").hide();
+                    $("#spinner-border2").hide();
                 },
                 error: function(xhr, desc, err) {
                     window.location.href = "/home";

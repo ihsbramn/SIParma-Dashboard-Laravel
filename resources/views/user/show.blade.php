@@ -14,7 +14,8 @@
                 </a>
             </div>
             <div class="col-8">
-                <h2 class="text-center" style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px"> Data User </h2>
+                <h2 class="text-center" style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px"> Data
+                    User </h2>
             </div>
         </div>
         <hr>
@@ -43,16 +44,41 @@
                 </p>
             </div>
         </div>
-        <input type="button" class="btn btn-primary" value="Print" onclick="printDiv()" style="margin-left: 15px; margin-bottom: 15px; width: 90px">
+        <input type="button" class="btn btn-primary" value="Print" onclick="printDiv()"
+            style="margin-left: 15px; margin-bottom: 15px; width: 90px">
     </div>
 @endsection
 
 @section('showuser')
     <div class="row text-center bg-white shadow" style="border-radius: 1rem; margin-top: 25px">
-        <h2 style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px">charts</h2>
+
         <center>
-            <div class="chart" id="chart" style=" width:600px"></div>
+            <br>
+            <div class="chart" id="chart30" name="chart30" style=" width:600px;"></div>
+            <div class="chart" id="chart7" name="chart7" style=" width:600px; display: none;"></div>
+            <div class="chart" id="charty" name="charty" style=" width:600px; display: none;"></div>
+            <div class="chart" id="chartt" name="charty" style=" width:600px; display: none;"></div>
         </center>
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <select id="chartSelector" class="form-select">
+                    <option value="chart30" selected>Last 30 Day</option>
+                    <option value="chart7">Last 7 Day</option>
+                    <option value="charty">Yesterday</option>
+                    <option value="chartt">Today</option>
+                </select>
+            </div>
+            <br>
+            <div class="col">
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
     </div>
 
     <div class="row text-center bg-white shadow" style="border-radius: 1rem; margin-top: 25px">
@@ -147,7 +173,17 @@
     </script>
 
     <script>
-        Highcharts.chart('chart', {
+        $(function() {
+            $('#chartSelector').change(function() {
+                $('.chart').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+    </script>
+
+    {{-- chart last 30days --}}
+    <script>
+        Highcharts.chart('chart30', {
             chart: {
                 type: 'column'
             },
@@ -172,19 +208,154 @@
                 data: [{
                     name: 'Open -> OGP',
                     color: '#f2bd1f',
-                    y: {{ $open_ogp }}
+                    y: {{ $open_ogp30 }}
                 }, {
                     name: 'OGP -> Eskalasi',
                     color: '#0aa9ff',
-                    y: {{ $ogp_eskalasi }}
+                    y: {{ $ogp_eskalasi30 }}
                 }, {
                     name: 'OGP -> Closed',
                     color: '#1e4afa',
-                    y: {{ $ogp_closed }}
+                    y: {{ $ogp_closed30 }}
                 }, {
                     name: 'Eskalasi -> Closed',
                     color: '#1cbd00',
-                    y: {{ $eskalasi_closed }}
+                    y: {{ $eskalasi_closed30 }}
+                }]
+            }, ]
+        });
+    </script>
+
+    {{-- chart last week --}}
+    <script>
+        Highcharts.chart('chart7', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '{{ $user->name }} Performance Data'
+            },
+            subtitle: {
+                text: 'Data for the last 7 days'
+            },
+            xAxis: {
+                categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
+            },
+
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count'
+                }
+            },
+            series: [{
+                name: 'Status',
+                data: [{
+                    name: 'Open -> OGP',
+                    color: '#f2bd1f',
+                    y: {{ $open_ogp7 }}
+                }, {
+                    name: 'OGP -> Eskalasi',
+                    color: '#0aa9ff',
+                    y: {{ $ogp_eskalasi7 }}
+                }, {
+                    name: 'OGP -> Closed',
+                    color: '#1e4afa',
+                    y: {{ $ogp_closed7 }}
+                }, {
+                    name: 'Eskalasi -> Closed',
+                    color: '#1cbd00',
+                    y: {{ $eskalasi_closed7 }}
+                }]
+            }, ]
+        });
+    </script>
+
+    {{-- chart yesterday --}}
+    <script>
+        Highcharts.chart('charty', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '{{ $user->name }} Performance Data'
+            },
+            subtitle: {
+                text: 'Yesterday Data'
+            },
+            xAxis: {
+                categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
+            },
+
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count'
+                }
+            },
+            series: [{
+                name: 'Status',
+                data: [{
+                    name: 'Open -> OGP',
+                    color: '#f2bd1f',
+                    y: {{ $open_ogpy }}
+                }, {
+                    name: 'OGP -> Eskalasi',
+                    color: '#0aa9ff',
+                    y: {{ $ogp_eskalasiy }}
+                }, {
+                    name: 'OGP -> Closed',
+                    color: '#1e4afa',
+                    y: {{ $ogp_closedy }}
+                }, {
+                    name: 'Eskalasi -> Closed',
+                    color: '#1cbd00',
+                    y: {{ $eskalasi_closedy }}
+                }]
+            }, ]
+        });
+    </script>
+
+    {{-- chart today --}}
+    <script>
+        Highcharts.chart('chartt', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '{{ $user->name }} Performance Data'
+            },
+            subtitle: {
+                text: 'Today Data'
+            },
+            xAxis: {
+                categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
+            },
+
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count'
+                }
+            },
+            series: [{
+                name: 'Status',
+                data: [{
+                    name: 'Open -> OGP',
+                    color: '#f2bd1f',
+                    y: {{ $open_ogpt }}
+                }, {
+                    name: 'OGP -> Eskalasi',
+                    color: '#0aa9ff',
+                    y: {{ $ogp_eskalasit }}
+                }, {
+                    name: 'OGP -> Closed',
+                    color: '#1e4afa',
+                    y: {{ $ogp_closedt }}
+                }, {
+                    name: 'Eskalasi -> Closed',
+                    color: '#1cbd00',
+                    y: {{ $eskalasi_closedt }}
                 }]
             }, ]
         });
