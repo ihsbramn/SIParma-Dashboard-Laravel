@@ -84,3 +84,9 @@ Route::get('overview/user', [App\Http\Controllers\UserController::class, 'overvi
 
 //filter overview all user
 Route::get('overview/user/filter', [UserController::class, 'filteroverview'])->name('overview/user/filter');
+
+Route::get('user/{id}/exportlastmonth',  [UserController::class, 'exportCsvlastmonth'])->name('user/exportlastmonth');
+Route::get('user/{id}/exportlastweek',  [UserController::class, 'exportCsvlastweek'])->name('user/exportlastweek');
+Route::get('user/{id}/exportyesterday',  [UserController::class, 'exportCsvyesterday'])->name('user/exportyesterday');
+Route::get('user/{id}/exporttoday',  [UserController::class, 'exportCsvtoday'])->name('user/exporttoday');
+Route::get('user/{id}/exportall',  [UserController::class, 'exportCsvall'])->name('user/exportall');

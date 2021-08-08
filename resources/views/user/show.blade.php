@@ -81,7 +81,7 @@
         <br>
     </div>
 
-    <div class="row text-center bg-white shadow" style="border-radius: 1rem; margin-top: 25px">
+    {{-- <div class="row text-center bg-white shadow" style="border-radius: 1rem; margin-top: 25px">
         <h2 style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px">filter & download data</h2>
         <div class="col-4">
             <form class="form" method="get" action="{{ route('performansi.filter', $user->id) }}">
@@ -118,9 +118,32 @@
         <div class="col-2">
             <a href="" class="btn btn-success d-grid" type="button">download</a>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row text-center bg-white shadow" style="border-radius: 1rem; margin-top: 25px">
+        <div class="row">
+            <div class="col text-end">
+                <br>
+                <div class="btn-group" role="group">
+                    <button id="exportgroup" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Export
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="exportgroup">
+                        <li><a data-href="{{ route('user/exportlastmonth', $user->id) }}" id="export"
+                                onclick="exportTasks(event.target);" class="dropdown-item" href="#">Last 30 Day</a></li>
+                        <li><a data-href="{{ route('user/exportlastweek', $user->id) }}" id="export"
+                                onclick="exportTasks(event.target);" class="dropdown-item" href="#">Last 7 Day</a></li>
+                        <li><a data-href="{{ route('user/exportyesterday', $user->id) }}" id="export"
+                                onclick="exportTasks(event.target);" class="dropdown-item" href="#">Yesterday</a></li>
+                        <li><a data-href="{{ route('user/exporttoday', $user->id) }}" id="export"
+                                onclick="exportTasks(event.target);" class="dropdown-item" href="#">Today</a></li>
+                        <li><a data-href="{{ route('user/exportall', $user->id) }}" id="export"
+                                onclick="exportTasks(event.target);" class="dropdown-item" href="#">All</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <h2 style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px">data</h2>
         <div class="table-responsive">
             <table class="table table-hover" id="my_table">
@@ -158,6 +181,13 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script>
+        function exportTasks(_this) {
+            let _url = $(_this).data('href');
+            window.location.href = _url;
+        }
+    </script>
 
     <script>
         function printDiv() {
@@ -326,7 +356,7 @@
                 text: '{{ $user->name }} Performance Data'
             },
             subtitle: {
-                text: 'Today Data'
+                text: 'Todaby Data'
             },
             xAxis: {
                 categories: ['Open -> OGP', 'OGP -> Eskalasi', 'OGP -> Closed', 'Eskalasi -> Closed']
