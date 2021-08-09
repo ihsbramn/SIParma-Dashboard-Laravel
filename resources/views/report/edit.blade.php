@@ -15,7 +15,7 @@
 
 
         <br>
-        <h1 class="text-center">Moban Update</h1>
+        <h1 class="text-center" style="font-weight: bold; font-size: 35px; color: #F44336;">Moban Update</h1>
         <br>
 
         <div class="card shadow">
