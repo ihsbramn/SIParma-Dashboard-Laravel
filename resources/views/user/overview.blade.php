@@ -2,7 +2,7 @@
 
 @section('usershow')
     <div class="row" style="margin-top: 15px">
-        <div class="col-2">
+        <div class="col">
             <a href="javascript: history.go(-1)" class="btn btn-danger shadow" style="margin-left: 20px">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -11,13 +11,13 @@
                 </svg>
                 Back
             </a>
+            <button class="btn btn-primary" onclick="location.reload();">Refresh</button>
             <br>
+
         </div>
-        <div class="col-8">
-            <h2 class="text-center" style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px"> Today User
-                Performance "Closed"
-            </h2>
-        </div>
+        <h2 class="text-center" style="font-weight: bold; font-size: 25px; color: #F44336; padding-top: 5px"> Today User
+            Performance "Closed"
+        </h2>
         <br>
     </div>
     <br>

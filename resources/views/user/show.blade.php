@@ -124,6 +124,7 @@
         <div class="row">
             <div class="col text-end">
                 <br>
+                <button class="btn btn-primary" onclick="location.reload();">Refresh</button>
                 <div class="btn-group" role="group">
                     <button id="exportgroup" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
