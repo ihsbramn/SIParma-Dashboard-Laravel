@@ -173,22 +173,22 @@ class UserController extends Controller
         ->count();
 
         // Data chart yesterday
-        $open_ogpy = Performance::where('created_at', $yesterday)
+        $open_ogpy = Performance::whereDate('created_at', $yesterday)
         ->where('user_id', '=', $id)
         ->where('open_ogp_stat', 1)
         ->count();
 
-        $ogp_eskalasiy = Performance::where('created_at', $yesterday)
+        $ogp_eskalasiy = Performance::whereDate('created_at', $yesterday)
         ->where('user_id', '=', $id)
         ->where('ogp_eskalasi_stat', 1)
         ->count();
 
-        $ogp_closedy = Performance::where('created_at', $yesterday)
+        $ogp_closedy = Performance::whereDate('created_at', $yesterday)
         ->where('user_id', '=', $id)
         ->where('ogp_closed_stat', 1)
         ->count();
 
-        $eskalasi_closedy = Performance::where('created_at', $yesterday)
+        $eskalasi_closedy = Performance::whereDate('created_at', $yesterday)
         ->where('user_id', '=', $id)
         ->where('eskalasi_closed_stat', 1)
         ->count();
@@ -422,7 +422,7 @@ class UserController extends Controller
         $date = \Carbon\Carbon::yesterday();
         $id = $request->id;
         $performance = Performance::where('user_id', '=', $id)
-                                    ->where('created_at',$date)
+                                    ->whereDate('created_at',$date)
                                     ->get();
 
         $count = 1;

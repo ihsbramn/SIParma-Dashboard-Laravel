@@ -41,9 +41,18 @@
 @endsection
 @section('isi')
     <div class="col bg-white shadow" style="border-radius: 1rem; height: 605px">
-        <h2
-            style="font-weight: bold; font-size: 25px; color: #F44336; padding-left: 20px; padding-top: 20px; padding-bottom: 10px">
-            today "update" performance data</h2>
+        <div class="row">
+            <div class="col">
+                <h2
+                    style="font-weight: bold; font-size: 25px; color: #F44336; padding-left: 20px; padding-top: 20px; padding-bottom: 10px">
+                    today "update" performance data</h2>
+            </div>
+            <div class="col text-end " style="padding-top: 20px; padding-right: 40px;">
+                <button class="btn btn-primary" onclick="location.reload();">Refresh</button>
+            </div>
+        </div>
+
+
         <figure class="highcharts-figure">
             <br>
             <p class="text-center" id='ct'></p>
