@@ -97,8 +97,15 @@
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {{ Route::currentRouteNamed('user.*','performansi.*') ? 'active' : '' }}"
+                                        <a class="nav-link {{ Route::currentRouteNamed('user.*', 'performansi.*') ? 'active' : '' }}"
                                             href="{{ route('user.index') }}">Performansi</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Route::currentRouteNamed('user.*') ?: '' }}"
+                                            href="{{ route('register') }}">Register User</a>
                                     </li>
                                 @endif
                             @endauth
@@ -134,7 +141,7 @@
 
                                     <a style="margin-left: 15px" class="btn btn-outline-light" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -207,7 +214,9 @@
 
         <main>
             <div class="container">
-                <h1 class="text-center" style="font-weight: bold; font-size: 35px; color: #F44336; margin-top: 15px; margin-bottom: 15px">Performansi</h1>
+                <h1 class="text-center"
+                    style="font-weight: bold; font-size: 35px; color: #F44336; margin-top: 15px; margin-bottom: 15px">
+                    Performansi</h1>
                 <div class="row">
                     <div class="col-4">
                         @yield('user')
