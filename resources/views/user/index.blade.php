@@ -8,7 +8,7 @@
 
         <div class="row">
             <?php $search = isset($_GET['search']) ? htmlentities($_GET['search']) : ''; ?>
-            <form action={{ 'performansi.search' }} method="GET" class="input-group mb-3"
+            <form action={{ '/performansi/search' }} method="GET" class="input-group mb-3"
                 style="padding-right: 30px; padding-left: 30px">
                 <input type="text" name="search" value="<?= $search ?>" class="form-control" id="search"
                     placeholder="user name">

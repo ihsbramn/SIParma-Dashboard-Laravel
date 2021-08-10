@@ -161,7 +161,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ Route::currentRouteNamed('report.open', 'report.datefilter.open*') ? 'active' : '' }} py-0"
-                                            href="{{ url('report.open') }}">open</a>
+                                            href={{ url('report.open') }}>open</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{ Route::currentRouteNamed('report.ogp', 'report.datefilter.ogp*') ? 'active' : '' }} py-0"
