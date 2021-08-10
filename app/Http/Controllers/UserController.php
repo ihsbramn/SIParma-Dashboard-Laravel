@@ -128,7 +128,7 @@ class UserController extends Controller
         // getting user data
         $performance = Performance::where('created_at', '>=', $lastmonth)
             ->where('user_id', '=', $id)
-            ->get();
+            ->paginate(10);
 
         // Data chart 30
         $open_ogp30 = Performance::where('created_at', '>=', $lastmonth)

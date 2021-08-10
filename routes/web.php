@@ -41,7 +41,7 @@ Route::get('live-status/{id}', [UserController::class, 'liveStatus']);
 
 Route::resource('report', ReportController::class);
 Route::get('home.filter', [HomeController::class, 'filter'])->name('home.filter');
-
+ 
 //report export excel
 Route::get('report.export', [App\Http\Controllers\ReportController::class, 'export'])->name('report.export');
 Route::get('report.export.open', [App\Http\Controllers\ReportController::class, 'exportopen'])->name('report.export.open');
@@ -74,7 +74,7 @@ Route::get('report.eskalasi', [App\Http\Controllers\ReportController::class, 'es
 Route::get('report.closed', [App\Http\Controllers\ReportController::class, 'closed'])->name('report.closed');
 
 //name search performansi
-Route::get('performansi.search', [App\Http\Controllers\UserController::class, 'search'])->name('performansi.search');
+Route::get('performansi/search', [App\Http\Controllers\UserController::class, 'search'])->name('/performansi/search');
 
 //filter action performansi
 Route::get('performansi.filter', [App\Http\Controllers\UserController::class, 'filter'])->name('performansi.filter');

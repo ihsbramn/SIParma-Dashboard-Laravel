@@ -174,6 +174,14 @@
                 @endforeach
             </table>
         </div>
+        <p style="text-align: left">Showing {{ $performance->count() }} from total {{ $performance->total() }} data</p>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li>
+                    {{ $performance->appends($_GET)->links() }}
+                </li>
+            </ul>
+        </nav>
     </div>
 @endsection
 
