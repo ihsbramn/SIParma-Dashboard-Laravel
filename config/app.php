@@ -29,12 +29,12 @@ return [
     'env' => env('APP_ENV', 'production'),
 
     // bot token
-    'token' => env('BOT_TOKEN'),
+    'token0' => env('BOT_TOKEN0'),
+    'token1' => env('BOT_TOKEN1'),
+    'token2' => env('BOT_TOKEN2'),
+    'token3' => env('BOT_TOKEN3'),
     // bot token
 
-     // idgroup
-     'idgroup' => env('ID_GROUP'),
-     // idgroup
 
     /*
     |--------------------------------------------------------------------------

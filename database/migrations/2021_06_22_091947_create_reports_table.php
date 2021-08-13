@@ -32,6 +32,7 @@ class CreateReportsTable extends Migration
             $table->string('ogp_eskalasi_time')->nullable();
             $table->string('ogp_closed_time')->nullable();
             $table->string('eskalasi_closed_time')->nullable();
+            $table->string('id_group')->nullable();
             $table->timestamps();
         });
     }

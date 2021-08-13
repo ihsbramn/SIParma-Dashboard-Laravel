@@ -277,84 +277,337 @@
             </form>
         </div>
         <br>
-        <!-- Modal ogp_closed -->
-        <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <form method="POST" target="_blank" action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
-                enctype="multipart/form-data">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
-                            <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
-                            <input type="text" name="allow_sending_without_reply" value="true" hidden />
-                            <br />
-                            <input class="form-control" type="text" name="caption" placeholder="caption" required>
-                            <br />
-                            <input class="form-control" type="file" name="photo" required>
-                            <br />
-                            <div class="container text-center">
-                            </div>
-                        </div>
-                        <div class="container text-centre">
-                            <center>
-                                <div id="spinner-border1" name="spinner-border1" class="spinner-border"
-                                    style="display:none">
-                                </div>
-                            </center>
-                        </div>
-                        <br>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input class="btn btn-primary" type="submit" value="Send" />
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
 
-        <!-- Modal eskalasi_closed -->
-        <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <form method="POST" target="_blank" action="https://api.telegram.org/bot{{ config('app.token') }}/sendPhoto"
-                enctype="multipart/form-data">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" name="chat_id" value="{{ config('app.idgroup') }}" hidden />
-                            <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
-                            <input type="text" name="allow_sending_without_reply" value="true" hidden />
-                            <br />
-                            <input class="form-control" type="text" name="caption" placeholder="caption" />
-                            <br />
-                            <input class="form-control" type="file" name="photo" />
-                            <br />
-                            <div class="container text-center">
+        @if ($report->id_group == '')
+            <!-- Modal ogp_closed -->
+            <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border1" name="spinner-border1" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
                             </div>
                         </div>
-                        <div class="container text-centre">
-                            <center>
-                                <div id="spinner-border2" name="spinner-border2" class="spinner-border"
-                                    style="display:none">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal eskalasi_closed -->
+            <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
                                 </div>
-                            </center>
-                        </div>
-                        <br>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border2" name="spinner-border2" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        @endif
+
+        @if ($report->id_group == '')
+            <!-- Modal ogp_closed -->
+            <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border1" name="spinner-border1" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal eskalasi_closed -->
+            <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border2" name="spinner-border2" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        @endif
+
+        @if ($report->id_group == '')
+            <!-- Modal ogp_closed -->
+            <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border1" name="spinner-border1" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal eskalasi_closed -->
+            <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border2" name="spinner-border2" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        @endif
+
+        @if ($report->id_group == '')
+            <!-- Modal ogp_closed -->
+            <div class="modal fade" id="notifogpclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border1" name="spinner-border1" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal eskalasi_closed -->
+            <div class="modal fade" id="notifeskalasiclosed" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="POST" target="_blank" action="https://api.telegram.org/botTOKEN/sendPhoto"
+                    enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Reply with Photo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name="chat_id" value="{{ $report->id_group }}" hidden />
+                                <input type="text" name="reply_to_message_id" value="{{ $report->msg_id }}" hidden />
+                                <input type="text" name="allow_sending_without_reply" value="true" hidden />
+                                <br />
+                                <input class="form-control" type="text" name="caption" placeholder="caption" required>
+                                <br />
+                                <input class="form-control" type="file" name="photo" required>
+                                <br />
+                                <div class="container text-center">
+                                </div>
+                            </div>
+                            <div class="container text-centre">
+                                <center>
+                                    <div id="spinner-border2" name="spinner-border2" class="spinner-border"
+                                        style="display:none">
+                                    </div>
+                                </center>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Send" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        @endif
+
+
+
 
     </div>
     <br>
