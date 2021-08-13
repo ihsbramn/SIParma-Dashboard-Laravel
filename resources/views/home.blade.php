@@ -321,8 +321,22 @@
                                 <div class="card-footer text-center">
                                     <div class="row">
                                         <div class="col">
-                                            <button class="notif btn btn-success"
-                                                href="https://api.telegram.org/bot{{ config('app.token') }}/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                            @if ($rp->id_group == '')
+                                                <button class="notif btn btn-success"
+                                                    href="https://api.telegram.org/botTOKEN/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                            @endif
+                                            @if ($rp->id_group == '')
+                                                <button class="notif btn btn-success"
+                                                    href="https://api.telegram.org/botTOKEN/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                            @endif
+                                            @if ($rp->id_group == '')
+                                                <button class="notif btn btn-success"
+                                                    href="https://api.telegram.org/botTOKEN/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                            @endif
+                                            @if ($rp->id_group == '')
+                                                <button class="notif btn btn-success"
+                                                    href="https://api.telegram.org/botTOKEN/sendMessage?chat_id={{ $rp->report_idsender }}&text=Halo%20{{ $rp->sender_name }}%20permintaan%20anda%20dengan%20id%20{{ $rp->id }}%20sudah%20di%20close%20">Notif</button>
+                                            @endif
                                         </div>
                                         {{-- modal --}}
                                         <div class="modal fade" id="modalnotif" tabindex="-1"
